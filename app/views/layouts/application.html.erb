@@ -9,6 +9,19 @@
   </head>
 
   <body>
-    <%= yield %>
-  </body>
+    <%= render 'layouts/navigation' %>
+
+    <div class="container">
+
+      <%= render 'layouts/notice' %>
+
+      <div class="row">
+        <div class="col-md-12">
+          <%= yield %>
+        </div>
+      </div>
+
+    </div>
+
+</body>
 </html>
