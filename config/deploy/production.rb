@@ -9,6 +9,7 @@
 server "resources-01.ideate.cmu.edu", :user => 'deploy', :roles => [:app, :web, :db], :primary => true
 set :deploy_to, '/srv/rails/quartermaster/production'
 set :rvm_ruby_version, '2.3.1@quartermaster'
+set :rails_env, 'production'
 
 
 

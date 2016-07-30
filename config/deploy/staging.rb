@@ -9,6 +9,7 @@
 server "resources-01.ideate.cmu.edu", :user => 'deploy', :roles => [:app, :web, :db], :primary => true
 set :deploy_to, '/srv/rails/quartermaster/staging'
 set :rvm_ruby_version, '2.3.1@quartermaster-staging'
+set :rails_env, 'staging'
 
 
 
