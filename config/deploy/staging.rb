@@ -11,6 +11,9 @@ set :deploy_to, '/srv/rails/quartermaster/staging'
 set :rvm_ruby_version, '2.3.1@quartermaster-staging'
 set :rails_env, 'staging'
 
+set :passenger_environment_variables, { :path => '/home/deploy/.rvm/gems/ruby-2.2.1\@global/gems/passenger-5.0.24/bin:$PATH' }
+set :passenger_rvm_ruby_version, '2.2.1'
+
 
 
 # role-based syntax
