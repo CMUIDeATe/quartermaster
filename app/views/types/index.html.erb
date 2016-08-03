@@ -1,0 +1,12 @@
+<div class="page-header">
+  <h1>Types</h1>
+</div>
+
+<ul>
+  <% @types.order(:name).each do |type| %>
+    <li>
+      <%= link_to type.name, type_path(type.id) %>
+      (<%= type.items.count %>)
+    </li>
+  <% end %>
+</ul>

@@ -1,0 +1,15 @@
+<div class="page-header">
+  <h1>Tags &rsaquo; <%= @tag.name %></h1>
+</div>
+
+<ul>
+  <% @tag.items.each do |item| %>
+    <li>
+      <%= link_to item.name, item_path(item.id) %>
+    </li>
+  <% end %>
+</ul>
+
+<p>
+  <%= link_to 'Browse other tags', tags_path %>
+</p>

@@ -4,6 +4,6 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
 
-  resources :items
+  resources :items, :tags, :types
 
 end
