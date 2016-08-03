@@ -1,8 +1,16 @@
 <nav class="navbar navbar-default <%= "navbar-inverse" unless Rails.env.production? %>">
   <div class="container">
+
     <div class="navbar-header">
       <%= link_to "IDeATe Quartermaster", root_path, class: "navbar-brand" %>
     </div>
+
+    <ul class="nav navbar-nav">
+      <li>
+        <%= link_to 'Items', items_path %>
+      </li>
+    </ul>
+
     <ul class="nav navbar-nav navbar-right">
       <% if user_signed_in? %>
         <li class="dropdown">
@@ -25,5 +33,6 @@
         </li>
       <% end %>
     </ul>
+
   </div>
 </nav>
