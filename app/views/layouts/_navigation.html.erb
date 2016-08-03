@@ -2,7 +2,14 @@
   <div class="container">
 
     <div class="navbar-header">
-      <%= link_to "IDeATe Quartermaster", root_path, class: "navbar-brand" %>
+      <%= link_to root_path, class: "navbar-brand" do %>
+        IDeATe Quartermaster
+        <% if Rails.env.development? %>
+          <div class="label label-warning">Dev</div>
+        <% elsif Rails.env.staging? %>
+          <div class="label label-info">Beta</div>
+        <% end %>
+      <% end %>
     </div>
 
     <ul class="nav navbar-nav">
