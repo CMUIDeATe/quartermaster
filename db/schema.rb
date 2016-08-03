@@ -10,7 +10,45 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160722191638) do
+ActiveRecord::Schema.define(version: 20160803020018) do
+
+  create_table "items", force: :cascade do |t|
+    t.string   "barcode"
+    t.string   "name"
+    t.text     "description"
+    t.integer  "current_quantity"
+    t.integer  "minimum_quantity"
+    t.decimal  "sale_price"
+    t.text     "notes"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  create_table "items_tags", id: false, force: :cascade do |t|
+    t.integer "item_id"
+    t.integer "tag_id"
+    t.index ["item_id"], name: "index_items_tags_on_item_id"
+    t.index ["tag_id"], name: "index_items_tags_on_tag_id"
+  end
+
+  create_table "items_types", id: false, force: :cascade do |t|
+    t.integer "item_id"
+    t.integer "type_id"
+    t.index ["item_id"], name: "index_items_types_on_item_id"
+    t.index ["type_id"], name: "index_items_types_on_type_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "types", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

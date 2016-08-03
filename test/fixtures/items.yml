@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  barcode: MyString
+  name: MyString
+  description: MyText
+  current_quantity: 1
+  minimum_quantity: 1
+  sale_price: 9.99
+  notes: MyText
+
+two:
+  barcode: MyString
+  name: MyString
+  description: MyText
+  current_quantity: 1
+  minimum_quantity: 1
+  sale_price: 9.99
+  notes: MyText
