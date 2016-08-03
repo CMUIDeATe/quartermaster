@@ -11,13 +11,13 @@
     <tr>
       <th>Tags</th>
       <td>
-        <%= @item.tags.join(', ') %>
+        <%= @item.tags.map {|tag| link_to tag.name, tag_path(tag.id)}.join(', ').html_safe %>
       </td>
     </tr>
     <tr>
       <th>Types</th>
       <td>
-        <%= @item.types.join(', ') %>
+        <%= @item.types.map {|type| link_to type.name, type_path(type.id)}.join(', ').html_safe %>
       </td>
     </tr>
     <tr>
