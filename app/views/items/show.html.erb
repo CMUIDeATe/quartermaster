@@ -9,6 +9,18 @@
       <td><%= @item.barcode %></td>
     </tr>
     <tr>
+      <th>Tags</th>
+      <td>
+        <%= @item.tags.join(', ') %>
+      </td>
+    </tr>
+    <tr>
+      <th>Types</th>
+      <td>
+        <%= @item.types.join(', ') %>
+      </td>
+    </tr>
+    <tr>
       <th>Description</th>
       <td><%= @item.description %></td>
     </tr>
