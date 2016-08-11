@@ -1,7 +1,7 @@
 class PrintRequestsController < ApplicationController
 
   def index
-    @requests = PrintRequest.all
+    @requests = PrintRequest.all.order(id: :desc)
   end
 
   def show
