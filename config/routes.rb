@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   resources :items, :tags, :types
+  resources :print_requests
 
 end

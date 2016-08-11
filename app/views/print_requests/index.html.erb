@@ -1,0 +1,13 @@
+<div class="page-header">
+  <h1>Print Requests</h1>
+</div>
+
+<%= link_to 'Submit Request', new_print_request_path, class: 'btn btn-default' %>
+
+<ul>
+  <% @requests.each do |request| %>
+    <li>
+      <%= link_to request, request %>
+    </li>
+  <% end %>
+</ul>

@@ -1,0 +1,7 @@
+<div class="page-header">
+  <h1>Print Requests &rsaquo; Submit New</h1>
+</div>
+
+<%= form_for @request do |f| %>
+  <%= render partial: 'form', locals: {f: f, button_text: 'Submit print request'}  %>
+<% end %>

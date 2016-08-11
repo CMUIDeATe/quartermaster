@@ -1,0 +1,43 @@
+<% if @request.errors.any? %>
+  <div id="alert alert-error">
+    <h2><%= pluralize(@request.errors.count, "error") %> prohibited this request from being saved:</h2>
+    <ul>
+      <% @request.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%# TODO: Make these Bootstrappy form groups and input groups. %>
+<div class="table-responsive">
+  <table class="table">
+    <tr>
+      <th><%= f.label :user %>:</th>
+      <td><%= f.collection_select :user_id, User.all, :id, :email %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :file %>:</th>
+      <td></td>
+    </tr>
+    <tr>
+      <th><%= f.label :quantity %>:</th>
+      <td><%= f.text_field :quantity %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :volume %>:</th>
+      <td><%= f.text_field :volume %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :quoted_price %>:</th>
+      <td></td>
+    </tr>
+    <tr>
+      <th><%= f.label :notes %>:</th>
+      <td><%= f.text_area :notes %></td>
+    </tr>
+    <tr>
+      <th colspan='2'><%= f.submit button_text, class: 'btn btn-success' %></th>
+    </tr
+  </table>
+</div>

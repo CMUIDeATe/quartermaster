@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  quantity: 1
+  volume: 9.99
+  quoted_price: 9.99
+  notes: MyText
+
+two:
+  user: two
+  quantity: 1
+  volume: 9.99
+  quoted_price: 9.99
+  notes: MyText
