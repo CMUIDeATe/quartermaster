@@ -46,7 +46,7 @@ class PrintRequestsController < ApplicationController
   private
 
     def request_params
-      params.require(:print_request).permit(:user_id, :quantity, :volume, :quoted_price, :notes)
+      params.require(:print_request).permit(:user_id, :print_file, :quantity, :volume, :quoted_price, :notes)
     end
 
 end

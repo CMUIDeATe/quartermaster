@@ -17,8 +17,8 @@
       <td><%= f.collection_select :user_id, User.all, :id, :email %></td>
     </tr>
     <tr>
-      <th><%= f.label :file %>:</th>
-      <td></td>
+      <th><%= f.label :print_file, 'File' %>:</th>
+      <td><%= f.file_field :print_file %></td>
     </tr>
     <tr>
       <th><%= f.label :quantity %>:</th>
