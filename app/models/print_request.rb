@@ -7,7 +7,11 @@ class PrintRequest < ApplicationRecord
   # TODO: Model size can be parsed out of the CMB file; validated to ensure it
   # does not exceed maximum build size.
 
-  def to_s
-    "##{self.id}: #{self.user.email} (#{self.created_at})"
+  validate :due_at_valid
+
+  def due_at_valid
+    errors.add(:due_at, 'must be at least 3 days in advance') if (due_at < 3.days.from_now)
+    errors.add(:due_at, 'must be no more than 120 days in advance') if (due_at > 120.days.from_now)
   end
+
 end

@@ -38,8 +38,8 @@
       <td><%= f.text_field :color %></td>
     </tr>
     <tr>
-      <th><%= f.label :due_at, 'Requested Due Date' %>:</th>
-      <td><%= f.datetime_select :due_at, minute_step: 15 %></td>
+      <th><%= f.label :due_at, 'Desired Completion' %>:</th>
+      <td><%= f.datetime_select :due_at, default: 7.days.from_now, start_year: Date.today.year, end_year: Date.today.year + 1, start_hour: 8, end_hour: 22, minute_step: 15, class: 'datepicker' %></td>
     </tr>
     <tr>
       <th><%= f.label :notes %>:</th>
