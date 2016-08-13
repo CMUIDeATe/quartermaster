@@ -56,4 +56,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 
 gem 'devise', '~> 4.2.0'
+gem 'gravtastic', '~> 3.2.6'
 gem 'paperclip', '~> 5.0.0'
