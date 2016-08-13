@@ -14,6 +14,7 @@ class PrintRequestsController < ApplicationController
 
   def create
     @request = PrintRequest.new(request_params)
+    @request.user = current_user
     if @request.save
       flash[:notice] = 'Print request successfully submitted.'
       redirect_to print_requests_url
@@ -46,7 +47,7 @@ class PrintRequestsController < ApplicationController
   private
 
     def request_params
-      params.require(:print_request).permit(:user_id, :print_file, :quantity, :volume, :quoted_price, :notes)
+      params.require(:print_request).permit(:print_file, :model_volume, :support_volume, :quantity, :color, :due_at, :notes)
     end
 
 end

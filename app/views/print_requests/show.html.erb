@@ -14,16 +14,24 @@
       <td><%= link_to @request.print_file_file_name, @request.print_file.url %></td>
     </tr>
     <tr>
+      <th>Model Volume:</th>
+      <td><%= @request.model_volume %> in&sup3;</td>
+    </tr>
+    <tr>
+      <th>Support Volume:</th>
+      <td><%= @request.support_volume %> in&sup3;</td>
+    </tr>
+    <tr>
       <th>Quantity:</th>
       <td><%= @request.quantity %></td>
     </tr>
     <tr>
-      <th>Volume:</th>
-      <td><%= @request.volume %></td>
+      <th>Color:</th>
+      <td><%= @request.color %></td>
     </tr>
     <tr>
-      <th>Quoted price:</th>
-      <td></td>
+      <th>Requested Due Date:</th>
+      <td><%= @request.due_at %></td>
     </tr>
     <tr>
       <th>Notes:</th>

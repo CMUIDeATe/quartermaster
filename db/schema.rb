@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160811022906) do
+ActiveRecord::Schema.define(version: 20160812022620) do
 
   create_table "items", force: :cascade do |t|
     t.string   "barcode"
@@ -41,15 +41,19 @@ ActiveRecord::Schema.define(version: 20160811022906) do
   create_table "print_requests", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "quantity"
-    t.decimal  "volume"
-    t.decimal  "quoted_price"
+    t.decimal  "model_volume"
+    t.decimal  "quoted_price",            precision: 8, scale: 2
     t.text     "notes"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.datetime "created_at",                                      null: false
+    t.datetime "updated_at",                                      null: false
     t.string   "print_file_file_name"
     t.string   "print_file_content_type"
     t.integer  "print_file_file_size"
     t.datetime "print_file_updated_at"
+    t.decimal  "support_volume"
+    t.string   "color"
+    t.datetime "due_at"
+    t.decimal  "billed_price",            precision: 8, scale: 2
     t.index ["user_id"], name: "index_print_requests_on_user_id"
   end
 

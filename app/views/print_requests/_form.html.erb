@@ -13,24 +13,33 @@
 <div class="table-responsive">
   <table class="table">
     <tr>
-      <th><%= f.label :user %>:</th>
-      <td><%= f.collection_select :user_id, User.all, :id, :email %></td>
+      <th><%= f.label :user, 'Requestor' %>:</th>
+      <td><%= current_user.email %></td>
     </tr>
     <tr>
       <th><%= f.label :print_file, 'File' %>:</th>
       <td><%= f.file_field :print_file %></td>
+    </tr>
+    <%# TODO: Model and support volume can be parsed out of the CMB file. %>
+    <tr>
+      <th><%= f.label :model_volume, 'Model Volume' %>:</th>
+      <td><%= f.text_field :model_volume %> in&sup3;</td>
+    </tr>
+    <tr>
+      <th><%= f.label :support_volume, 'Support Volume' %>:</th>
+      <td><%= f.text_field :support_volume %> in&sup3;</td>
     </tr>
     <tr>
       <th><%= f.label :quantity %>:</th>
       <td><%= f.text_field :quantity %></td>
     </tr>
     <tr>
-      <th><%= f.label :volume %>:</th>
-      <td><%= f.text_field :volume %></td>
+      <th><%= f.label :color %>:</th>
+      <td><%= f.text_field :color %></td>
     </tr>
     <tr>
-      <th><%= f.label :quoted_price %>:</th>
-      <td></td>
+      <th><%= f.label :due_at, 'Requested Due Date' %>:</th>
+      <td><%= f.datetime_select :due_at, minute_step: 15 %></td>
     </tr>
     <tr>
       <th><%= f.label :notes %>:</th>
