@@ -23,4 +23,5 @@
 # OS X temporary files.
 .DS_Store
 
+*.swp
 public/system
