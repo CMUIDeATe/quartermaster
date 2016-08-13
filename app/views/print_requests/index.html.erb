@@ -31,10 +31,10 @@
         <% end %>
       </td>
       <td>
-        <%= request.created_at.strftime("%a %-d %b %H:%M") %>
+        <%= request.created_at.to_s(:short) %>
       </td>
       <td>
-        <%= request.due_at.strftime("%a %-d %b %H:%M") %>
+        <%= request.due_at.to_s(:short) %>
       </td>
       <%# TODO: Actually have real status of print jobs. %>
       <td style="width: 20%">
@@ -46,7 +46,7 @@
       </td>
       <th>
         <small>
-          <%= Time.now.strftime("%a %-d %b %H:%M") %>
+          <%= Time.now.to_s(:short) %>
         </small>
       </th>
       <td>

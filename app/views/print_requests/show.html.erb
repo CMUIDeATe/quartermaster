@@ -27,7 +27,7 @@
     </tr>
     <tr>
       <th>Desired Completion:</th>
-      <td><%= @request.due_at %></td>
+      <td><%= @request.due_at.to_s(:short) %></td>
     </tr>
     <tr>
       <th>Notes:</th>
