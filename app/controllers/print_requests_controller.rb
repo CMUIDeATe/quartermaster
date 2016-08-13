@@ -2,14 +2,20 @@ class PrintRequestsController < ApplicationController
 
   def index
     @requests = PrintRequest.all.order(id: :desc)
+    @header = "Print Requests"
+    @title = "Print Requests"
   end
 
   def show
     @request = PrintRequest.find(params[:id])
+    @header = "Print Request ##{@request.id}"
+    @title = "Print Request ##{@request.id}"
   end
 
   def new
     @request = PrintRequest.new
+    @header = "New Print Request"
+    @title = "New Print Request"
   end
 
   def create
@@ -25,6 +31,8 @@ class PrintRequestsController < ApplicationController
 
   def edit
     @request = PrintRequest.find(params[:id])
+    @header = "Edit Print Request ##{@request.id}"
+    @title = "Edit Print Request ##{@request.id}"
   end
 
   def update
