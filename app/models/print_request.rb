@@ -14,4 +14,16 @@ class PrintRequest < ApplicationRecord
     errors.add(:due_at, 'must be no more than 120 days in advance') if (due_at > 120.days.from_now)
   end
 
+  def status_bar
+    # TODO: Actually have real status of print jobs.
+    bar = "<div class=\"progress-bar\" role=\"progressbar\" style=\"width: 50%\">Status</div>"
+
+    "<div class=\"progress\">#{bar}</div>".html_safe
+  end
+  def status_time
+    time = Time.now.to_s(:short)
+
+    "<small><strong>#{time}</strong></small>".html_safe
+  end
+
 end
