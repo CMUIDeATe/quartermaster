@@ -1,4 +1,5 @@
 class PrintRequestsController < ApplicationController
+  before_action :authenticate_user!
 
   def index
     @requests = PrintRequest.all.order(id: :desc)
