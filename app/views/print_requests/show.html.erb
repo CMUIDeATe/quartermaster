@@ -1,49 +1,49 @@
-<%# TODO: Make these Bootstrappy form groups and input groups. %>
-<div class="table-responsive">
-  <table class="table">
-    <tr>
-      <th>Requestor:</th>
-      <td><%= @request.user.andrewid %></td>
-    </tr>
-    <tr>
-      <th>File:</th>
-      <td><%= link_to @request.print_file_file_name, @request.print_file.url %></td>
-    </tr>
-    <tr>
-      <th>Model Volume:</th>
-      <td><%= @request.model_volume %> in&sup3;</td>
-    </tr>
-    <tr>
-      <th>Support Volume:</th>
-      <td><%= @request.support_volume %> in&sup3;</td>
-    </tr>
-    <tr>
-      <th>Quantity:</th>
-      <td><%= @request.quantity %></td>
-    </tr>
-    <tr>
-      <th>Color:</th>
-      <td><%= @request.color %></td>
-    </tr>
-    <tr>
-      <th>Desired Completion:</th>
-      <td><%= @request.due_at.to_s(:short) %></td>
-    </tr>
-    <tr>
-      <th>Notes:</th>
-      <td><%= @request.notes %></td>
-    </tr>
-    <tr>
-      <th>Status:</th>
-      <td></td>
-    </tr>
-  </table>
-</div>
+<div class="form-horizontal">
+  <div class="form-group">
+    <label class="col-sm-2 text-right">Requestor</label>
+    <div class="col-sm-10"><%= @request.user.andrewid %></div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-2 text-right">File</label>
+    <div class="col-sm-10"><%= link_to @request.print_file_file_name, @request.print_file.url %></div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-2 text-right">Model Volume</label>
+    <div class="col-sm-10"><%= @request.model_volume %> in&sup3;</div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-2 text-right">Support Volume</label>
+    <div class="col-sm-10"><%= @request.support_volume %> in&sup3;</div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-2 text-right">Quantity</label>
+    <div class="col-sm-10"><%= @request.quantity %></div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-2 text-right">Color</label>
+    <div class="col-sm-10"><%= @request.color %></div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-2 text-right">Desired Completion</label>
+    <div class="col-sm-10"><%= @request.due_at.to_s(:short) %></div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-2 text-right">Notes</label>
+    <div class="col-sm-10"><%= @request.notes %></div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-2 text-right">Status</label>
+    <div class="col-sm-10"></div>
+  </div>
 
-<p>
-  <%= link_to 'Edit print request', edit_print_request_path(@request), class: 'btn btn-primary' %>
-  <%= link_to 'Cancel print request', @request, method: :delete, data: {confirm: 'Are you sure you want to cancel this print request?'},  class: 'btn btn-danger' %>
-  <%= link_to @request, class: 'btn btn-default pull-right' do %>
-    <span class="glyphicon glyphicon-refresh"></span> Refresh Status
-  <% end %>
-</p>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= link_to 'Edit print request', edit_print_request_path(@request), class: 'btn btn-primary' %>
+      <%= link_to 'Cancel print request', @request, method: :delete, data: {confirm: 'Are you sure you want to cancel this print request?'},  class: 'btn btn-danger' %>
+      <%= link_to @request, class: 'btn btn-default pull-right' do %>
+        <span class="glyphicon glyphicon-refresh"></span> Refresh Status
+      <% end %>
+    </div>
+  </div>
+
+</div>

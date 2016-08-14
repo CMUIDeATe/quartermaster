@@ -1,6 +1,6 @@
 <% if @request.errors.any? %>
-  <div id="alert alert-error">
-    <h2><%= pluralize(@request.errors.count, "error") %> prohibited this request from being saved:</h2>
+  <div class="alert alert-danger">
+    <strong><%= pluralize(@request.errors.count, "error") %> prohibited this request from being saved:</strong>
     <ul>
       <% @request.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -9,56 +9,97 @@
   </div>
 <% end %>
 
-<%# TODO: Make these Bootstrappy form groups and input groups. %>
-<div class="table-responsive">
-  <table class="table">
-    <tr>
-      <th><%= f.label :user, 'Requestor' %>:</th>
-      <td><%= current_user.andrewid %></td>
-    </tr>
-    <tr>
-      <th><%= f.label :print_file, 'File' %>:</th>
-      <td>
-        <%= f.file_field :print_file %>
-        <ul class="help-block">
-          <%# <li><strong>File must be submitted in .cmb or .cmb.gz format.</strong></li> %>
-          <li>Maximum build size (L&times;D&times;H) is 10 in &times; 10 in &times; 12 in (254 mm &times; 254 mm &times; 304.8 mm).</li>
-          <li>Minimum thickness is 0.100 in (2.54 mm); any print failures that include geometry less than this value will still be charged to your account.</li>
-        </ul>
-      </td>
-    </tr>
-    <%# TODO: Model and support volume can be parsed out of the CMB file. %>
-    <tr>
-      <th><%= f.label :model_volume, 'Model Volume' %>:</th>
-      <td><%= f.text_field :model_volume %> in&sup3;</td>
-    </tr>
-    <tr>
-      <th><%= f.label :support_volume, 'Support Volume' %>:</th>
-      <td><%= f.text_field :support_volume %> in&sup3;</td>
-    </tr>
-    <tr>
-      <th><%= f.label :quantity %>:</th>
-      <td><%= f.text_field :quantity %></td>
-    </tr>
-    <tr>
-      <th><%= f.label :color %>:</th>
-      <td>
-        <%= f.text_field :color %>
-        <p class="help-block">
-          Subject to availability; discuss with IDeATe staff if you are unsure.
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <th><%= f.label :due_at, 'Desired Completion' %>:</th>
-      <td><%= f.datetime_select :due_at, default: 7.days.from_now, start_year: Date.today.year, end_year: Date.today.year + 1, start_hour: 8, end_hour: 22, minute_step: 15, class: 'datepicker' %></td>
-    </tr>
-    <tr>
-      <th><%= f.label :notes %>:</th>
-      <td><%= f.text_area :notes %></td>
-    </tr>
-    <tr>
-      <th colspan='2'><%= f.submit button_text, class: 'btn btn-success' %></th>
-    </tr
-  </table>
+<div class="form-group">
+  <label class="col-sm-2 control-label">
+    <%= f.label :user, 'Requestor' %>
+  </label>
+  <div class="col-sm-10">
+    <p class="form-control-static">
+      <%= current_user.andrewid %>
+    </p>
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-sm-2 control-label">
+    <%= f.label :print_file, 'File' %>
+  </label>
+  <div class="col-sm-10">
+    <%= f.file_field :print_file %>
+    <ul class="help-block">
+      <%# <li><strong>File must be submitted in .cmb or .cmb.gz format.</strong></li> %>
+      <li>Maximum build size (L&times;D&times;H) is 10 in &times; 10 in &times; 12 in (254 mm &times; 254 mm &times; 304.8 mm).</li>
+      <li>Minimum thickness is 0.100 in (2.54 mm); any print failures that include geometry less than this value will still be charged to your account.</li>
+    </ul>
+  </div>
+</div>
+
+<%# TODO: Model and support volume can be parsed out of the CMB file. %>
+<div class="form-group">
+  <label class="col-sm-2 control-label">
+    <%= f.label :model_volume, 'Model Volume' %>
+  </label>
+  <div class="col-sm-10">
+    <div class="input-group" style="width: 30%">
+      <%= f.text_field :model_volume, class: 'form-control text-right' %>
+      <span class="input-group-addon">in&sup3;</span>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-sm-2 control-label">
+    <%= f.label :support_volume, 'Support Volume' %>
+  </label>
+  <div class="col-sm-10">
+    <div class="input-group" style="width: 30%">
+      <%= f.text_field :support_volume, class: 'form-control text-right' %>
+      <span class="input-group-addon">in&sup3;</span>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-sm-2 control-label">
+    <%= f.label :quantity %>
+  </label>
+  <div class="col-sm-10">
+    <%= f.text_field :quantity, class: 'form-control text-right', style: 'width: 30%' %>
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-sm-2 control-label">
+    <%= f.label :color %>
+  </label>
+  <div class="col-sm-10">
+    <%= f.text_field :color, class: 'form-control', style: 'width: 30%' %>
+    <p class="help-block">
+      Subject to availability; discuss with IDeATe staff if you are unsure.
+    </p>
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-sm-2 control-label">
+    <%= f.label :due_at, 'Desired Completion' %>
+  </label>
+  <div class="col-sm-10">
+    <%= f.datetime_select :due_at, default: 7.days.from_now, start_year: Date.today.year, end_year: Date.today.year + 1, start_hour: 8, end_hour: 23, minute_step: 15, html_options: { class: 'form-control' } %>
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-sm-2 control-label">
+    <%= f.label :notes %>
+  </label>
+  <div class="col-sm-10">
+    <%= f.text_area :notes, class: 'form-control', rows: 3 %>
+  </div>
+</div>
+
+<div class="form-group">
+  <div class="col-sm-offset-2 col-sm-10">
+    <%= f.submit button_text, class: 'btn btn-success' %>
+  </div>
 </div>

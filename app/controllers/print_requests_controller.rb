@@ -26,6 +26,8 @@ class PrintRequestsController < ApplicationController
       flash[:notice] = 'Print request successfully submitted.'
       redirect_to print_requests_url
     else
+      @header = "New Print Request"
+      @title = "New Print Request"
       render 'new'
     end
   end
@@ -42,6 +44,8 @@ class PrintRequestsController < ApplicationController
       flash[:notice] = 'Print request successfully updated.'
       redirect_to @request
     else
+      @header = "Edit Print Request ##{@request.id}"
+      @title = "Edit Print Request ##{@request.id}"
       render 'edit'
     end
   end
