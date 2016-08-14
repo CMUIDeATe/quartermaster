@@ -5,6 +5,11 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   resources :items, :tags, :types
-  resources :print_requests
+  resources :print_requests do
+    member do
+      post 'set_status'
+    end
+    resources :print_request_actions
+  end
 
 end

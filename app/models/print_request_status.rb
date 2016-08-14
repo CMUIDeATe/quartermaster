@@ -1,0 +1,2 @@
+class PrintRequestStatus < ApplicationRecord
+end

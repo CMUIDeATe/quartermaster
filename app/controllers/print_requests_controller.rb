@@ -57,6 +57,14 @@ class PrintRequestsController < ApplicationController
     redirect_to print_requests_path
   end
 
+  def set_status
+    @request = PrintRequest.find(params[:id])
+    action = PrintRequestAction.new(print_request_id: params.require(:id), print_request_status_id: params.require(:status))
+    action.user = current_user
+    action.save
+    redirect_to @request
+  end
+
   private
 
     def request_params

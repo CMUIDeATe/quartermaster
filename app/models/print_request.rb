@@ -1,5 +1,7 @@
 class PrintRequest < ApplicationRecord
   belongs_to :user
+  has_many :print_request_actions
+
   has_attached_file :print_file
   # TODO: Replace this with actual validation.
   do_not_validate_attachment_file_type :print_file
@@ -15,13 +17,37 @@ class PrintRequest < ApplicationRecord
   end
 
   def status_bar
-    # TODO: Actually have real status of print jobs.
-    bar = "<div class=\"progress-bar\" role=\"progressbar\" style=\"width: 50%\">Status</div>"
+    latest = self.print_request_actions.order(created_at: :desc).first
+    status = latest.print_request_status.name
+    status_order = latest.print_request_status.order
+
+    case status_order
+      when 1000
+        bar = "<div class=\"progress-bar progress-bar-warning\" role=\"progressbar\" style=\"width: 10%\">#{status}</div>"
+      when 1500
+        bar = "<div class=\"progress-bar progress-bar-info\" role=\"progressbar\" style=\"width: 20%\">#{status}</div>"
+      when 3000
+        bar = "<div class=\"progress-bar progress-bar-success\" role=\"progressbar\" style=\"width: 30%\">#{status}</div>"
+      when 3500
+        bar = "<div class=\"progress-bar progress-bar-success\" role=\"progressbar\" style=\"width: 40%\">#{status}</div>"
+      when 5000
+        bar = "<div class=\"progress-bar progress-bar-info progress-bar-striped active\" role=\"progressbar\" style=\"width: 60%\">#{status}</div>"
+      when 5500
+        bar = "<div class=\"progress-bar progress-bar-warning progress-bar-striped active\" role=\"progressbar\" style=\"width: 80%\">#{status}</div>"
+      when 7000
+        bar = "<div class=\"progress-bar progress-bar-success\" role=\"progressbar\" style=\"width: 90%\">#{status}</div>"\
+        "<div class=\"progress-bar progress-bar-warning\" role=\"progressbar\" style=\"width: 10%\"></div>"
+      when 7500, 9000
+        bar = "<div class=\"progress-bar progress-bar-success\" role=\"progressbar\" style=\"width: 100%\">#{status}</div>"
+      else
+        bar = "<div class=\"progress-bar\" role=\"progressbar\" style=\"width: 100%\">Status Unknown</div>"
+    end
 
     "<div class=\"progress\">#{bar}</div>".html_safe
   end
   def status_time
-    time = Time.now.to_s(:short)
+    latest = self.print_request_actions.order(created_at: :desc).first
+    time = latest.created_at.to_s(:short)
 
     "<small><strong>#{time}</strong></small>".html_safe
   end

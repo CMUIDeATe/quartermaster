@@ -11,9 +11,18 @@ User.delete_all()
 Tag.delete_all()
 Type.delete_all()
 Item.delete_all()
+PrintRequestStatus.delete_all()
+PrintRequestAction.delete_all()
+PrintRequest.delete_all()
+
 
 # Initial user with temporary throwaway password
 User.create(email: 'tparenti@andrew.cmu.edu', password: 'nachos', password_confirmation: 'nachos')
+
+
+# Initial print request statuses
+PrintRequestStatus.create([ { name: 'Submitted', order: 1000 }, { name: 'Confirmed', order: 1500 }, { name: 'Approved', order: 3000 }, { name: 'File Prepared', order: 3500 }, { name: 'Printing', order: 5000 }, { name: 'In Caustic Bath', order: 5500 }, { name: 'Ready', order: 7000 }, { name: 'Picked Up', order: 7500 }, { name: 'Billed', order: 9000 } ])
+
 
 # Basic preliminary inventory
 # From lines 4-7 of Physical Computing inventory as of 2016-08-02

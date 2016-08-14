@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160812022620) do
+ActiveRecord::Schema.define(version: 20160814163800) do
 
   create_table "items", force: :cascade do |t|
     t.string   "barcode"
@@ -36,6 +36,24 @@ ActiveRecord::Schema.define(version: 20160812022620) do
     t.integer "type_id"
     t.index ["item_id"], name: "index_items_types_on_item_id"
     t.index ["type_id"], name: "index_items_types_on_type_id"
+  end
+
+  create_table "print_request_actions", force: :cascade do |t|
+    t.integer  "print_request_id"
+    t.integer  "print_request_status_id"
+    t.integer  "user_id"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.index ["print_request_id"], name: "index_print_request_actions_on_print_request_id"
+    t.index ["print_request_status_id"], name: "index_print_request_actions_on_print_request_status_id"
+    t.index ["user_id"], name: "index_print_request_actions_on_user_id"
+  end
+
+  create_table "print_request_statuses", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "order"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "print_requests", force: :cascade do |t|
