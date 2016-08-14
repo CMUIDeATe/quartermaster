@@ -22,6 +22,8 @@ class PrintRequest < ApplicationRecord
     status_order = latest.print_request_status.order
 
     case status_order
+      when 0
+        bar = "<div class=\"progress-bar progress-bar-danger\" role=\"progressbar\" style=\"width: 100%\">#{status}</div>"
       when 1000
         bar = "<div class=\"progress-bar progress-bar-warning\" role=\"progressbar\" style=\"width: 10%\">#{status}</div>"
       when 1500

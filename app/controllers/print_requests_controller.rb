@@ -23,6 +23,11 @@ class PrintRequestsController < ApplicationController
     @request = PrintRequest.new(request_params)
     @request.user = current_user
     if @request.save
+      action = PrintRequestAction.new()
+      action.print_request = @request
+      action.print_request_status = PrintRequestStatus.find_by_order(1000)
+      action.user = current_user
+      action.save
       flash[:notice] = 'Print request successfully submitted.'
       redirect_to print_requests_url
     else
@@ -52,8 +57,11 @@ class PrintRequestsController < ApplicationController
 
   def destroy
     @request = PrintRequest.find(params[:id])
-    flash[:notice] = 'Print request deleted.'
-    @request.destroy
+    action = PrintRequestAction.new(print_request_id: params.require(:id))
+    action.print_request_status = PrintRequestStatus.find_by_order(0)
+    action.user = current_user
+    action.save
+    flash[:notice] = 'Print request cancelled.'
     redirect_to print_requests_path
   end
 
