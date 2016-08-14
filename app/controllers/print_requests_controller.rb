@@ -50,7 +50,7 @@ class PrintRequestsController < ApplicationController
     @request = PrintRequest.find(params[:id])
     flash[:notice] = 'Print request deleted.'
     @request.destroy
-    redirect_to 'index'
+    redirect_to print_requests_path
   end
 
   private
