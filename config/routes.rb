@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   resources :items, :tags, :types
   resources :print_requests do
     member do
+      get 'confirm'
+      post 'confirm', to: 'print_requests#record_confirmation'
       post 'set_status'
     end
     resources :print_request_actions

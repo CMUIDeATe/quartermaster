@@ -1,0 +1,37 @@
+<div class="form-horizontal">
+  <div class="form-group">
+    <label class="col-sm-2 text-right">Requestor</label>
+    <div class="col-sm-10"><%= @request.user.andrewid %></div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-2 text-right">Printer</label>
+    <div class="col-sm-10">Dimension 1200sst</div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-2 text-right">File</label>
+    <div class="col-sm-10"><%= link_to @request.print_file_file_name, @request.print_file.url %></div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-2 text-right">Declared Volume</label>
+    <div class="col-sm-10">(<%= @request.model_volume %> in&sup3; model + <%= @request.support_volume %> in&sup3; support) &times; <%= pluralize(@request.quantity, 'copy') %></div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-2 text-right">Estimated Price</label>
+    <div class="col-sm-10">
+      <strong><%= number_to_currency(@request.quoted_price, unit: '$') %></strong>
+      <ul class="help-block">
+        <li>Estimated price is based on declared volume at the rate of <strong>$5.00</strong> per piece, plus <strong>$7.00/in&sup3;</strong> of material.</li>
+        <li>By clicking "Confirm", you acknowledge that the actual amount charged to your account will be based on the actual volume of your print, if it differs from the declared volume above.</li>
+        <li>Minimum thickness is 0.100 in (2.54 mm); any print failures that include geometry less than this value will still be charged to your account.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= link_to 'Confirm print request', confirm_print_request_path(@request), method: :post, class: 'btn btn-success' %>
+      <%= link_to 'Cancel print request', @request, method: :delete, data: {confirm: 'Are you sure you want to cancel this print request?'},  class: 'btn btn-danger' %>
+    </div>
+  </div>
+
+</div>

@@ -28,8 +28,7 @@ class PrintRequestsController < ApplicationController
       action.print_request_status = PrintRequestStatus.find_by_order(1000)
       action.user = current_user
       action.save
-      flash[:notice] = 'Print request successfully submitted.'
-      redirect_to print_requests_url
+      redirect_to confirm_print_request_path(@request)
     else
       @header = "New Print Request"
       @title = "New Print Request"
@@ -46,8 +45,11 @@ class PrintRequestsController < ApplicationController
   def update
     @request = PrintRequest.find(params[:id])
     if @request.update_attributes(request_params)
-      flash[:notice] = 'Print request successfully updated.'
-      redirect_to @request
+      action = PrintRequestAction.new(print_request_id: params.require(:id))
+      action.print_request_status = PrintRequestStatus.find_by_order(1000)
+      action.user = current_user
+      action.save
+      redirect_to confirm_print_request_path(@request)
     else
       @header = "Edit Print Request ##{@request.id}"
       @title = "Edit Print Request ##{@request.id}"
@@ -62,6 +64,26 @@ class PrintRequestsController < ApplicationController
     action.user = current_user
     action.save
     flash[:notice] = 'Print request cancelled.'
+    redirect_to print_requests_path
+  end
+
+  def confirm
+    @request = PrintRequest.find(params[:id])
+    @header = "Confirm Print Request ##{@request.id}"
+    @title = "Confirm Print Request ##{@request.id}"
+
+    quoted_price = ( 5.00 + 7.00*(@request.model_volume + @request.support_volume) ) * @request.quantity
+    @request.quoted_price = quoted_price
+    @request.save
+  end
+
+  def record_confirmation
+    @request = PrintRequest.find(params[:id])
+    action = PrintRequestAction.new(print_request_id: params.require(:id))
+    action.print_request_status = PrintRequestStatus.find_by_order(1500)
+    action.user = current_user
+    action.save
+    flash[:notice] = 'Print request successfully submitted and confirmed.'
     redirect_to print_requests_path
   end
 
