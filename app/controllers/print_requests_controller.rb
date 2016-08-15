@@ -15,6 +15,7 @@ class PrintRequestsController < ApplicationController
 
   def new
     @request = PrintRequest.new
+    @request.quantity = 1
     @header = "New Print Request"
     @title = "New Print Request"
   end

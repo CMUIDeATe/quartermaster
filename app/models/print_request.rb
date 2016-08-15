@@ -1,19 +1,27 @@
 class PrintRequest < ApplicationRecord
   belongs_to :user
   has_many :print_request_actions
-
   has_attached_file :print_file
+
   # TODO: Replace this with actual validation.
+  validates :print_file, presence: { message: 'was not uploaded' }
   do_not_validate_attachment_file_type :print_file
 
   # TODO: Model size can be parsed out of the CMB file; validated to ensure it
   # does not exceed maximum build size.
 
+  validates :model_volume, numericality: { greater_than: 0 }
+  validates :support_volume, numericality: { greater_than_or_equal_to: 0 }
+  validates :quantity, numericality: { only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 5 }
   validate :due_at_valid
 
+
   def due_at_valid
-    errors.add(:due_at, 'must be at least 3 days in advance') if (due_at < 3.days.from_now)
-    errors.add(:due_at, 'must be no more than 120 days in advance') if (due_at > 120.days.from_now)
+    # TODO: Consider using business_time to specify these bounds in terms of business days, which is more appropriate.
+    near_bound = 3.days.from_now
+    far_bound = 120.days.from_now
+    errors.add(:base, 'Desired completion must be at least 3 full days in advance (i.e., after %s)' % near_bound.to_s(:short)) if (due_at < near_bound)
+    errors.add(:base, 'Desired completion must be no more than 120 days in advance (i.e., before %s)' % far_bound.to_s(:short)) if (due_at > far_bound)
   end
 
   def status
