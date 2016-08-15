@@ -16,31 +16,33 @@ class PrintRequest < ApplicationRecord
     errors.add(:due_at, 'must be no more than 120 days in advance') if (due_at > 120.days.from_now)
   end
 
+  def status
+    self.print_request_actions.order(created_at: :desc).first.print_request_status
+  end
   def status_bar
-    latest = self.print_request_actions.order(created_at: :desc).first
-    status = latest.print_request_status.name
-    status_order = latest.print_request_status.order
+    status_name = status.name
+    status_order = status.order
 
     case status_order
       when 0
-        bar = "<div class=\"progress-bar progress-bar-danger\" role=\"progressbar\" style=\"width: 100%\">#{status}</div>"
+        bar = "<div class=\"progress-bar progress-bar-danger\" role=\"progressbar\" style=\"width: 100%\">#{status_name}</div>"
       when 1000
-        bar = "<div class=\"progress-bar progress-bar-warning\" role=\"progressbar\" style=\"width: 10%\">#{status}</div>"
+        bar = "<div class=\"progress-bar progress-bar-warning\" role=\"progressbar\" style=\"width: 10%\">#{status_name}</div>"
       when 1500
-        bar = "<div class=\"progress-bar progress-bar-info\" role=\"progressbar\" style=\"width: 20%\">#{status}</div>"
+        bar = "<div class=\"progress-bar progress-bar-info\" role=\"progressbar\" style=\"width: 20%\">#{status_name}</div>"
       when 3000
-        bar = "<div class=\"progress-bar progress-bar-success\" role=\"progressbar\" style=\"width: 30%\">#{status}</div>"
+        bar = "<div class=\"progress-bar progress-bar-success\" role=\"progressbar\" style=\"width: 30%\">#{status_name}</div>"
       when 3500
-        bar = "<div class=\"progress-bar progress-bar-success\" role=\"progressbar\" style=\"width: 40%\">#{status}</div>"
+        bar = "<div class=\"progress-bar progress-bar-success\" role=\"progressbar\" style=\"width: 40%\">#{status_name}</div>"
       when 5000
-        bar = "<div class=\"progress-bar progress-bar-info progress-bar-striped active\" role=\"progressbar\" style=\"width: 60%\">#{status}</div>"
+        bar = "<div class=\"progress-bar progress-bar-info progress-bar-striped active\" role=\"progressbar\" style=\"width: 60%\">#{status_name}</div>"
       when 5500
-        bar = "<div class=\"progress-bar progress-bar-warning progress-bar-striped active\" role=\"progressbar\" style=\"width: 80%\">#{status}</div>"
+        bar = "<div class=\"progress-bar progress-bar-warning progress-bar-striped active\" role=\"progressbar\" style=\"width: 80%\">#{status_name}</div>"
       when 7000
-        bar = "<div class=\"progress-bar progress-bar-success\" role=\"progressbar\" style=\"width: 90%\">#{status}</div>"\
+        bar = "<div class=\"progress-bar progress-bar-success\" role=\"progressbar\" style=\"width: 90%\">#{status_name}</div>"\
         "<div class=\"progress-bar progress-bar-warning\" role=\"progressbar\" style=\"width: 10%\"></div>"
       when 7500, 9000
-        bar = "<div class=\"progress-bar progress-bar-success\" role=\"progressbar\" style=\"width: 100%\">#{status}</div>"
+        bar = "<div class=\"progress-bar progress-bar-success\" role=\"progressbar\" style=\"width: 100%\">#{status_name}</div>"
       else
         bar = "<div class=\"progress-bar\" role=\"progressbar\" style=\"width: 100%\">Status Unknown</div>"
     end
