@@ -27,20 +27,20 @@ class PrintRequest < ApplicationRecord
       when 0
         bar = "<div class=\"progress-bar progress-bar-danger\" role=\"progressbar\" style=\"width: 100%\">#{status_name}</div>"
       when 1000, 1100
-        bar = "<div class=\"progress-bar progress-bar-warning\" role=\"progressbar\" style=\"width: 10%\">#{status_name}</div>"
+        bar = "<div class=\"progress-bar progress-bar-warning\" role=\"progressbar\" style=\"width: 25%\">#{status_name}</div>"
       when 1500
-        bar = "<div class=\"progress-bar progress-bar-info\" role=\"progressbar\" style=\"width: 20%\">#{status_name}</div>"
+        bar = "<div class=\"progress-bar progress-bar-info\" role=\"progressbar\" style=\"width: 30%\">#{status_name}</div>"
       when 3000
-        bar = "<div class=\"progress-bar progress-bar-success\" role=\"progressbar\" style=\"width: 30%\">#{status_name}</div>"
+        bar = "<div class=\"progress-bar progress-bar-success\" role=\"progressbar\" style=\"width: 35%\">#{status_name}</div>"
       when 3500
-        bar = "<div class=\"progress-bar progress-bar-success\" role=\"progressbar\" style=\"width: 40%\">#{status_name}</div>"
+        bar = "<div class=\"progress-bar progress-bar-success\" role=\"progressbar\" style=\"width: 50%\">#{status_name}</div>"
       when 5000
-        bar = "<div class=\"progress-bar progress-bar-info progress-bar-striped active\" role=\"progressbar\" style=\"width: 60%\">#{status_name}</div>"
+        bar = "<div class=\"progress-bar progress-bar-info progress-bar-striped active\" role=\"progressbar\" style=\"width: 65%\">#{status_name}</div>"
       when 5500
         bar = "<div class=\"progress-bar progress-bar-warning progress-bar-striped active\" role=\"progressbar\" style=\"width: 80%\">#{status_name}</div>"
       when 7000
-        bar = "<div class=\"progress-bar progress-bar-success\" role=\"progressbar\" style=\"width: 90%\">#{status_name}</div>"\
-        "<div class=\"progress-bar progress-bar-warning\" role=\"progressbar\" style=\"width: 10%\"></div>"
+        bar = "<div class=\"progress-bar progress-bar-success\" role=\"progressbar\" style=\"width: 95%\">#{status_name}</div>"\
+        "<div class=\"progress-bar progress-bar-warning\" role=\"progressbar\" style=\"width: 5%\"></div>"
       when 7500, 9000
         bar = "<div class=\"progress-bar progress-bar-success\" role=\"progressbar\" style=\"width: 100%\">#{status_name}</div>"
       else
