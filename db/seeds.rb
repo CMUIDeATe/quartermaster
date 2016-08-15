@@ -21,7 +21,7 @@ User.create(email: 'tparenti@andrew.cmu.edu', password: 'nachos', password_confi
 
 
 # Initial print request statuses
-PrintRequestStatus.create([ { name: 'Cancelled', order: 0 }, { name: 'Submitted', order: 1000 }, { name: 'Confirmed', order: 1500 }, { name: 'Approved', order: 3000 }, { name: 'File Prepared', order: 3500 }, { name: 'Printing', order: 5000 }, { name: 'In Caustic Bath', order: 5500 }, { name: 'Ready', order: 7000 }, { name: 'Picked Up', order: 7500 }, { name: 'Billed', order: 9000 } ])
+PrintRequestStatus.create([ { name: 'Cancelled', order: 0 }, { name: 'Submitted', order: 1000 }, { name: 'Updated', order: 1100 }, { name: 'Confirmed', order: 1500 }, { name: 'Approved', order: 3000 }, { name: 'File Prepared', order: 3500 }, { name: 'Printing', order: 5000 }, { name: 'In Caustic Bath', order: 5500 }, { name: 'Ready', order: 7000 }, { name: 'Picked Up', order: 7500 }, { name: 'Billed', order: 9000 } ])
 
 
 # Basic preliminary inventory

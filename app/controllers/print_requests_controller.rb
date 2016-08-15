@@ -46,7 +46,7 @@ class PrintRequestsController < ApplicationController
     @request = PrintRequest.find(params[:id])
     if @request.update_attributes(request_params)
       action = PrintRequestAction.new(print_request_id: params.require(:id))
-      action.print_request_status = PrintRequestStatus.find_by_order(1000)
+      action.print_request_status = PrintRequestStatus.find_by_order(1100)
       action.user = current_user
       action.save
       redirect_to confirm_print_request_path(@request)

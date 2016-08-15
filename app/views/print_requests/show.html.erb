@@ -63,7 +63,7 @@
           <% PrintRequestStatus.all.order(order: :asc).each do |status| %>
             <% if status.order == @request.status.order %>
               <li><%= link_to status.name, set_status_print_request_path(@request, status: status), method: :post, class: 'btn alert-info' %></li>
-            <% else %>
+            <% elsif status.order != 0 && status.order != 1100 %>
               <li><%= link_to status.name, set_status_print_request_path(@request, status: status), method: :post, class: 'btn' %></li>
             <% end %>
           <% end %>
