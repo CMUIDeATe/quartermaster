@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   resources :items, :tags, :types
-  resources :print_requests do
+  resources :print_requests, path: 'print' do
     member do
       get 'confirm'
       post 'confirm', to: 'print_requests#record_confirmation'
