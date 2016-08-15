@@ -99,7 +99,7 @@ class PrintRequestsController < ApplicationController
   private
 
     def request_params
-      params.require(:print_request).permit(:print_file, :model_volume, :support_volume, :quantity, :color, :due_at, :notes)
+      params.require(:print_request).permit(:print_file, :model_volume, :support_volume, :quantity, :due_at, :notes)
     end
 
 end
