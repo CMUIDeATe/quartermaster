@@ -36,6 +36,12 @@
     <%= f.label :print_file, 'File' %>
   </label>
   <div class="col-sm-10">
+    <% if @request.print_file.present? %>
+      <%= link_to @request.print_file.url do %>
+        <span class="glyphicon glyphicon-download-alt"></span>
+        <%= @request.print_file_file_name %>
+      <% end %>
+    <% end %>
     <%= f.file_field :print_file %>
     <ul class="help-block">
       <%# <li><strong>File must be submitted in .cmb or .cmb.gz format.</strong></li> %>
