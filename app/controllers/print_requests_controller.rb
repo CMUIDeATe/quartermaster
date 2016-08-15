@@ -63,7 +63,7 @@ class PrintRequestsController < ApplicationController
     action.print_request_status = PrintRequestStatus.find_by_order(0)
     action.user = current_user
     action.save
-    flash[:notice] = 'Print request cancelled.'
+    flash[:info] = 'Print request cancelled.'
     redirect_to print_requests_path
   end
 
@@ -83,7 +83,7 @@ class PrintRequestsController < ApplicationController
     action.print_request_status = PrintRequestStatus.find_by_order(1500)
     action.user = current_user
     action.save
-    flash[:notice] = 'Print request successfully submitted and confirmed.'
+    flash[:success] = 'Print request successfully submitted and confirmed.'
     redirect_to print_requests_path
   end
 
