@@ -54,14 +54,18 @@
           <% end %>
         </ul>
       </div>
-      <div class="col-md-3 col-sm-4">
+      <div class="col-md-3 col-sm-4 dropup">
         <a href="#" class="btn btn-default dropdown-toggle pull-right" data-toggle="dropdown">
           Mark as&hellip;
           <span class="caret"></span>
         </a>
         <ul class="dropdown-menu pull-right">
           <% PrintRequestStatus.all.order(order: :asc).each do |status| %>
-            <li><%= link_to status.name, set_status_print_request_path(@request, status: status), method: :post, class: 'btn' %></li>
+            <% if status.order == @request.status.order %>
+              <li><%= link_to status.name, set_status_print_request_path(@request, status: status), method: :post, class: 'btn alert-info' %></li>
+            <% else %>
+              <li><%= link_to status.name, set_status_print_request_path(@request, status: status), method: :post, class: 'btn' %></li>
+            <% end %>
           <% end %>
         </ul>
       </div>
