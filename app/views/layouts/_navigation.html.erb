@@ -16,9 +16,11 @@
       <li>
         <%= link_to 'Print', print_requests_path %>
       </li>
+      <% if can? :manage, Item %>
       <li>
         <%= link_to 'Items', items_path %>
       </li>
+      <% end %>
     </ul>
 
     <ul class="nav navbar-nav navbar-right">

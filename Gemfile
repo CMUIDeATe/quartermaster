@@ -55,9 +55,14 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 
+# User and role management
 gem 'devise', '~> 4.2.0'
 gem 'gravtastic', '~> 3.2.6'
 gem 'cancancan', '~> 1.15.0'
+gem 'rolify', '~> 5.1.0'
 
+# File management
 gem 'paperclip', '~> 5.0.0'
+
+# SOAP client for card lookup
 gem 'savon', '~> 2.11.1'

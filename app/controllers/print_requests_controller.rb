@@ -1,8 +1,12 @@
 class PrintRequestsController < ApplicationController
-  before_action :authenticate_user!
+  load_and_authorize_resource except: [:create]
 
   def index
-    @requests = PrintRequest.all.order(id: :desc)
+    if can? :manage, PrintRequest
+      @requests = PrintRequest.all.order(id: :desc)
+    else
+      @requests = PrintRequest.where(user_id: current_user.id).order(id: :desc)
+    end
     @header = "Print Requests"
     @title = "Print Requests"
   end
@@ -22,7 +26,9 @@ class PrintRequestsController < ApplicationController
 
   def create
     @request = PrintRequest.new(request_params)
+    authorize! :create, @request
     @request.user = current_user
+
     if @request.save
       action = PrintRequestAction.new()
       action.print_request = @request
