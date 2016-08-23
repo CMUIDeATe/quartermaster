@@ -41,8 +41,14 @@
         </li>
       <% else %>
         <li>
-          <%= link_to new_user_session_path, :id => 'log_in' do %>
-            <span class="glyphicon glyphicon-log-in"></span> Login
+          <% if ENV['RAILS_ENV'] == 'development' %>
+            <%= link_to new_user_session_path, :id => 'log_in' do %>
+              <span class="glyphicon glyphicon-log-in"></span> Login
+            <% end %>
+          <% else %>
+            <%= link_to user_shibboleth_omniauth_authorize_path, :id => 'log_in' do %>
+              <span class="glyphicon glyphicon-log-in"></span> Login
+            <% end %>
           <% end %>
         </li>
       <% end %>
