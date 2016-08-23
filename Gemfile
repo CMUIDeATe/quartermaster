@@ -68,5 +68,9 @@ gem 'omniauth-shibboleth', '~> 1.2.1'
 # File management
 gem 'paperclip', '~> 5.0.0'
 
+# LDAP libraries
+gem 'ruby-ldap', '~> 0.9.19'
+gem 'activeldap', '~> 4.0.6', require: 'active_ldap/railtie'
+
 # SOAP client for card lookup
 gem 'savon', '~> 2.11.1'
