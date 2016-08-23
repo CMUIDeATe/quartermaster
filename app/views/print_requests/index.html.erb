@@ -38,6 +38,11 @@
       </td>
       <td style="width: 20%">
         <%= request.status_bar %>
+        <% if request.status.order != 0 && request.status.order < 1500 %>
+          <div class="help-block small">
+            Request must be confirmed by submitter.
+          </div>
+        <% end %>
       </td>
       <td>
         <%= request.status_time %>

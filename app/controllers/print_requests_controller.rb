@@ -13,6 +13,11 @@ class PrintRequestsController < ApplicationController
 
   def show
     @request = PrintRequest.find(params[:id])
+
+    if (cannot? :manage, PrintRequest) || ((@request.user == current_user) && (@request.status.order != 0 && @request.status.order < 1500))
+      redirect_to confirm_print_request_path(@request)
+    end
+
     @header = "Print Request ##{@request.id}"
     @title = "Print Request ##{@request.id}"
   end

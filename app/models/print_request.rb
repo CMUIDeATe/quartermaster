@@ -35,7 +35,7 @@ class PrintRequest < ApplicationRecord
       when 0
         bar = "<div class=\"progress-bar progress-bar-danger\" role=\"progressbar\" style=\"width: 100%\">#{status_name}</div>"
       when 1000, 1100
-        bar = "<div class=\"progress-bar progress-bar-warning\" role=\"progressbar\" style=\"width: 25%\">#{status_name}</div>"
+        bar = "<div class=\"progress-bar progress-bar-danger\" role=\"progressbar\" style=\"width: 25%\">#{status_name}</div>"
       when 1500
         bar = "<div class=\"progress-bar progress-bar-info\" role=\"progressbar\" style=\"width: 30%\">#{status_name}</div>"
       when 3000
