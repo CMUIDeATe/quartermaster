@@ -1,5 +1,5 @@
 class PrintRequestsController < ApplicationController
-  load_and_authorize_resource except: [:create]
+  load_and_authorize_resource
 
   def index
     if can? :manage, PrintRequest
@@ -25,8 +25,7 @@ class PrintRequestsController < ApplicationController
   end
 
   def create
-    @request = PrintRequest.new(request_params)
-    authorize! :create, @request
+    @request = PrintRequest.new(print_request_params)
     @request.user = current_user
 
     if @request.save
@@ -51,7 +50,7 @@ class PrintRequestsController < ApplicationController
 
   def update
     @request = PrintRequest.find(params[:id])
-    if @request.update_attributes(request_params)
+    if @request.update_attributes(print_request_params)
       action = PrintRequestAction.new(print_request_id: params.require(:id))
       action.print_request_status = PrintRequestStatus.find_by_order(1100)
       action.user = current_user
@@ -104,7 +103,7 @@ class PrintRequestsController < ApplicationController
 
   private
 
-    def request_params
+    def print_request_params
       params.require(:print_request).permit(:print_file, :model_volume, :support_volume, :quantity, :due_at, :notes)
     end
 
