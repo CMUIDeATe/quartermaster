@@ -13,6 +13,9 @@ class Ability
       can :record_confirmation, PrintRequest, user_id: user.id
       can :read, PrintRequest, user_id: user.id
       can :update, PrintRequest, user_id: user.id
+      can :destroy, PrintRequest do |request|
+        request.user_id == user.id && request.status.order < 3500
+      end
     end
 
     # The first argument to `can` is the action you are giving the user
