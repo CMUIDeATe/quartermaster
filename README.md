@@ -9,6 +9,16 @@ Things you may want to cover:
 
 * System dependencies
 
+Dependencies include:
+
+```
+imagemagick
+libldap-2.4-2
+libldap2-dev
+libsasl2-2
+libsasl2-dev
+```
+
 * Configuration
 
 * Database creation
