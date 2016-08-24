@@ -16,3 +16,7 @@
     </ul>
   </li>
 </ul>
+
+<% if can? :manage, :legacy_lending %>
+  <%= render template: 'legacy_lending/index' %>
+<% end %>

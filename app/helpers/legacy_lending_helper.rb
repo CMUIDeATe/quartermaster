@@ -1,0 +1,2 @@
+module LegacyLendingHelper
+end
