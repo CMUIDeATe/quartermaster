@@ -21,6 +21,16 @@
         <%= link_to 'Items', items_path %>
       </li>
       <% end %>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+        Feeds &amp; Speeds
+        <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu">
+          <li><%= link_to 'Laser cutter settings', laser_settings_path %></li>
+          <li><%= link_to 'CNC router settings', cnc_settings_path %></li>
+        </ul>
+      </li>
     </ul>
 
     <ul class="nav navbar-nav navbar-right">

@@ -14,4 +14,8 @@ Rails.application.routes.draw do
     resources :print_request_actions
   end
 
+  # Feeds and speeds iframes from Zoho
+  get '/laser_settings', to: 'welcome#laser_settings'
+  get '/cnc_settings', to: 'welcome#cnc_settings'
+
 end
