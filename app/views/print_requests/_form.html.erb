@@ -90,7 +90,7 @@
     <%= f.label :due_at, 'Desired Completion' %>
   </label>
   <div class="col-sm-10">
-    <%= f.datetime_select :due_at, default: 7.days.from_now, start_year: Date.today.year, end_year: Date.today.year + 1, start_hour: 8, end_hour: 23, minute_step: 15, html_options: { class: 'form-control' } %>
+    <%= f.datetime_select :due_at, default: 5.business_days.from_now, start_year: Date.today.year, end_year: Date.today.year + 1, start_hour: 8, end_hour: 23, minute_step: 15, html_options: { class: 'form-control' } %>
   </div>
 </div>
 

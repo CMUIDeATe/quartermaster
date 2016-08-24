@@ -74,3 +74,7 @@ gem 'activeldap', '~> 4.0.6', require: 'active_ldap/railtie'
 
 # SOAP client for card lookup
 gem 'savon', '~> 2.11.1'
+
+# Business date calculations
+gem 'business_time', '~> 0.7.6'
+

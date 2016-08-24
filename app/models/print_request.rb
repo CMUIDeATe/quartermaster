@@ -17,11 +17,10 @@ class PrintRequest < ApplicationRecord
 
 
   def due_at_valid
-    # TODO: Consider using business_time to specify these bounds in terms of business days, which is more appropriate.
-    near_bound = 3.days.from_now
-    far_bound = 120.days.from_now
-    errors.add(:base, 'Desired completion must be at least 3 full days in advance (i.e., after %s)' % near_bound.to_s(:short)) if (due_at < near_bound)
-    errors.add(:base, 'Desired completion must be no more than 120 days in advance (i.e., before %s)' % far_bound.to_s(:short)) if (due_at > far_bound)
+    near_bound = 2.business_days.from_now
+    far_bound = 30.business_days.from_now
+    errors.add(:base, 'Desired completion must be at least 2 full business days in advance (i.e., after %s)' % near_bound.to_s(:short)) if (due_at < near_bound)
+    errors.add(:base, 'Desired completion must be no more than 30 full business days in advance (i.e., before %s)' % far_bound.to_s(:short)) if (due_at > far_bound)
   end
 
   def status
