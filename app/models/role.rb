@@ -9,7 +9,7 @@ class Role < ApplicationRecord
             :inclusion => { :in => Rolify.resource_types },
             :allow_nil => true
 
-  ROLES = [:admin]
+  ROLES = [:superadmin, :admin, :student_employee]
 
   scopify
 end

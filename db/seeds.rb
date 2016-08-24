@@ -18,7 +18,7 @@ PrintRequest.delete_all()
 
 # Initial users with temporary throwaway password
 user1 = User.create(email: 'tparenti@andrew.cmu.edu', password: 'nachos', password_confirmation: 'nachos')
-user1.add_role :admin
+user1.add_role :superadmin
 user2 = User.create(email: 'egarbade@andrew.cmu.edu', password: 'nachos', password_confirmation: 'nachos')
 
 # Initial print request statuses

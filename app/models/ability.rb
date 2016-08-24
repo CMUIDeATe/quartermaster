@@ -3,21 +3,7 @@ class Ability
 
   def initialize(user)
     # Define abilities for the passed in user here.
-
-    user ||= User.new # guest user (not logged in)
-    if user.has_role? :admin
-      can :manage, :all
-    else
-      can :create, PrintRequest
-      can :confirm, PrintRequest, user_id: user.id
-      can :record_confirmation, PrintRequest, user_id: user.id
-      can :read, PrintRequest, user_id: user.id
-      can :update, PrintRequest, user_id: user.id
-      can :destroy, PrintRequest do |request|
-        request.user_id == user.id && request.status.order < 3500
-      end
-    end
-
+    #
     # The first argument to `can` is the action you are giving the user
     # permission to do.
     # If you pass :manage it will apply to every action. Other common actions
@@ -35,5 +21,35 @@ class Ability
     #
     # See the wiki for details:
     # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
+
+    user ||= User.new # guest user (not logged in)
+    can :create, PrintRequest
+    can :confirm, PrintRequest, user_id: user.id
+    can :record_confirmation, PrintRequest, user_id: user.id
+    can :read, PrintRequest, user_id: user.id
+    can :update, PrintRequest, user_id: user.id
+    can :destroy, PrintRequest do |request|
+      request.user_id == user.id && request.status.order < 3500
+    end
+
+    superadmin if user.has_role? :superadmin
+    admin if user.has_role? :admin
+    student_employee if user.has_role? :student_employee
+
   end
+
+  def superadmin
+    can :manage, :all
+  end
+
+  def admin
+    can :manage, :all
+    # TODO: Items in native lending are not ready yet.
+    cannot :manage, Item
+  end
+
+  def student_employee
+    can :manage, :legacy_lending
+  end
+
 end
