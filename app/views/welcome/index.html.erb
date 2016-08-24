@@ -3,7 +3,12 @@
 </p>
 
 <ul>
-  <li><%= link_to 'Dimension 1200sst 3D Print Requests', print_requests_path %></li>
+  <li>3D print request form
+    <ul>
+      <li><%= link_to 'Dimension 1200sst', print_requests_path %></li>
+      <li>For other 3D printers, see the <%= link_to '3D printers page', 'https://resources.ideate.cmu.edu/equipment/3d-printers/' %> of the IDeATe Resources website.</li>
+    </ul>
+  </li>
   <li>Feeds and speeds lookup
     <ul>
       <li><%= link_to 'Laser cutter settings', laser_settings_path %></li>
