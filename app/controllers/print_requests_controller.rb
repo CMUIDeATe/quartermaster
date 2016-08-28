@@ -83,7 +83,7 @@ class PrintRequestsController < ApplicationController
     @header = "Confirm Print Request ##{@request.id}"
     @title = "Confirm Print Request ##{@request.id}"
 
-    quoted_price = ( 5.00 + 7.00*(@request.model_volume + @request.support_volume) ) * @request.quantity
+    quoted_price = ( 5.00*(@request.model_volume + @request.support_volume) ) * @request.quantity
     @request.quoted_price = quoted_price
     @request.save
   end
