@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   devise_scope :user do
     if Rails.env.production? || Rails.env.staging?
-      get 'login' => 'users/omniauth_callbacks#shibboleth', as: :new_user_session
+      get 'login' => 'users/omniauth_callbacks#passthru', as: :new_user_session
     else
       get 'login' => 'devise/sessions#new', as: :new_user_session
     end
