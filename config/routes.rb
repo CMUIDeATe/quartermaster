@@ -1,6 +1,16 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }, skip: [:sessions]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  devise_scope :user do
+    if Rails.env.production? || Rails.env.staging?
+      get 'login' => 'users/omniauth_callbacks#shibboleth', as: :new_user_session
+    else
+      get 'login' => 'devise/sessions#new', as: :new_user_session
+    end
+    post 'login' => 'devise/sessions#create', as: :user_session
+    delete 'logout' => 'devise/sessions#destroy', as: :destroy_user_session
+  end
 
   root 'welcome#index'
 
