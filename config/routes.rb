@@ -37,5 +37,6 @@ Rails.application.routes.draw do
   get '/lending/student_purchase', to: 'legacy_lending#student_purchase'
   get '/lending/course_purchase', to: 'legacy_lending#course_purchase'
   get '/lending/cube_cartridge', to: 'legacy_lending#cube_cartridge'
+  get '/lending/schedule', to: 'legacy_lending#schedule'
 
 end
