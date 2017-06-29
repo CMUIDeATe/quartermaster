@@ -1,12 +1,26 @@
-<ul class="nav nav-pills">
+<% content_for :internal_navigation do %>
+
+<nav class="navbar navbar-default">
+<div class="navbar-header">
+  <%= link_to 'Legacy Lending', lending_path, class: 'navbar-brand' %>
+</div>
+<ul class="nav navbar-nav">
   <%= nav_link 'Home', lending_path %>
   <%= nav_link 'Lend only', lending_lend_path %>
-
-  <%= nav_link 'IDeATe students', lending_student_purchase_path %>
-  <%= nav_link 'Non-IDeATe students and faculty', lending_external_purchase_path %>
-  <%= nav_link 'Course- or Project-funded', lending_course_purchase_path %>
-
+  <li class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown">
+      Purchases <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+      <%= nav_link 'IDeATe students', lending_student_purchase_path %>
+      <%= nav_link 'Non-IDeATe students and faculty', lending_external_purchase_path %>
+      <%= nav_link 'Course- or Project-funded', lending_course_purchase_path %>
+    </ul>
+  </li>
   <%= nav_link 'PC cart schedule', lending_pc_cart_path %>
   <%= nav_link 'Shift schedule', lending_schedule_path %>
   <%= nav_link 'NVBots live feed', lending_nvbots_path %>
 </ul>
+</nav>
+
+<% end %>
