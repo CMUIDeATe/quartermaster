@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160822010148) do
+ActiveRecord::Schema.define(version: 20170629183615) do
 
   create_table "items", force: :cascade do |t|
     t.string   "barcode"
@@ -22,20 +22,6 @@ ActiveRecord::Schema.define(version: 20160822010148) do
     t.text     "notes"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
-  end
-
-  create_table "items_tags", id: false, force: :cascade do |t|
-    t.integer "item_id"
-    t.integer "tag_id"
-    t.index ["item_id"], name: "index_items_tags_on_item_id"
-    t.index ["tag_id"], name: "index_items_tags_on_tag_id"
-  end
-
-  create_table "items_types", id: false, force: :cascade do |t|
-    t.integer "item_id"
-    t.integer "type_id"
-    t.index ["item_id"], name: "index_items_types_on_item_id"
-    t.index ["type_id"], name: "index_items_types_on_type_id"
   end
 
   create_table "print_request_actions", force: :cascade do |t|
@@ -82,18 +68,6 @@ ActiveRecord::Schema.define(version: 20160822010148) do
     t.datetime "updated_at"
     t.index ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
     t.index ["name"], name: "index_roles_on_name"
-  end
-
-  create_table "tags", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "types", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

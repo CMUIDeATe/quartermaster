@@ -5,18 +5,6 @@
       <td><%= @item.barcode %></td>
     </tr>
     <tr>
-      <th>Tags</th>
-      <td>
-        <%= @item.tags.map {|tag| link_to tag.name, tag_path(tag.id)}.join(', ').html_safe %>
-      </td>
-    </tr>
-    <tr>
-      <th>Types</th>
-      <td>
-        <%= @item.types.map {|type| link_to type.name, type_path(type.id)}.join(', ').html_safe %>
-      </td>
-    </tr>
-    <tr>
       <th>Description</th>
       <td><%= @item.description %></td>
     </tr>
