@@ -3,6 +3,9 @@
 </p>
 
 <ul>
+  <% if can? :manage, :legacy_lending %>
+    <li><strong><%= link_to 'Legacy lending application', lending_path  %></strong></li>
+  <% end %>
   <li>3D print request form
     <ul>
       <li><%= link_to 'Dimension 1200sst', print_requests_path %></li>
@@ -16,7 +19,3 @@
     </ul>
   </li>
 </ul>
-
-<% if can? :manage, :legacy_lending %>
-  <%= render template: 'legacy_lending/index' %>
-<% end %>

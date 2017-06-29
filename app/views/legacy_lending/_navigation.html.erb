@@ -1,10 +1,12 @@
 <ul class="nav nav-pills">
-  <%= nav_link 'Search', lending_search_path %>
-  <%= nav_link 'Lend', lending_lend_path %>
-  <%= nav_link 'Return', lending_return_path %>
-  <%= nav_link 'Lend for course', lending_course_lend_path %>
-  <%= nav_link 'Student purchases', lending_student_purchase_path %>
-  <%= nav_link 'Course purchases', lending_course_purchase_path %>
-  <%= nav_link 'Cube cartridges', lending_cube_cartridge_path %>
-  <%= nav_link 'Schedule', lending_schedule_path %>
+  <%= nav_link 'Home', lending_path %>
+  <%= nav_link 'Lend only', lending_lend_path %>
+
+  <%= nav_link 'IDeATe students', lending_student_purchase_path %>
+  <%= nav_link 'Non-IDeATe students and faculty', lending_external_purchase_path %>
+  <%= nav_link 'Course- or Project-funded', lending_course_purchase_path %>
+
+  <%= nav_link 'PC cart schedule', lending_pc_cart_path %>
+  <%= nav_link 'Shift schedule', lending_schedule_path %>
+  <%= nav_link 'NVBots live feed', lending_nvbots_path %>
 </ul>

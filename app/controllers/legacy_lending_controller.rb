@@ -1,14 +1,8 @@
 class LegacyLendingController < ApplicationController
 
   def index
-    @header = "Lending"
-    @title = "Lending"
-    authorize! :manage, :legacy_lending
-  end
-
-  def search
-    @header = "Search Lending"
-    @title = "Search Lending"
+    @header = "Lend and Return Items"
+    @title = "Lend and Return Items"
     authorize! :manage, :legacy_lending
   end
 
@@ -18,33 +12,39 @@ class LegacyLendingController < ApplicationController
     authorize! :manage, :legacy_lending
   end
 
-  def return
-    @header = "Return Item"
-    @title = "Return Item"
-    authorize! :manage, :legacy_lending
-  end
-
-  def course_lend
-    @header = "Lend Item for Course"
-    @title = "Lend Item for Course"
-    authorize! :manage, :legacy_lending
-  end
-
   def student_purchase
-    @header = "Manage Student Purchases"
-    @title = "Manage Student Purchases"
+    @header = "Manage Purchases by IDeATe Students"
+    @title = "Manage Purchases by IDeATe Students"
+    authorize! :manage, :legacy_lending
+  end
+
+  def external_purchase
+    @header = "Manage Purchases by Faculty, Staff, and Non-IDeATe Students"
+    @title = "Manage Purchases by Faculty, Staff, and Non-IDeATe Students"
     authorize! :manage, :legacy_lending
   end
 
   def course_purchase
-    @header = "Manage Course Purchases"
-    @title = "Manage Course Purchases"
+    @header = "Manage Purchases Funded by a Course or Project"
+    @title = "Manage Purchases Funded by a Course or Project"
     authorize! :manage, :legacy_lending
   end
 
-  def cube_cartridge
-    @header = "Manage Cube Cartridges"
-    @title = "Manage Cube Cartridges"
+  def pc_cart
+    @header = "PC Cart Schedule"
+    @title = "PC Cart Schedule"
+    authorize! :manage, :legacy_lending
+  end
+
+  def schedule
+    @header = "Shift Schedule"
+    @title = "Shift Schedule"
+    authorize! :manage, :legacy_lending
+  end
+
+  def nvbots
+    @header = "NVBots Live Feed"
+    @title = "NVBots Live Feed"
     authorize! :manage, :legacy_lending
   end
 

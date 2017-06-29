@@ -30,13 +30,12 @@ Rails.application.routes.draw do
 
   # Legacy lending system from Zoho
   get '/lending', to: 'legacy_lending#index'
-  get '/lending/search', to: 'legacy_lending#search'
   get '/lending/lend', to: 'legacy_lending#lend'
-  get '/lending/return', to: 'legacy_lending#return'
-  get '/lending/course_lend', to: 'legacy_lending#course_lend'
   get '/lending/student_purchase', to: 'legacy_lending#student_purchase'
+  get '/lending/external_purchase', to: 'legacy_lending#external_purchase'
   get '/lending/course_purchase', to: 'legacy_lending#course_purchase'
-  get '/lending/cube_cartridge', to: 'legacy_lending#cube_cartridge'
+  get '/lending/pc_cart', to: 'legacy_lending#pc_cart'
   get '/lending/schedule', to: 'legacy_lending#schedule'
+  get '/lending/nvbots', to: 'legacy_lending#nvbots'
 
 end
