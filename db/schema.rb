@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170810183435) do
+ActiveRecord::Schema.define(version: 20170810193924) do
 
   create_table "items", force: :cascade do |t|
     t.string   "barcode"
@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(version: 20170810183435) do
     t.integer  "lend_duration"
     t.datetime "lend_period_end"
     t.boolean  "active"
+    t.string   "ancestry"
+    t.index ["ancestry"], name: "index_items_on_ancestry"
   end
 
   create_table "print_request_actions", force: :cascade do |t|

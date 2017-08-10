@@ -78,3 +78,6 @@ gem 'savon', '~> 2.11.1'
 # Business date calculations
 gem 'business_time', '~> 0.7.6'
 
+# Hierarchical database tables
+gem 'ancestry', '~> 3.0.1'
+gem 'inherited-attributes', '~> 0.1.1'
