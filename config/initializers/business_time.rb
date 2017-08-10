@@ -29,6 +29,9 @@ BusinessTime::Config.holidays << Date.parse("23 Nov 2017")
 BusinessTime::Config.holidays << Date.parse("24 Nov 2017")
 BusinessTime::Config.holidays << Date.parse("25 Dec 2017")
 BusinessTime::Config.holidays << Date.parse("26 Dec 2017")
+BusinessTime::Config.holidays << Date.parse("27 Dec 2017") # additional winter holiday
+BusinessTime::Config.holidays << Date.parse("28 Dec 2017") # additional winter holiday
+BusinessTime::Config.holidays << Date.parse("29 Dec 2017") # additional winter holiday
 BusinessTime::Config.holidays << Date.parse("01 Jan 2018")
 BusinessTime::Config.holidays << Date.parse("02 Jan 2018")
 BusinessTime::Config.holidays << Date.parse("15 Jan 2018")
