@@ -25,7 +25,7 @@ PrintRequestStatus.create([ { name: 'Cancelled', order: 0 }, { name: 'Submitted'
 
 # Basic preliminary inventory
 # From lines 4-7 of Physical Computing inventory as of 2016-08-02
-item1 = Item.create( name: 'Audio Mixer', description: '16-channel, 4-bus Mixer with Built-in Effects and USB', minimum_quantity: 0, current_quantity: 1 )
-item2 = Item.create( name: 'XLR Cable', description: 'XLR cable to 1/4in TRS, 5 foot', minimum_quantity: 0, current_quantity: 2 )
-item3 = Item.create( name: 'Arduino CNC Shield (GRBL Compatible)', current_quantity: 0 )
-item4 = Item.create( name: 'LED, 5mm Infrared 850nm', current_quantity: 0, sale_price: 0.36 )
+item1 = Item.create( name: 'Audio Mixer', description: '16-channel, 4-bus Mixer with Built-in Effects and USB', type: 'LendableItem' )
+item2 = Item.create( name: 'XLR Cable', description: 'XLR cable to 1/4in TRS, 5 foot', type: 'LendableItem' )
+item3 = Item.create( name: 'Arduino CNC Shield (GRBL Compatible)', type: 'LendableItem' )
+item4 = Item.create( name: 'LED, 5mm Infrared 850nm', price: 0.36, type: 'SaleableItem' )

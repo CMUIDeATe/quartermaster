@@ -1,0 +1,3 @@
+class SaleableItem < Item
+end
+

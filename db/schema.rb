@@ -10,18 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170629183615) do
+ActiveRecord::Schema.define(version: 20170810183435) do
 
   create_table "items", force: :cascade do |t|
     t.string   "barcode"
     t.string   "name"
     t.text     "description"
-    t.integer  "current_quantity"
-    t.integer  "minimum_quantity"
-    t.decimal  "sale_price"
     t.text     "notes"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+    t.string   "type"
+    t.decimal  "price",           precision: 15, scale: 2
+    t.decimal  "late_fee",        precision: 15, scale: 2
+    t.integer  "lend_duration"
+    t.datetime "lend_period_end"
+    t.boolean  "active"
   end
 
   create_table "print_request_actions", force: :cascade do |t|

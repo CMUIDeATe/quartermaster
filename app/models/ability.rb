@@ -44,8 +44,6 @@ class Ability
 
   def admin
     can :manage, :all
-    # TODO: Items in native lending are not ready yet.
-    cannot :manage, Item
   end
 
   def student_employee
