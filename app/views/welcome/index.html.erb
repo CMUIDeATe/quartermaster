@@ -2,16 +2,24 @@
   Welcome to the IDeATe Quartermaster!
 </p>
 
-<ul>
+<p>
   <% if can? :manage, :legacy_lending %>
-    <li><strong><%= link_to 'Legacy lending application', lending_path  %></strong></li>
+  <%= button_to 'Access the Legacy Lending Application', lending_path, method: 'get', class: 'btn btn-primary' %>
   <% end %>
+</p>
+
+<ul>
+  <% if can? :read, Item %>
+  <li><%= link_to 'List available items', items_path %></li>
+  <% end %>
+  <% if can? :read, PrintRequest %>
   <li>3D print request form
     <ul>
       <li><%= link_to 'Dimension 1200sst', print_requests_path %></li>
       <li>For other 3D printers, see the <%= link_to '3D printers page', 'https://resources.ideate.cmu.edu/equipment/3d-printers/' %> of the IDeATe Resources website.</li>
     </ul>
   </li>
+  <% end %>
   <li>Feeds and speeds lookup
     <ul>
       <li><%= link_to 'Laser cutter settings', laser_settings_path %></li>
