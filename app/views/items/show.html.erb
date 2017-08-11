@@ -9,7 +9,7 @@
       <% if @item.active %>
         <th><%= @item.name %></th>
       <% else %>
-        <th><s><%= @item.name %></s> <small>(inactive)</small></th>
+        <th><s class="text-muted"><%= @item.name %></s> <small class="text-danger">(inactive)</small></th>
       <% end %>
     </tr>
     <tr>

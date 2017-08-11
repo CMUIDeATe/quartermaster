@@ -2,7 +2,11 @@ class ItemsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @items = Item.all
+    if can? :manage, Item
+      @items = Item.all
+    else
+      @items = Item.where(active: true)
+    end
     @header = "Items"
     @title = "Items"
   end

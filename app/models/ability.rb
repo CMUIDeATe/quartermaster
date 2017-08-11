@@ -23,7 +23,7 @@ class Ability
     # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
 
     user ||= User.new # guest user (not logged in)
-    can :read, Item
+    can :read, Item, active: true
 
     superadmin if user.has_role? :superadmin
     admin if user.has_role? :admin

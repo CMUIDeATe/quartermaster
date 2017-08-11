@@ -9,8 +9,10 @@
 </p>
 
 <ul>
-  <% if can? :read, Item %>
-  <li><%= link_to 'List available items', items_path %></li>
+  <% if can? :manage, Item %>
+    <li><%= link_to 'Manage items', items_path %></li>
+  <% elsif can? :read, Item %>
+    <li><%= link_to 'List available items', items_path %></li>
   <% end %>
   <% if can? :read, PrintRequest %>
   <li>3D print request form

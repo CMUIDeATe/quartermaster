@@ -20,9 +20,9 @@
       <%= f.text_field :name, class: 'form-control' %>
     </div>
   </div>
-  <div class="col-sm-4">
-    <%= check_box_tag :active %>
-    <%= label_tag :active, 'Active' %>
+  <div class="col-sm-4 form-check">
+    <%= check_box 'item', 'active', {class: 'form-check-input'}, 'true', 'false' %>
+    <%= f.label :active, 'Active', class: 'form-check-label' %>
   </div>
 </div>
 
