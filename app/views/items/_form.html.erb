@@ -1,0 +1,106 @@
+<% if @item.errors.any? %>
+  <div class="alert alert-danger">
+    <strong><%= pluralize(@item.errors.count, "error") %> prohibited this item from being saved:</strong>
+    <ul>
+      <% @item.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<% f.object = @item.becomes(@item.class) %>
+
+<div class="form-group">
+  <label class="col-sm-2 control-label">
+    <%= f.label :name, 'Name' %>
+  </label>
+  <div class="col-sm-6">
+    <div class="input-group" style="width: 100%">
+      <%= f.text_field :name, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <%= check_box_tag :active %>
+    <%= label_tag :active, 'Active' %>
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-sm-2 control-label">
+    <%= f.label :description %>
+  </label>
+  <div class="col-sm-10">
+    <%= f.text_area :description, class: 'form-control', rows: 3 %>
+  </div>
+</div>
+
+<hr class="separator">
+
+<div class="form-group">
+  <label class="col-sm-2 control-label">
+    <%= f.label :price, 'Price/Value' %>
+  </label>
+  <div class="col-sm-2">
+    <div class="input-group" style="width: 10em;">
+      <span class="input-group-addon">$</span>
+      <%= f.number_field :price, value: number_to_currency(@item.price, unit: ''), class: 'form-control text-right', step: :any %>
+    </div>
+  </div>
+  <div class="col-sm-8">
+    <%= radio_button_tag :type, 'LendableItem' %>
+    <%= label_tag :type, 'Lendable' %>
+    <br>
+    <%= radio_button_tag :type, 'SaleableItem' %>
+    <%= label_tag :type, 'Saleable' %>
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-sm-2 control-label">
+    <%= f.label :lend_duration, 'Default Lending Duration' %>
+  </label>
+  <div class="col-sm-2">
+    <div class="input-group" style="width: 10em;">
+      <%= f.number_field :lend_duration, class: 'form-control text-right' %>
+      <span class="input-group-addon">day(s)</span>
+    </div>
+  </div>
+  <label class="col-sm-2 control-label">
+    <%= f.label :lend_period_end, 'Default Lending Period End' %>
+  </label>
+  <div class="col-sm-2">
+    <div class="input-group">
+      <%= f.date_select :lend_period_end, include_blank: true, use_short_month: true, start_year: Date.today.year, end_year: Date.today.year + 1, html_options: { class: 'form-control' } %>
+      <p class="help-block">
+        Leave all blank for none.
+      </p>
+    </div>
+  </div>
+  <label class="col-sm-2 control-label">
+    <%= f.label :late_fee, 'Daily Late Fee' %>
+  </label>
+  <div class="col-sm-2">
+    <div class="input-group" style="width: 10em;">
+      <span class="input-group-addon">$</span>
+      <%= f.number_field :late_fee, value: number_to_currency(@item.late_fee, unit: ''), class: 'form-control text-right', step: :any %>
+    </div>
+  </div>
+</div>
+
+<hr class="separator">
+
+<div class="form-group">
+  <label class="col-sm-2 control-label">
+    <%= f.label :notes %>
+  </label>
+  <div class="col-sm-10">
+    <%= f.text_area :notes, class: 'form-control', rows: 3 %>
+  </div>
+</div>
+
+<div class="form-group">
+  <div class="col-sm-offset-2 col-sm-10">
+    <%= f.submit button_text, class: 'btn btn-primary' %>
+  </div>
+</div>

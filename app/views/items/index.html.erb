@@ -1,3 +1,9 @@
+<% if can? :create, @item %>
+<p>
+  <%= button_to 'New item', new_item_path, method: :get, class: 'btn btn-primary' %>
+</p>
+<% end %>
+
 <ul>
   <% @items.each do |item| %>
     <li>
@@ -5,3 +11,9 @@
     </li>
   <% end %>
 </ul>
+
+<% if can? :create, @item %>
+<p>
+  <%= button_to 'New item', new_item_path, method: :get, class: 'btn btn-primary' %>
+</p>
+<% end %>

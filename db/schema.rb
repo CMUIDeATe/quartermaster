@@ -10,21 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170810193924) do
+ActiveRecord::Schema.define(version: 20170811161447) do
 
   create_table "items", force: :cascade do |t|
     t.string   "barcode"
     t.string   "name"
     t.text     "description"
     t.text     "notes"
-    t.datetime "created_at",                               null: false
-    t.datetime "updated_at",                               null: false
+    t.datetime "created_at",                                              null: false
+    t.datetime "updated_at",                                              null: false
     t.string   "type"
     t.decimal  "price",           precision: 15, scale: 2
     t.decimal  "late_fee",        precision: 15, scale: 2
     t.integer  "lend_duration"
     t.datetime "lend_period_end"
-    t.boolean  "active"
+    t.boolean  "active",                                   default: true
     t.string   "ancestry"
     t.index ["ancestry"], name: "index_items_on_ancestry"
   end

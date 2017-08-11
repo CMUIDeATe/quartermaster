@@ -5,8 +5,40 @@
       <td><%= @item.barcode %></td>
     </tr>
     <tr>
+      <th>Name</th>
+      <% if @item.active %>
+        <th><%= @item.name %></th>
+      <% else %>
+        <th><s><%= @item.name %></s> <small>(inactive)</small></th>
+      <% end %>
+    </tr>
+    <tr>
       <th>Description</th>
       <td><%= @item.description %></td>
+    </tr>
+    <tr>
+      <th>Item Type</th>
+      <% if @item.type == 'LendableItem' %>
+        <td>Lendable</td>
+      <% else %>
+        <td>Saleable</td>
+      <% end %>
+    </tr>
+    <tr>
+      <th>Price/Value</th>
+      <td><%= number_to_currency @item.price %></td>
+    </tr>
+    <tr>
+      <th>Lending Terms</th>
+      <td>
+        <%= pluralize @item.lend_duration, 'day' %>
+        <% if @item.lend_period_end %>
+          | lending period ends <%= @item.lend_period_end.to_s(:short) %>
+        <% end %>
+        <% if @item.late_fee %>
+          | <%= number_to_currency @item.late_fee %> daily late fee
+        <% end %>
+      </td>
     </tr>
     <tr>
       <th>Notes</th>
@@ -14,6 +46,12 @@
     </tr>
   </table>
 </div>
+
+<% if can? :edit, @item %>
+<p>
+  <%= button_to 'Edit item', edit_item_path, method: :get, class: 'btn btn-primary' %>
+</p>
+<% end %>
 
 <p>
   <%= link_to 'All items', items_path %>
