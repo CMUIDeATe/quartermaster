@@ -1,9 +1,11 @@
 <div class="table-responsive">
   <table class="table table-hover">
+    <% if can? :edit, @item %>
     <tr>
       <th>Barcode ID</th>
       <td><%= @item.barcode %></td>
     </tr>
+    <% end %>
     <tr>
       <th>Name</th>
       <% if @item.active %>
@@ -24,6 +26,7 @@
         <td>Saleable</td>
       <% end %>
     </tr>
+    <% if can? :edit, @item %>
     <tr>
       <th>Price/Value</th>
       <td><%= number_to_currency @item.price %></td>
@@ -41,9 +44,10 @@
       </td>
     </tr>
     <tr>
-      <th>Notes</th>
+      <th>Item Notes</th>
       <td><%= @item.notes %></td>
     </tr>
+    <% end %>
   </table>
 </div>
 
