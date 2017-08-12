@@ -48,11 +48,14 @@
     </div>
   </div>
   <div class="col-sm-8">
-    <%= radio_button_tag :type, 'LendableItem' %>
-    <%= label_tag :type, 'Lendable' %>
-    <br>
-    <%= radio_button_tag :type, 'SaleableItem' %>
-    <%= label_tag :type, 'Saleable' %>
+    <div class="form-check">
+      <%= radio_button :item, :type, 'LendableItem', checked: @item.type == 'LendableItem', class: 'form-check-input' %>
+      <%= f.label :type, 'Lendable', class: 'form-check-label' %>
+    </div>
+    <div class="form-check">
+      <%= radio_button :item, :type, 'SaleableItem', checked: @item.type == 'SaleableItem', class: 'form-check-input' %>
+      <%= f.label :type, 'Saleable', class: 'form-check-label' %>
+    </div>
   </div>
 </div>
 

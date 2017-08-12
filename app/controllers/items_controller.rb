@@ -3,9 +3,11 @@ class ItemsController < ApplicationController
 
   def index
     if can? :manage, Item
-      @items = Item.all
+      @lendable_items = LendableItem.all
+      @saleable_items = SaleableItem.all
     else
-      @items = Item.where(active: true)
+      @lendable_items = LendableItem.where(active: true)
+      @saleable_items = SaleableItem.where(active: true)
     end
     @header = "Items"
     @title = "Items"

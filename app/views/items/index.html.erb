@@ -1,11 +1,12 @@
-<% if can? :create, @item %>
+<% if can? :create, Item %>
 <p>
   <%= button_to 'New item', new_item_path, method: :get, class: 'btn btn-primary' %>
 </p>
 <% end %>
 
+<h2>Lendable Items</h2>
 <ul>
-  <% @items.each do |item| %>
+  <% @lendable_items.each do |item| %>
     <li>
       <% if item.active %>
         <%= link_to item.name, item_path(item.id) %>
@@ -16,7 +17,20 @@
   <% end %>
 </ul>
 
-<% if can? :create, @item %>
+<h2>Saleable Items</h2>
+<ul>
+  <% @saleable_items.each do |item| %>
+    <li>
+      <% if item.active %>
+        <%= link_to item.name, item_path(item.id) %>
+      <% else %>
+        <s><%= link_to item.name, item_path(item.id), class: 'text-muted'  %></s>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
+
+<% if can? :create, Item %>
 <p>
   <%= button_to 'New item', new_item_path, method: :get, class: 'btn btn-primary' %>
 </p>
