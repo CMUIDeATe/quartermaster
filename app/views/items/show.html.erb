@@ -28,6 +28,10 @@
     </tr>
     <% if can? :edit, @item %>
     <tr>
+      <th>Shelf Location</th>
+      <td><%= @item.shelf_location %></td>
+    </tr>
+    <tr>
       <th>Price/Value</th>
       <td><%= number_to_currency @item.price %></td>
     </tr>
