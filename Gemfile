@@ -62,11 +62,11 @@ gem 'cancancan', '~> 1.15.0'
 gem 'rolify', '~> 5.1.0'
 
 # Shibboleth Single Sign On
-gem 'omniauth', '~> 1.3.1'
+gem 'omniauth', '~> 1.3.2'
 gem 'omniauth-shibboleth', '~> 1.2.1'
 
 # File management
-gem 'paperclip', '~> 5.0.0'
+gem 'paperclip', '~> 5.2.0'
 
 # LDAP libraries
 gem 'ruby-ldap', '~> 0.9.19'
