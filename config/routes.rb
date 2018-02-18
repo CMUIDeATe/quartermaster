@@ -41,4 +41,6 @@ Rails.application.routes.draw do
   get '/lending/schedule', to: 'legacy_lending#schedule'
   get '/lending/nvbots', to: 'legacy_lending#nvbots'
 
+  post '/lending/card_input', to: 'legacy_lending#card_input'
+
 end

@@ -7,6 +7,13 @@ class LegacyLendingController < ApplicationController
   end
 
   def lend
+    @card_andrewid = session[:card_andrewid]
+    session['card_andrewid'] = nil
+
+    unless @card_andrewid.nil? || @card_andrewid.empty?
+
+    end
+
     @header = "Lend Item"
     @title = "Lend Item"
     authorize! :manage, :legacy_lending
@@ -46,6 +53,16 @@ class LegacyLendingController < ApplicationController
     @header = "NVBots Live Feed"
     @title = "NVBots Live Feed"
     authorize! :manage, :legacy_lending
+  end
+
+  def card_input
+    card_id = params[:card_input]
+    unless card_id.nil? || card_id.empty?
+      @card_andrewid = CarnegieMellonIDCard.get_andrewid_by_card_id(card_id)
+      session['card_andrewid'] = @card_andrewid
+      redirect_to '/lending/lend'
+    end
+
   end
 
 end
