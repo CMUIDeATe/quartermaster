@@ -1,7 +1,7 @@
 class Ability
   include CanCan::Ability
 
-  def initialize(user)
+  def initialize(user, ip)
     # Define abilities for the passed in user here.
     #
     # The first argument to `can` is the action you are giving the user
@@ -24,9 +24,19 @@ class Ability
 
     user ||= User.new # guest user (not logged in)
 
+    # In production, fill in with allowed admins, operators, and IPs
+    superadmins = []
+    admins = []
+    operators = []
+    operator_ips = []
+
     superadmin if user.has_role? :superadmin
     admin if user.has_role? :admin
-    student_employee if user.has_role? :student_employee
+    operator if user.has_role? :operator
+
+    superadmin if superadmins.include? user.andrewid
+    admin if admins.include? user.andrewid
+    operator if operators.include? user.andrewid and operator_ips.include? ip
 
     # Deprecated/stubbed functionality
     cannot :manage, PrintRequest unless user.has_role? :superadmin
@@ -42,7 +52,7 @@ class Ability
     can :manage, :all
   end
 
-  def student_employee
+  def operator
     can :manage, :legacy_lending
   end
 
