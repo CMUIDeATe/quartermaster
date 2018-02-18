@@ -1,5 +1,8 @@
 <p>
   Welcome to the IDeATe Quartermaster!
+  <% if not user_signed_in? %>
+    <strong>Log in to get started.</strong>
+  <% end %>
 </p>
 
 <p>
@@ -22,10 +25,4 @@
     </ul>
   </li>
   <% end %>
-  <li>Feeds and speeds lookup
-    <ul>
-      <li><%= link_to 'Laser cutter settings', laser_settings_path %></li>
-      <li><%= link_to 'CNC router settings', cnc_settings_path %></li>
-    </ul>
-  </li>
 </ul>

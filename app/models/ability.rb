@@ -23,7 +23,6 @@ class Ability
     # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
 
     user ||= User.new # guest user (not logged in)
-    can :read, Item, active: true
 
     superadmin if user.has_role? :superadmin
     admin if user.has_role? :admin
@@ -31,6 +30,7 @@ class Ability
 
     # Deprecated/stubbed functionality
     cannot :manage, PrintRequest unless user.has_role? :superadmin
+    cannot :manage, Item unless user.has_role? :superadmin
 
   end
 
@@ -44,7 +44,6 @@ class Ability
 
   def student_employee
     can :manage, :legacy_lending
-    can :create, Item
   end
 
 end
