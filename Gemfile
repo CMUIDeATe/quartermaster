@@ -71,6 +71,7 @@ gem 'paperclip', '~> 5.2.0'
 # LDAP libraries
 gem 'ruby-ldap', '~> 0.9.19'
 gem 'activeldap', '~> 4.0.6', require: 'active_ldap/railtie'
+gem 'net-ldap', '~> 0.16.1'
 
 # SOAP client for card lookup
 gem 'savon', '~> 2.11.1'

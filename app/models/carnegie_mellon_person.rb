@@ -10,6 +10,8 @@ class CarnegieMellonPerson < ActiveLdap::Base
                                                                'cn', 
                                                                'mail',
                                                                'sn',
+                                                               'givenName',
+                                                               'nickname',
                                                                'cmuDepartment',
                                                                'cmuStudentClass'
                                                               ]) 

@@ -11,7 +11,12 @@ class LegacyLendingController < ApplicationController
     session['card_andrewid'] = nil
 
     unless @card_andrewid.nil? || @card_andrewid.empty?
-
+      begin
+        person = CarnegieMellonPerson.find_by_andrewid(@card_andrewid)
+        @card_name = "#{person['sn']}, #{person['givenName']}"
+      rescue
+        @card_name = ''
+      end
     end
 
     @header = "Lend Item"
@@ -59,6 +64,9 @@ class LegacyLendingController < ApplicationController
     card_id = params[:card_input]
     unless card_id.nil? || card_id.empty?
       @card_andrewid = CarnegieMellonIDCard.get_andrewid_by_card_id(card_id)
+      if @card_andrewid.nil?
+        flash['alert'] = 'Invalid card ID.'
+      end
       session['card_andrewid'] = @card_andrewid
       redirect_to '/lending/lend'
     end
