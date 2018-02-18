@@ -80,7 +80,7 @@ class LegacyLendingController < ApplicationController
         flash['alert'] = 'Invalid card ID.'
       end
       session['card_andrewid'] = @card_andrewid
-      redirect_to params[:card_input_redirect]
+      redirect_to action: params[:card_input_redirect]
     end
 
   end
