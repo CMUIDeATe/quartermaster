@@ -2,6 +2,7 @@
 
 <%= form_tag '/lending/card_input' do %>
   <%= text_field_tag 'card_input', nil, placeholder: 'Tap ID card to begin transaction...', size: 50, autofocus: true %>
+  <%= hidden_field_tag 'card_input_redirect', '/lending/lend' %>
   <%= submit_tag 'Lookup...', class: 'btn btn-default' %>
 <% end %>
 

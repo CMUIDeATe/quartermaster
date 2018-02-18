@@ -25,6 +25,18 @@ class LegacyLendingController < ApplicationController
   end
 
   def student_purchase
+    @card_andrewid = session[:card_andrewid]
+    session['card_andrewid'] = nil
+
+    unless @card_andrewid.nil? || @card_andrewid.empty?
+      begin
+        person = CarnegieMellonPerson.find_by_andrewid(@card_andrewid)
+        @card_name = "#{person['sn']}, #{person['givenName']}"
+      rescue
+        @card_name = ''
+      end
+    end
+
     @header = "Manage Purchases by IDeATe Students"
     @title = "Manage Purchases by IDeATe Students"
     authorize! :manage, :legacy_lending
@@ -68,7 +80,7 @@ class LegacyLendingController < ApplicationController
         flash['alert'] = 'Invalid card ID.'
       end
       session['card_andrewid'] = @card_andrewid
-      redirect_to '/lending/lend'
+      redirect_to params[:card_input_redirect]
     end
 
   end
