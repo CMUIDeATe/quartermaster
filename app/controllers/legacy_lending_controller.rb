@@ -75,7 +75,7 @@ class LegacyLendingController < ApplicationController
   def card_input
     card_id = params[:card_input]
     unless card_id.nil? || card_id.empty?
-      @card_andrewid = CarnegieMellonIDCard.get_andrewid_by_card_id(card_id)
+      @card_andrewid = card_lookup(card_id)
       if @card_andrewid.nil?
         flash['alert'] = 'Invalid card ID.'
         logger.info "Logged card for invalid Andrew user from #{params[:card_input_redirect]} at #{Time.now}"
@@ -86,6 +86,19 @@ class LegacyLendingController < ApplicationController
       redirect_to action: params[:card_input_redirect]
     end
 
+  end
+
+  private
+
+    def card_lookup card_number
+      if card_number[/\A8\d{8}\z/]
+        andrewid = CarnegieMellonIDCard.get_andrewid_by_card_id(card_number)
+      elsif card_number[/\A[0-9a-fA-F]{8}\z/]
+        andrewid = CarnegieMellonIDCard.get_andrewid_by_card_csn(card_number)
+      elsif card_number[/\A\d{10}\z/]
+        andrewid = CarnegieMellonIDCard.get_andrewid_by_card_csn(card_number.to_i.to_s(16))
+      end
+    return andrewid
   end
 
 end
