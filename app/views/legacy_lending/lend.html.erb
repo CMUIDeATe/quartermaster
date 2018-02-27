@@ -3,13 +3,14 @@
 <%= form_tag 'card_input' do %>
   <%= text_field_tag 'card_input', nil, placeholder: 'Tap ID card to begin transaction...', size: 50, autofocus: true %>
   <%= hidden_field_tag 'card_input_redirect', 'lend' %>
-  <%= submit_tag 'Lookup...', class: 'btn btn-default' %>
+  <%= submit_tag 'Lookup...', class: 'btn btn-primary' %>
 <% end %>
 
 <% unless @card_andrewid.nil? %>
   <h2>
     <%= @card_andrewid %>
     <small><%= @card_name %></small>
+    <%= link_to 'Reset', lending_lend_url, class: 'btn btn-default', style: 'display: inline-block;' %>
   </h2>
   <p>
     <em>Copy-and-paste Andrew ID above into form below.</em>
