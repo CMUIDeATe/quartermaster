@@ -1,20 +1,7 @@
 <%= render 'legacy_lending/navigation' %>
 
-<%= form_tag 'card_input' do %>
-  <%= text_field_tag 'card_input', nil, placeholder: 'Tap ID card to begin transaction...', size: 50, autofocus: true %>
-  <%= hidden_field_tag 'card_input_redirect', 'student_purchase' %>
-  <%= submit_tag 'Lookup...', class: 'btn btn-primary' %>
-<% end %>
+<%= render partial: 'card_input', locals: { redirect: 'student_purchase', reset_url: lending_student_purchase_url } %>
 
 <% unless @card_andrewid.nil? %>
-  <h2>
-    <%= @card_andrewid %>
-    <small><%= @card_name %></small>
-    <%= link_to 'Reset', lending_student_purchase_url, class: 'btn btn-default', style: 'display: inline-block;' %>
-  </h2>
-  <p>
-    <em>Copy-and-paste Andrew ID above into form below.</em>
-  </p>
-  <hr>
   <iframe src="https://creator.zohopublic.com/zoho_pzali/ideate/view-embed/USER_CHARGES1/UHFRprpK36sUXd9s2ByTx6Ry1sfw2wrxTaxyMU0HVUC9EYWtkeOyBhxdWYvRj05dqDjTeM1OE35pDAQ32ZdAx4XUx11kj5NMNXRY/" name="formEmbed-Test_Form" width="100%" height="1000px" frameborder="0" scrolling="auto"></iframe>
 <% end %>
