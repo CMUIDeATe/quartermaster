@@ -26,12 +26,6 @@ class LegacyLendingController < ApplicationController
     authorize! :manage, :legacy_lending
   end
 
-  def external_purchase
-    @header = "Manage Purchases by Faculty, Staff, and Non-IDeATe Students"
-    @title = "Manage Purchases by Faculty, Staff, and Non-IDeATe Students"
-    authorize! :manage, :legacy_lending
-  end
-
   def course_purchase
     @card_andrewid = session[:card_andrewid]
     @card_name = get_name_from_andrewid(@card_andrewid)
