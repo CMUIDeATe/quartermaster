@@ -8,16 +8,8 @@ class LegacyLendingController < ApplicationController
 
   def lend
     @card_andrewid = session[:card_andrewid]
+    @card_name = get_name_from_andrewid(@card_andrewid)
     session['card_andrewid'] = nil
-
-    unless @card_andrewid.nil? || @card_andrewid.empty?
-      begin
-        person = CarnegieMellonPerson.find_by_andrewid(@card_andrewid)
-        @card_name = "#{person['sn']}, #{person['givenName']}"
-      rescue
-        @card_name = ''
-      end
-    end
 
     @header = "Lend Item"
     @title = "Lend Item"
@@ -26,16 +18,8 @@ class LegacyLendingController < ApplicationController
 
   def student_purchase
     @card_andrewid = session[:card_andrewid]
+    @card_name = get_name_from_andrewid(@card_andrewid)
     session['card_andrewid'] = nil
-
-    unless @card_andrewid.nil? || @card_andrewid.empty?
-      begin
-        person = CarnegieMellonPerson.find_by_andrewid(@card_andrewid)
-        @card_name = "#{person['sn']}, #{person['givenName']}"
-      rescue
-        @card_name = ''
-      end
-    end
 
     @header = "Manage Purchases by IDeATe Students"
     @title = "Manage Purchases by IDeATe Students"
@@ -50,16 +34,8 @@ class LegacyLendingController < ApplicationController
 
   def course_purchase
     @card_andrewid = session[:card_andrewid]
+    @card_name = get_name_from_andrewid(@card_andrewid)
     session['card_andrewid'] = nil
-
-    unless @card_andrewid.nil? || @card_andrewid.empty?
-      begin
-        person = CarnegieMellonPerson.find_by_andrewid(@card_andrewid)
-        @card_name = "#{person['sn']}, #{person['givenName']}"
-      rescue
-        @card_name = ''
-      end
-    end
 
     @header = "Manage Purchases Funded by a Course or Project"
     @title = "Manage Purchases Funded by a Course or Project"
@@ -110,7 +86,18 @@ class LegacyLendingController < ApplicationController
       elsif card_number[/\A\d{10}\z/]
         andrewid = CarnegieMellonIDCard.get_andrewid_by_card_csn(card_number.to_i.to_s(16))
       end
-    return andrewid
-  end
+      return andrewid
+    end
+
+    def get_name_from_andrewid andrewid
+      return '' if andrewid.nil? || andrewid.empty?
+      begin
+        person = CarnegieMellonPerson.find_by_andrewid(andrewid)
+        return "#{person['sn']}, #{person['givenName']}"
+      rescue
+        return ''
+      end
+    end
+
 
 end
