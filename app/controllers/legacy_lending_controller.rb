@@ -49,6 +49,18 @@ class LegacyLendingController < ApplicationController
   end
 
   def course_purchase
+    @card_andrewid = session[:card_andrewid]
+    session['card_andrewid'] = nil
+
+    unless @card_andrewid.nil? || @card_andrewid.empty?
+      begin
+        person = CarnegieMellonPerson.find_by_andrewid(@card_andrewid)
+        @card_name = "#{person['sn']}, #{person['givenName']}"
+      rescue
+        @card_name = ''
+      end
+    end
+
     @header = "Manage Purchases Funded by a Course or Project"
     @title = "Manage Purchases Funded by a Course or Project"
     authorize! :manage, :legacy_lending

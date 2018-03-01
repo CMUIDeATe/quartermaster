@@ -1,3 +1,7 @@
 <%= render 'legacy_lending/navigation' %>
 
-<iframe height="1000px" width="100%" name="formEmbed-Test_Form" frameborder="0" allowtransparency="true" scrolling="auto" src="https://creator.zohopublic.com/zoho_pzali/ideate/view-embed/COURSE_CHARGES_Report/yGTaeUpMeJfKJPgmNgvtdQTjrXRE3Cxg7x0nZsBRgtACsBBmRtWzETFH1mfsdwV5zW30yram30AyDfA2PW7N5KxDWnZp3PP9ER0Z/zc_Paging=false&amp;zc_Search=false&amp;zc_Summary=false&amp;zc_Header=false"></iframe>
+<%= render partial: 'card_input', locals: { redirect: 'course_purchase', reset_url: lending_course_purchase_url } %>
+
+<% unless @card_andrewid.nil? %>
+  <iframe height="1000px" width="100%" name="formEmbed-Test_Form" frameborder="0" allowtransparency="true" scrolling="auto" src="https://creator.zohopublic.com/zoho_pzali/ideate/view-embed/COURSE_CHARGES_Report/yGTaeUpMeJfKJPgmNgvtdQTjrXRE3Cxg7x0nZsBRgtACsBBmRtWzETFH1mfsdwV5zW30yram30AyDfA2PW7N5KxDWnZp3PP9ER0Z/zc_Paging=false&amp;zc_Search=false&amp;zc_Summary=false&amp;zc_Header=false"></iframe>
+<% end %>
