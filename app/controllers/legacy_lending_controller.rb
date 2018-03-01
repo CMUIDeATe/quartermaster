@@ -103,7 +103,7 @@ class LegacyLendingController < ApplicationController
   private
 
     def card_lookup card_number
-      if card_number[/\A8\d{8}\z/]
+      if card_number[/\A\d{9}\z/]
         andrewid = CarnegieMellonIDCard.get_andrewid_by_card_id(card_number)
       elsif card_number[/\A[0-9a-fA-F]{8}\z/]
         andrewid = CarnegieMellonIDCard.get_andrewid_by_card_csn(card_number)
