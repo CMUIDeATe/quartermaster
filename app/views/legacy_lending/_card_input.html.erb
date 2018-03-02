@@ -1,5 +1,6 @@
 <%= form_tag 'card_input' do %>
-  <%= text_field_tag 'card_input', nil, placeholder: 'Tap ID card to begin transaction...', size: 50, autofocus: true %>
+  <%= image_tag 'id-card-tilted.png', height: 48, style: 'display: inline-block;' %>
+  <%= text_field_tag 'card_input', nil, placeholder: 'Tap ID card to begin transaction...', size: 32, autofocus: true %>
   <%= hidden_field_tag 'card_input_redirect', redirect %>
   <%= submit_tag 'Lookup...', class: 'btn btn-primary' %>
 <% end %>
