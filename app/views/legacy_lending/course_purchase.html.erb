@@ -1,5 +1,27 @@
 <%= render 'legacy_lending/navigation' %>
 
+<div id="policy" class="panel panel-warning">
+  <div class="panel-heading">
+    <span class="text-danger"><u>ONLY</u> the listed accounts</span> have arranged with IDeATe to fund materials purchases and are authorized for use.
+  </div>
+  <div class="panel-body">
+    <ul>
+      <li>
+        All course-funded accounts and Oracle string purchases <b><u>MUST</u></b> be pre-arranged.  Direct inquiries to help@ideate.cmu.edu to make arrangements.  Turnaround time is 1&ndash;2 business days.
+      </li>
+      <li>
+        If a course/project isn't in the dropdown, <b class="text-warning">it has not arranged</b> to fund materials purchases.  Either do a (paid) <%= link_to 'student purchase', lending_student_purchase_url %> or <b class="text-danger">DON'T SELL.</b>
+      </li>
+      <li>
+        <b class="text-danger">Do <u>NOT</u> accept Oracle strings</b> for <b><u>ANY</u></b> reason.
+      </li>
+    </ul>
+    The Art Store in the lower level of the CUC is equipped to accept Oracle strings at the point of sale.
+  </div>
+</div>
+
+<hr>
+
 <%= render partial: 'card_input', locals: { redirect: 'course_purchase', reset_url: lending_course_purchase_url } %>
 
 <% unless @card_andrewid.nil? %>

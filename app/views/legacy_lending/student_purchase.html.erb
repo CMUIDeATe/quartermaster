@@ -1,5 +1,27 @@
 <%= render 'legacy_lending/navigation' %>
 
+<div id="policy" class="panel panel-info">
+  <div class="panel-heading">
+    Effective January 2018, direct material sales are limited to <span class="text-danger">IDeATe students <u>ONLY</u>.</span>
+  </div>
+  <div class="panel-body">
+    <ul>
+      <li>
+        <b class="text-warning">Faculty and staff</b> <b><u>MUST</u></b> pre-arrange purchase through help@ideate.cmu.edu.  Turnaround time for new <%= link_to 'course/project accounts', lending_course_purchase_url %> is 1&ndash;2 business days.
+      </li>
+      <li>
+        <b class="text-warning">New IDeATe students</b> are added to the system periodically, especially during official Course Add periods.  Anyone we've missed should email help@ideate.cmu.edu and allow 1&ndash;2 business days for enrollment verification.
+      </li>
+      <li>
+        <b class="text-danger">We <u>CANNOT</u> sell</b> to non-affiliates, former students (alumni), or non-IDeATe students.
+      </li>
+    </ul>
+    The Art Store in the lower level of the CUC is equipped to sell to the general public.
+  </div>
+</div>
+
+<hr>
+
 <%= render partial: 'card_input', locals: { redirect: 'student_purchase', reset_url: lending_student_purchase_url } %>
 
 <% unless @card_andrewid.nil? %>
