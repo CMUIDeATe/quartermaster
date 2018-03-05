@@ -14,26 +14,20 @@
 
     <ul class="nav navbar-nav">
       <% if can? :manage, :legacy_lending %>
+        <%= nav_link 'Home', lending_path %>
+        <%= nav_link 'Lend only', lending_lend_path %>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-          Legacy Lending
-          <b class="caret"></b>
+          <a class="dropdown-toggle" data-toggle="dropdown">
+            Purchases <b class="caret"></b>
           </a>
           <ul class="dropdown-menu">
-            <li class="dropdown-header">Lending</li>
-            <li><%= link_to 'Home', lending_path %></li>
-            <li><%= link_to 'Lend only', lending_lend_path %></li>
-            <li role="separator" class="divider"></li>
-            <li class="dropdown-header">Purchases</li>
-            <li><%= link_to 'IDeATe students', lending_student_purchase_path %></li>
-            <li><%= link_to 'Course- or Project-funded', lending_course_purchase_path %></li>
-            <li role="separator" class="divider"></li>
-            <li><%= link_to 'PC cart schedule', lending_pc_cart_path %></li>
-            <li><%= link_to 'Shift schedule', lending_schedule_path %></li>
-            <li role="separator" class="divider"></li>
-            <li><%= link_to 'NVBots live feed', lending_nvbots_path %></li>
+            <%= nav_link 'IDeATe students', lending_student_purchase_path %>
+            <%= nav_link 'Course- or Project-funded', lending_course_purchase_path %>
           </ul>
         </li>
+        <%= nav_link 'PC cart schedule', lending_pc_cart_path %>
+        <%= nav_link 'Shift schedule', lending_schedule_path %>
+        <%= nav_link 'NVBots live feed', lending_nvbots_path %>
       <% end %>
       <% if user_signed_in? and current_user.has_role? :superadmin %>
         <li class="dropdown">
