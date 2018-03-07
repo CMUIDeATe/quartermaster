@@ -1,0 +1,20 @@
+<ul>
+  <li>Equipment
+    <ul>
+      <%= nav_link 'VR Equipment', reservations_path(room: 'VR') %>
+    </ul>
+  </li>
+  <li>Classrooms
+    <ul>
+      <%= nav_link 'Experimental Fabrication (A5)', reservations_path(room: 'A5') %>
+      <%= nav_link 'Media Lab (A10A)', reservations_path(room: 'A10A') %>
+      <%= nav_link 'Physical Computing (A10)', reservations_path(room: 'A10') %>
+      <%= nav_link 'IDeATe Studios (106B/106C)', reservations_path(room: '106B') %>
+    </ul>
+  </li>
+  <li>Shop
+    <ul>
+      <%= nav_link 'Wood Shop (A30/A31)', reservations_path(room: 'A30') %>
+    </ul>
+  </li>
+</ul>

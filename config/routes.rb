@@ -32,10 +32,11 @@ Rails.application.routes.draw do
   get '/lending/lend', to: 'legacy_lending#lend'
   get '/lending/student_purchase', to: 'legacy_lending#student_purchase'
   get '/lending/course_purchase', to: 'legacy_lending#course_purchase'
-  get '/lending/pc_cart', to: 'legacy_lending#pc_cart'
   get '/lending/schedule', to: 'legacy_lending#schedule'
   get '/lending/nvbots', to: 'legacy_lending#nvbots'
 
   post '/lending/card_input', to: 'legacy_lending#card_input'
+
+  get '/reservations', to: 'legacy_lending#reservations'
 
 end

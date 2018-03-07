@@ -36,10 +36,40 @@ class LegacyLendingController < ApplicationController
     authorize! :manage, :legacy_lending
   end
 
-  def pc_cart
-    @header = "PC Cart Schedule"
-    @title = "PC Cart Schedule"
-    authorize! :manage, :legacy_lending
+  def reservations
+    room = params[:room]
+    room ||= ''
+
+    case room.upcase()
+      when "A5"
+        @mrbs_area = 4
+        @room_name = "Experimental Fabrication (A5)"
+      when "A10"
+        @mrbs_area = 6
+        @room_name = "Physical Computing (A10)"
+      when "A10A"
+        @mrbs_area = 5
+        @room_name = "Media Lab (A10A)"
+      when "A29"
+        @mrbs_area = 8
+        @room_name = "IDeATe Lending (A29)"
+      when "A30", "A31"
+        @mrbs_area = 10
+        @room_name = "Wood Shop (A30/A31)"
+      when "106B", "106C"
+        @mrbs_area = 7
+        @room_name = "IDeATe Studios (106B/106C)"
+      when "VR"
+        @mrbs_area = 11
+        @room_name = "VR Equipment"
+      else
+        @header = "Reservations"
+        @title = "Reservations"
+        render 'reservations_index'
+    end
+
+    @header = "#{ view_context.link_to 'Reservations', reservations_path } <small>#{@room_name}</small>".html_safe()
+    @title = "Reservations &ndash; #{@room_name}".html_safe()
   end
 
   def schedule

@@ -22,6 +22,11 @@ class Ability
     # See the wiki for details:
     # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
 
+    # Abilities for logged-in users
+    if user
+      can :read, :reservation
+    end
+
     user ||= User.new # guest user (not logged in)
 
     # In production, fill in with allowed admins, operators, and IPs
