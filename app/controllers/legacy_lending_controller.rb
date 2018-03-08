@@ -11,14 +11,14 @@ class LegacyLendingController < ApplicationController
     @card_name = get_name_from_andrewid(@card_andrewid)
     session['card_andrewid'] = nil
 
-    @header = "Lend Item"
-    @title = "Lend Item"
+    @header = "Lend item"
+    @title = "Lend item"
     authorize! :manage, :legacy_lending
   end
 
   def item_return
-    @header = "Return Item"
-    @title = "Return Item"
+    @header = "Return item"
+    @title = "Return item"
     authorize! :manage, :legacy_lending
   end
 
@@ -91,14 +91,14 @@ class LegacyLendingController < ApplicationController
   end
 
   def schedule
-    @header = "Shift Schedule"
-    @title = "Shift Schedule"
+    @header = "Shift schedule"
+    @title = "Shift schedule"
     authorize! :manage, :legacy_lending
   end
 
   def nvbots
-    @header = "NVBots Live Feed"
-    @title = "NVBots Live Feed"
+    @header = "NVBots live feed"
+    @title = "NVBots live feed"
     authorize! :manage, :legacy_lending
   end
 
