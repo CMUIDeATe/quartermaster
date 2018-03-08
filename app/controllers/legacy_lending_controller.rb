@@ -22,6 +22,12 @@ class LegacyLendingController < ApplicationController
     authorize! :manage, :legacy_lending
   end
 
+  def item_browse
+    @header = "Browse inventory"
+    @title = "Browse inventory"
+    authorize! :manage, :legacy_lending
+  end
+
   def student_purchase
     @card_andrewid = session[:card_andrewid]
     @card_name = get_name_from_andrewid(@card_andrewid)
