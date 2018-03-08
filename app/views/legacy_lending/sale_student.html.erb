@@ -5,7 +5,7 @@
   <div class="panel-body">
     <ul>
       <li>
-        <b class="text-warning">Faculty and staff</b> <b><u>MUST</u></b> pre-arrange purchase through help@ideate.cmu.edu.  Turnaround time for new <%= link_to 'course/project accounts', lending_course_purchase_url %> is 1&ndash;2 business days.
+        <b class="text-warning">Faculty and staff</b> <b><u>MUST</u></b> pre-arrange purchase through help@ideate.cmu.edu.  Turnaround time for new <%= link_to 'course/project accounts', sales_course_url %> is 1&ndash;2 business days.
       </li>
       <li>
         <b class="text-warning">New IDeATe students</b> are added to the system periodically, especially during official Course Add periods.  Anyone we've missed should email help@ideate.cmu.edu and allow 1&ndash;2 business days for enrollment verification.
@@ -20,7 +20,7 @@
 
 <hr>
 
-<%= render partial: 'card_input', locals: { redirect: 'student_purchase', reset_url: lending_student_purchase_url } %>
+<%= render partial: 'legacy_lending/card_input', locals: { redirect: 'sale_student', reset_url: sales_student_url } %>
 
 <% unless @card_andrewid.nil? %>
   <iframe src="https://creator.zohopublic.com/zoho_pzali/ideate/view-embed/USER_CHARGES1/UHFRprpK36sUXd9s2ByTx6Ry1sfw2wrxTaxyMU0HVUC9EYWtkeOyBhxdWYvRj05dqDjTeM1OE35pDAQ32ZdAx4XUx11kj5NMNXRY/" name="formEmbed-Test_Form" width="100%" height="1000px" frameborder="0" scrolling="auto"></iframe>

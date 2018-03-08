@@ -28,23 +28,23 @@ class LegacyLendingController < ApplicationController
     authorize! :manage, :legacy_lending
   end
 
-  def student_purchase
+  def sale_student
     @card_andrewid = session[:card_andrewid]
     @card_name = get_name_from_andrewid(@card_andrewid)
     session['card_andrewid'] = nil
 
-    @header = "Manage Purchases by IDeATe Students"
-    @title = "Manage Purchases by IDeATe Students"
+    @header = "Sell to IDeATe student"
+    @title = "Sell to IDeATe student"
     authorize! :manage, :legacy_lending
   end
 
-  def course_purchase
+  def sale_course
     @card_andrewid = session[:card_andrewid]
     @card_name = get_name_from_andrewid(@card_andrewid)
     session['card_andrewid'] = nil
 
-    @header = "Manage Purchases Funded by a Course or Project"
-    @title = "Manage Purchases Funded by a Course or Project"
+    @header = "Sell to course- or project-funded account"
+    @title = "Sell to course- or project-funded account"
     authorize! :manage, :legacy_lending
   end
 

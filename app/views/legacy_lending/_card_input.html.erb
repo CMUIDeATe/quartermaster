@@ -1,4 +1,4 @@
-<%= form_tag 'card_input' do %>
+<%= form_tag lending_card_input_url do %>
   <%= image_tag 'id-card-tilted.png', height: 48, style: 'display: inline-block;' %>
   <% if @card_andrewid.nil? %>
     <%= text_field_tag 'card_input', nil, placeholder: 'Tap ID card to begin transaction...', size: 32, autofocus: true %>

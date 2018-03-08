@@ -8,7 +8,7 @@
         All course-funded accounts and Oracle string purchases <b><u>MUST</u></b> be pre-arranged.  Direct inquiries to help@ideate.cmu.edu to make arrangements.  Turnaround time is 1&ndash;2 business days.
       </li>
       <li>
-        If a course/project isn't in the dropdown, <b class="text-warning">it has not arranged</b> to fund materials purchases.  Either do a (paid) <%= link_to 'student purchase', lending_student_purchase_url %> or <b class="text-danger">DON'T SELL.</b>
+        If a course/project isn't in the dropdown, <b class="text-warning">it has not arranged</b> to fund materials purchases.  Either do a (paid) <%= link_to 'student purchase', sales_student_url %> or <b class="text-danger">DON'T SELL.</b>
       </li>
       <li>
         <b class="text-danger">Do <u>NOT</u> accept Oracle strings</b> for <b><u>ANY</u></b> reason.
@@ -20,7 +20,7 @@
 
 <hr>
 
-<%= render partial: 'card_input', locals: { redirect: 'course_purchase', reset_url: lending_course_purchase_url } %>
+<%= render partial: 'legacy_lending/card_input', locals: { redirect: 'sale_course', reset_url: sales_course_url } %>
 
 <% unless @card_andrewid.nil? %>
   <iframe height="1000px" width="100%" name="formEmbed-Test_Form" frameborder="0" allowtransparency="true" scrolling="auto" src="https://creator.zohopublic.com/zoho_pzali/ideate/view-embed/COURSE_CHARGES_Report/yGTaeUpMeJfKJPgmNgvtdQTjrXRE3Cxg7x0nZsBRgtACsBBmRtWzETFH1mfsdwV5zW30yram30AyDfA2PW7N5KxDWnZp3PP9ER0Z/zc_Paging=false&amp;zc_Search=false&amp;zc_Summary=false&amp;zc_Header=false"></iframe>
