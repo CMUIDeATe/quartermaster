@@ -8,11 +8,8 @@
     </ul>
   </li>
   <li>
-    Sales
-    <ul>
-      <%= nav_link 'Sell to IDeATe student', sales_student_path %>
-      <%= nav_link 'Sell to course- or project-funded account', sales_course_path %>
-    </ul>
+    <%= link_to 'Sales', sales_path %>
+    <%= render partial: 'sales' %>
   </li>
   <li>
     <%= link_to 'Reservations', reservations_path %>

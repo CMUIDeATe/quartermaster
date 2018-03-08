@@ -28,6 +28,12 @@ class LegacyLendingController < ApplicationController
     authorize! :manage, :legacy_lending
   end
 
+  def sale_index
+    @header = "Sales"
+    @title = "Sales"
+    authorize! :manage, :legacy_lending
+  end
+
   def sale_student
     @card_andrewid = session[:card_andrewid]
     @card_name = get_name_from_andrewid(@card_andrewid)
