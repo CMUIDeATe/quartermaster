@@ -108,12 +108,12 @@ class LegacyLendingController < ApplicationController
       @card_andrewid = card_lookup(card_id)
       if @card_andrewid.nil?
         flash['alert'] = 'Invalid card ID.'
-        logger.info "Logged card for invalid Andrew user from #{params[:card_input_redirect]} at #{Time.now}"
+        logger.info "Logged card for invalid Andrew user from #{params[:card_input_redirect_action]} at #{Time.now}"
       else
-        logger.info "Logged card for Andrew user '#{@card_andrewid}' from #{params[:card_input_redirect]} at #{Time.now}"
+        logger.info "Logged card for Andrew user '#{@card_andrewid}' from #{params[:card_input_redirect_action]} at #{Time.now}"
       end
       session['card_andrewid'] = @card_andrewid
-      redirect_to action: params[:card_input_redirect]
+      redirect_to action: params[:card_input_redirect_action]
     end
 
   end

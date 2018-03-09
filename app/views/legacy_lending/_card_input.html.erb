@@ -5,7 +5,7 @@
   <% else %>
     <%= text_field_tag 'card_input', nil, placeholder: 'Tap ID card...', size: 32 %>
   <% end %>
-  <%= hidden_field_tag 'card_input_redirect', redirect %>
+  <%= hidden_field_tag 'card_input_redirect_action', redirect_action %>
   <%= submit_tag 'Lookup...', class: 'btn btn-primary' %>
 <% end %>
 
