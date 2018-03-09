@@ -23,5 +23,5 @@
 <%= render partial: 'legacy_lending/card_input', locals: { redirect_action: 'sale_course', reset_url: sales_course_url } %>
 
 <% unless @card_andrewid.nil? %>
-  <iframe src="<%= ENV['ZOHO_SALE_COURSE_URL'] %>" width="100%" height="1000px" frameborder="0" scrolling="auto"></iframe>
+  <iframe src="<%= ENV['ZOHO_SALE_COURSE_URL'] %>?ref_user_charge_aid_post=<%= @card_andrewid %>" width="100%" height="1000px" frameborder="0" scrolling="auto"></iframe>
 <% end %>
