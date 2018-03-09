@@ -54,6 +54,26 @@ class LegacyLendingController < ApplicationController
     authorize! :manage, :legacy_lending
   end
 
+  def sale_student_return
+    @card_andrewid = session[:card_andrewid]
+    @card_name = get_name_from_andrewid(@card_andrewid)
+    session['card_andrewid'] = nil
+
+    @header = "Return from IDeATe student"
+    @title = "Return from IDeATe student"
+    authorize! :manage, :legacy_lending
+  end
+
+  def sale_course_return
+    @card_andrewid = session[:card_andrewid]
+    @card_name = get_name_from_andrewid(@card_andrewid)
+    session['card_andrewid'] = nil
+
+    @header = "Return from course- or project-funded account"
+    @title = "Return from course- or project-funded account"
+    authorize! :manage, :legacy_lending
+  end
+
   def reservations
     room = params[:room]
     room ||= ''

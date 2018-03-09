@@ -38,6 +38,8 @@ Rails.application.routes.draw do
   get '/sales', to: 'legacy_lending#sale_index'
   get '/sales/student', to: 'legacy_lending#sale_student'
   get '/sales/course', to: 'legacy_lending#sale_course'
+  get '/sales/student/return', to: 'legacy_lending#sale_student_return'
+  get '/sales/course/return', to: 'legacy_lending#sale_course_return'
 
   post '/lending/card_input', to: 'legacy_lending#card_input'
 
