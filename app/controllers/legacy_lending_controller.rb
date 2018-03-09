@@ -6,7 +6,7 @@ class LegacyLendingController < ApplicationController
     authorize! :manage, :legacy_lending
   end
 
-  def lend
+  def item_lend
     @card_andrewid = session[:card_andrewid]
     @card_name = get_name_from_andrewid(@card_andrewid)
     session['card_andrewid'] = nil
