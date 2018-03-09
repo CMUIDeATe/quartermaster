@@ -1,5 +1,5 @@
 <%= render partial: 'legacy_lending/card_input', locals: { redirect_action: 'sale_course_return', reset_url: sales_course_return_url } %>
 
 <% unless @card_andrewid.nil? %>
-  <iframe height="1000px" width="100%" name="formEmbed-Test_Form" frameborder="0" allowtransparency="true" scrolling="auto" src="https://creator.zohopublic.com/zoho_pzali/ideate/form-perma/Course_Charges_Return_Test/dEdSZs8d6fs8PBde1s3bWTXbNgMnTxknepRMNswYKV71PXGsXgs6PrATQ4vJ3C8ON6bJzeKqkqDHQeY4CeEk15YzmfvfdCGCPQAA"></iframe>
+  <iframe src="<%= ENV['ZOHO_SALE_COURSE_RETURN_URL'] %>" width="100%" height="1000px" frameborder="0" scrolling="auto"></iframe>
 <% end %>
