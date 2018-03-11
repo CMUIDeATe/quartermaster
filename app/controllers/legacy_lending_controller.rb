@@ -146,7 +146,7 @@ class LegacyLendingController < ApplicationController
       elsif card_number[/\A[0-9a-fA-F]{8}\z/]
         andrewid = CarnegieMellonIDCard.get_andrewid_by_card_csn(card_number)
       elsif card_number[/\A\d{10}\z/]
-        andrewid = CarnegieMellonIDCard.get_andrewid_by_card_csn(card_number.to_i.to_s(16))
+        andrewid = CarnegieMellonIDCard.get_andrewid_by_card_csn(card_number.to_i.to_s(16).rjust(8,"0"))
       end
       return andrewid
     end
