@@ -37,11 +37,23 @@ class Ability
 
     superadmin if user.has_role? :superadmin
     admin if user.has_role? :admin
-    operator if user.has_role? :operator
+    if user.has_role? :operator
+      if operator_ips.include? ip
+        local_operator
+      else
+        remote_operator
+      end
+    end
 
     superadmin if superadmins.include? user.andrewid
     admin if admins.include? user.andrewid
-    operator if operators.include? user.andrewid and operator_ips.include? ip
+    if operators.include? user.andrewid
+      if operator_ips.include? ip
+        local_operator
+      else
+        remote_operator
+      end
+    end
 
     # Deprecated/stubbed functionality
     cannot :manage, PrintRequest unless user.has_role? :superadmin
@@ -57,8 +69,14 @@ class Ability
     can :manage, :all
   end
 
-  def operator
+  def local_operator
     can :manage, :legacy_lending
+    # Local operators also have all the abilities that remote ones do
+    remote_operator
+  end
+
+  def remote_operator
+    can :read, :lending_schedule
   end
 
 end

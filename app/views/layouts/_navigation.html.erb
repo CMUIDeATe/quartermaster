@@ -63,8 +63,11 @@
         </li>
       <% end %>
 
-      <% if can? :manage, :legacy_lending %>
+      <% if can? :read, :lending_schedule %>
         <%= nav_link 'Shift schedule', lending_schedule_path %>
+      <% end %>
+
+      <% if can? :manage, :legacy_lending %>
         <%= nav_link 'NVBots live feed', lending_nvbots_path %>
       <% end %>
 
