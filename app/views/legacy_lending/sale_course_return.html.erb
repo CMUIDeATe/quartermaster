@@ -1,3 +1,22 @@
+<div id="policy" class="panel panel-danger">
+  <div class="panel-heading">
+    This form initiates a return <u>request</u> and is subject to verifcation.
+  </div>
+  <div class="panel-body">
+    <ul>
+      <li>
+        <b><u>ONLY</u></b> accept materials for return if they are unused and in <b class="text-warning">"as new" resalable condition.</b>
+      </li>
+      <li>
+        <b class="text-warning">Defective materials</b> must be returned <b>within 24 hours</b> of purchase (or next business day during summer operation).  Describe the defect in the Notes field, and set the materials aside with a note for George.
+      </li>
+      <li>
+        Remind the customer that returns are <b class="text-danger">subject to verification</b> of the original purchase by IDeATe Administration.
+      </li>
+    </ul>
+  </div>
+</div>
+
 <%= render partial: 'legacy_lending/card_input', locals: { redirect_action: 'sale_course_return', reset_url: sales_course_return_url } %>
 
 <% unless @card_andrewid.nil? %>
