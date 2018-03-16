@@ -1,8 +1,8 @@
 class LegacyLendingController < ApplicationController
 
   def index
-    @header = "Legacy Lending Application"
-    @title = "Legacy Lending Application"
+    @header = "Lending Application"
+    @title = "Lending Application"
     authorize! :manage, :legacy_lending
   end
 

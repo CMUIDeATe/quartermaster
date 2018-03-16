@@ -5,11 +5,12 @@
   <% end %>
 </p>
 
-<p>
-  <% if can? :manage, :legacy_lending %>
-  <%= button_to 'Access the Legacy Lending Application', lending_path, method: 'get', class: 'btn btn-primary' %>
-  <% end %>
-</p>
+<% if can? :manage, :legacy_lending %>
+  <div class="btn-group" role="group">
+    <%= link_to 'Access the Lending Application', lending_path, role: 'button', class: 'btn btn-primary' %>
+    <%= link_to 'Lend item', lending_lend_path, role: 'button', class: 'btn btn-default' %>
+  </div>
+<% end %>
 
 <ul>
   <% if can? :manage, Item %>
