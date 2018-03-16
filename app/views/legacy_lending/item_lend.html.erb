@@ -1,4 +1,4 @@
-<%= render partial: 'card_input', locals: { redirect_action: 'item_lend', reset_url: lending_url } %>
+<%= render partial: 'card_input', locals: { redirect_action: 'item_lend', reset_url: lending_lend_url } %>
 
 <% unless @card_andrewid.nil? %>
   <iframe src="<%= ENV['ZOHO_ITEM_LEND_URL'] %>?co_aid_post=<%= @card_andrewid %>" width="100%" height="1000px" frameborder="0" scrolling="auto"></iframe>
