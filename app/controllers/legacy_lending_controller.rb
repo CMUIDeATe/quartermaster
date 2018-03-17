@@ -110,6 +110,12 @@ class LegacyLendingController < ApplicationController
     @title = "Reservations &ndash; #{@room_name}".html_safe()
   end
 
+  def sale_browse
+    @header = "Price list"
+    @title = "Price list"
+    authorize! :manage, :legacy_lending
+  end
+
   def schedule
     @header = "Shift schedule"
     @title = "Shift schedule"
