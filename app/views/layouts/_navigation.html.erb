@@ -65,8 +65,8 @@
         </li>
       <% end %>
 
-      <% if can? :read, :lending_schedule %>
-        <%= nav_link 'Shift schedule', lending_schedule_path %>
+      <% if can? :read, :lending_shift_schedule %>
+        <%= nav_link 'Shift schedule', lending_schedule_shifts_path %>
       <% end %>
 
       <% if can? :manage, :legacy_lending %>

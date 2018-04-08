@@ -116,10 +116,10 @@ class LegacyLendingController < ApplicationController
     authorize! :manage, :legacy_lending
   end
 
-  def schedule
+  def schedule_shifts
     @header = "Shift schedule"
     @title = "Shift schedule"
-    authorize! :read, :lending_schedule
+    authorize! :read, :lending_shift_schedule
   end
 
   def nvbots

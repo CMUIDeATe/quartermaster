@@ -76,7 +76,7 @@ class Ability
   end
 
   def remote_operator
-    can :read, :lending_schedule
+    can :read, :lending_shift_schedule
   end
 
 end
