@@ -65,8 +65,20 @@
         </li>
       <% end %>
 
-      <% if can? :read, :lending_shift_schedule %>
-        <%= nav_link 'Shift schedule', lending_schedule_shifts_path %>
+      <% if (can? :manage, :legacy_lending) or (can? :read, :lending_shift_schedule) %>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown">
+            Schedules <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu">
+            <% if can? :read, :lending_shift_schedule %>
+              <%= nav_link 'Shift schedule', lending_schedule_shifts_path %>
+            <% end %>
+            <% if can? :manage, :legacy_lending %>
+              <%= nav_link 'Course delivery schedule', lending_schedule_deliveries_path %>
+            <% end %>
+          </ul>
+        </li>
       <% end %>
 
       <% if can? :manage, :legacy_lending %>

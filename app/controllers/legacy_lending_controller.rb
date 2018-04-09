@@ -122,6 +122,12 @@ class LegacyLendingController < ApplicationController
     authorize! :read, :lending_shift_schedule
   end
 
+  def schedule_deliveries
+    @header = "Course delivery schedule"
+    @title = "Course delivery schedule"
+    authorize! :manage, :legacy_lending
+  end
+
   def nvbots
     @header = "NVBots live feed"
     @title = "NVBots live feed"

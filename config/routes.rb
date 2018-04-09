@@ -35,6 +35,7 @@ Rails.application.routes.draw do
   get '/lending/nvbots', to: 'legacy_lending#nvbots'
 
   get '/lending/schedule/shifts', to: 'legacy_lending#schedule_shifts'
+  get '/lending/schedule/deliveries', to: 'legacy_lending#schedule_deliveries'
 
   get '/sales', to: 'legacy_lending#sale_index'
   get '/sales/student', to: 'legacy_lending#sale_student'
