@@ -1,26 +1,39 @@
-<ul>
-  <li>
-    Circulation
-    <ul>
-      <%= nav_link 'Lend', lending_lend_path %>
-      <%= nav_link 'Return', lending_return_path %>
-      <%= nav_link 'Browse inventory', lending_browse_path %>
-    </ul>
-  </li>
-  <li>
-    <%= link_to 'Sales', sales_path %>
-    <%= render partial: 'sales' %>
-  </li>
-  <li>
-    <%= link_to 'Reservations', reservations_path %>
-    <%= render partial: 'reservations' %>
-  </li>
-  <li>
-    Schedules
-    <ul>
-      <%= nav_link 'Shift schedule', lending_schedule_shifts_path %>
-      <%= nav_link 'Course delivery schedule', lending_schedule_deliveries_path %>
-    </ul>
-  </li>
-  <%= nav_link 'NVBots live feed', lending_nvbots_path %>
-</ul>
+<div class="container">
+  <div class="row">
+
+    <div class="col col-md-8">
+
+      <ul>
+        <li>
+          Circulation
+          <ul>
+            <%= nav_link 'Lend', lending_lend_path %>
+            <%= nav_link 'Return', lending_return_path %>
+            <%= nav_link 'Browse inventory', lending_browse_path %>
+          </ul>
+        </li>
+        <li>
+          <%= link_to 'Sales', sales_path %>
+          <%= render partial: 'sales' %>
+        </li>
+        <li>
+          <%= link_to 'Reservations', reservations_path %>
+          <%= render partial: 'reservations' %>
+        </li>
+        <li>
+          Schedules
+          <ul>
+            <%= nav_link 'Shift schedule', lending_schedule_shifts_path %>
+            <%= nav_link 'Course delivery schedule', lending_schedule_deliveries_path %>
+          </ul>
+        </li>
+        <%= nav_link 'NVBots live feed', lending_nvbots_path %>
+      </ul>
+
+    </div>
+    <div class="col col-md-4">
+      <%= render partial: 'sidebar_calendar' %>
+    </div>
+
+  </div>
+</div>

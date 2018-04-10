@@ -1,4 +1,17 @@
-<%= render partial: 'card_input', locals: { redirect_action: 'item_lend', reset_url: lending_lend_url } %>
+<div class="container">
+  <div class="row">
+
+    <div class="col <%= @card_andrewid.nil? ? "col-md-8" : "col-md-12" %>">
+      <%= render partial: 'card_input', locals: { redirect_action: 'item_lend', reset_url: lending_lend_url } %>
+    </div>
+    <% if @card_andrewid.nil? %>
+      <div class="col col-md-4">
+        <%= render partial: 'sidebar_calendar' %>
+      </div>
+    <% end %>
+
+  </div>
+</div>
 
 <% unless @card_andrewid.nil? %>
   <iframe src="<%= ENV['ZOHO_ITEM_LEND_URL'] %>?co_aid_post=<%= @card_andrewid %>" width="100%" height="1000px" frameborder="0" scrolling="auto"></iframe>
