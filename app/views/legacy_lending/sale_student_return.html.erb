@@ -33,5 +33,5 @@
 </div>
 
 <% unless @card_andrewid.nil? %>
-  <iframe src="<%= ENV['ZOHO_SALE_STUDENT_RETURN_URL'] %>?user_return_aid_post=<%= @card_andrewid %>" width="100%" height="1000px" frameborder="0" scrolling="auto"></iframe>
+  <iframe src="<%= ENV['ZOHO_SALE_STUDENT_RETURN_URL'] %>?user_return_aid_post=<%= @card_andrewid %>&sig_post=<%= current_user.andrewid %>" width="100%" height="1000px" frameborder="0" scrolling="auto"></iframe>
 <% end %>
