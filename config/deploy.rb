@@ -38,12 +38,21 @@ set :scm, :git
 
 namespace :deploy do
 
+  before :restart, :linked_files
+
   after :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
       # Here we can do anything such as:
       # within release_path do
       #   execute :rake, 'cache:clear'
       # end
+    end
+  end
+
+  desc 'Links abilities'
+  task :linked_files do
+    on primary fetch(:migration_role) do
+      execute :ln, '-sf', "/srv/rails/quartermaster/#{fetch(:stage)}/shared/ability.rb", "/srv/rails/quartermaster/#{fetch(:stage)}/current/app/models/ability.rb"
     end
   end
 
