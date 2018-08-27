@@ -1,4 +1,5 @@
 class LegacyLendingController < ApplicationController
+  skip_before_action :authenticate_user!
 
   def index
     @header = "Lending Application"
