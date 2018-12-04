@@ -4,4 +4,8 @@ Not all sizes and colors are available at all times.
 Current prices for commonly-available items are listed below:
 </p>
 
-<iframe src="https://creator.zohopublic.com/zoho_pzali/ideate/view-embed/IN_STOCK_CONSUMABLES/PWBR9nxzOjSDrMhpWpdUAbsOdf0kMT7WRzgnCuDq36E9aE1JOnd9qk0jf3KKZQqzn44qOFXWhb6utCmUqzg61Bu4pP2jms9a4N3m" width="100%" height="700px" frameborder="0" scrolling="auto"></iframe>
+<% if @source_ref == 'flatstock' %>
+  <iframe src="https://creator.zohopublic.com/zoho_pzali/ideate/view-embed/IN_STOCK_CONSUMABLES/PWBR9nxzOjSDrMhpWpdUAbsOdf0kMT7WRzgnCuDq36E9aE1JOnd9qk0jf3KKZQqzn44qOFXWhb6utCmUqzg61Bu4pP2jms9a4N3m" width="100%" height="700px" frameborder="0" scrolling="auto"></iframe>
+<% elsif @source_ref == 'lumber' %>
+  <iframe src="https://creator.zohopublic.com/zoho_pzali/ideate/view-perma/WOOD_SHOP_IN_STOCK_CONSUMABLES/yqs4zA0Er9Sm3zvjZtZjSX4DfSKtN7XKZuNn3aKE0gMsuMNJhBahPFNGSsMmGHxxsBfutPjRgRGEMpRtPUHR2r3BE8Ay1QaZusXD" width="100%" height="700px" frameborder="0" scrolling="auto"></iframe>
+<% end %>
