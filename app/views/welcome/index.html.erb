@@ -22,6 +22,7 @@
 <% if can? :manage, :legacy_lending %>
   <h2>Tech Advisors</h2>
   <ul>
+    <li><%= link_to 'Open Fabrication Hours intake', open_intake_path %></li>
     <li><%= link_to 'NVBots live feed', nvbots_path %></li>
   </ul>
 <% end %>

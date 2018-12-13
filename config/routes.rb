@@ -46,6 +46,7 @@ Rails.application.routes.draw do
   post '/lending/card_input', to: 'legacy_lending#card_input'
 
   # Tech Advisor pages
+  get '/open/intake', to: 'tech_advisors#open_hours_intake'
   get '/nvbots', to: 'tech_advisors#nvbots'
 
   # Reservations
