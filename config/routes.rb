@@ -32,7 +32,6 @@ Rails.application.routes.draw do
   get '/lending/lend', to: 'legacy_lending#item_lend'
   get '/lending/return', to: 'legacy_lending#item_return'
   get '/lending/browse', to: 'legacy_lending#item_browse'
-  get '/lending/nvbots', to: 'legacy_lending#nvbots'
 
   get '/lending/schedule/shifts', to: 'legacy_lending#schedule_shifts'
   get '/lending/schedule/deliveries', to: 'legacy_lending#schedule_deliveries'
@@ -46,6 +45,10 @@ Rails.application.routes.draw do
 
   post '/lending/card_input', to: 'legacy_lending#card_input'
 
+  # Tech Advisor pages
+  get '/nvbots', to: 'tech_advisors#nvbots'
+
+  # Reservations
   get '/reservations', to: 'legacy_lending#reservations'
 
 end

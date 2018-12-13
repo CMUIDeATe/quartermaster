@@ -146,12 +146,6 @@ class LegacyLendingController < ApplicationController
     authorize! :manage, :legacy_lending
   end
 
-  def nvbots
-    @header = "NVBots live feed"
-    @title = "NVBots live feed"
-    authorize! :manage, :legacy_lending
-  end
-
   def card_input
     card_id = params[:card_input]
     unless card_id.nil? || card_id.empty?

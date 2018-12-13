@@ -32,6 +32,7 @@ class Ability
     # In production, fill in with allowed admins, operators, and IPs
     superadmins = []
     admins = []
+    tech_advisors = []
     operators = []
     operator_ips = []
 
@@ -47,6 +48,7 @@ class Ability
 
     superadmin if superadmins.include? user.andrewid
     admin if admins.include? user.andrewid
+    tech_advisor if tech_advisors.include? user.andrewid
     if operators.include? user.andrewid
       if operator_ips.include? ip
         local_operator
@@ -67,6 +69,11 @@ class Ability
 
   def admin
     can :manage, :all
+  end
+
+  def tech_advisor
+    can :manage, :tech_advisor
+    can :read, :lending_shift_schedule
   end
 
   def local_operator
