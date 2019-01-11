@@ -11,6 +11,13 @@ set :deploy_to, '/srv/rails/quartermaster/production'
 set :rvm_ruby_version, '2.3.1@quartermaster'
 set :rails_env, 'production'
 
+# Default to deploying production from the `production` branch.
+if ENV['BRANCH']
+  set :branch, ENV['BRANCH']
+else
+  set :branch, 'production'
+end
+
 set :passenger_environment_variables, { :path => '/home/deploy/.rvm/gems/ruby-2.3.1\@global/gems/passenger-5.0.30/bin:$PATH' }
 set :passenger_rvm_ruby_version, '2.3.1'
 

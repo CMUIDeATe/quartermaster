@@ -11,6 +11,13 @@ set :deploy_to, '/srv/rails/quartermaster/staging'
 set :rvm_ruby_version, '2.3.1@quartermaster-staging'
 set :rails_env, 'staging'
 
+# Default to deploying staging from the `master` branch.
+if ENV['BRANCH']
+  set :branch, ENV['BRANCH']
+else
+  set :branch, 'master'
+end
+
 set :passenger_environment_variables, { :path => '/home/deploy/.rvm/gems/ruby-2.3.1\@global/gems/passenger-5.0.30/bin:$PATH' }
 set :passenger_rvm_ruby_version, '2.3.1'
 

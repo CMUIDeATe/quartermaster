@@ -31,4 +31,16 @@ libsasl2-dev
 
 * Deployment instructions
 
+Deploy using Capistrano, e.g.,
+```
+# Deploy production branch to production
+cap production deploy
+
+# Deploy master (development) branch to staging
+cap staging deploy
+
+# Deploy a feature branch to staging
+cap staging deploy BRANCH=feature-branch
+```
+
 * ...
