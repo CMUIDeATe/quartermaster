@@ -68,6 +68,19 @@
         </li>
       <% end %>
 
+      <% if can? :make, :resource_requests %>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown">
+            Requests <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu">
+            <%= nav_link 'Physical Computing Lab materials stock', request_physcomp_path %>
+            <%= nav_link 'Student course purchase (authorized courses only)', request_purchase_path %>
+            <%= nav_link 'Room/equipment resources', request_resource_path %>
+          </ul>
+        </li>
+      <% end %>
+
       <% if (can? :manage, :legacy_lending) or (can? :read, :lending_shift_schedule) %>
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown">

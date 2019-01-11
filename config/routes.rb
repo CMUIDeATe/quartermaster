@@ -52,4 +52,10 @@ Rails.application.routes.draw do
   # Reservations
   get '/reservations', to: 'legacy_lending#reservations'
 
+  # Resource Requests
+  get 'request', to: 'resource_requests#index'
+  get 'request/physcomp', to: 'resource_requests#request_physcomp_stock'
+  get 'request/purchase', to: 'resource_requests#request_course_purchase'
+  get 'request/resource', to: 'resource_requests#request_resource'
+
 end

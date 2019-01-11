@@ -25,6 +25,7 @@ class Ability
     # Abilities for logged-in users
     if user
       can :read, :reservation
+      can :make, :resource_requests
     end
 
     user ||= User.new # guest user (not logged in)
