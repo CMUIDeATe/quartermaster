@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.0.0'
+gem 'rails', '~> 5.1.6'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use Puma as the app server
@@ -56,7 +56,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 
 # User and role management
-gem 'devise', '~> 4.2.0'
+gem 'devise', '~> 4.5'
 gem 'gravtastic', '~> 3.2.6'
 gem 'cancancan', '~> 1.15.0'
 gem 'rolify', '~> 5.1.0'
@@ -69,9 +69,9 @@ gem 'omniauth-shibboleth', '~> 1.2.1'
 gem 'paperclip', '~> 5.2.0'
 
 # LDAP libraries
-gem 'ruby-ldap', '~> 0.9.19'
-gem 'activeldap', '~> 4.0.6', require: 'active_ldap/railtie'
-gem 'net-ldap', '~> 0.16.1'
+gem 'ruby-ldap'
+gem 'activeldap', '~> 5.1', require: 'active_ldap/railtie'
+gem 'net-ldap'
 
 # SOAP client for card lookup
 gem 'savon', '~> 2.11.1'
