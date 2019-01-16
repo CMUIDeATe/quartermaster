@@ -18,6 +18,10 @@ class LegacyLendingController < ApplicationController
   end
 
   def item_return
+    @card_andrewid = session[:card_andrewid]
+    @card_name = get_name_from_andrewid(@card_andrewid)
+    session['card_andrewid'] = nil
+
     @header = "Return item"
     @title = "Return item"
     authorize! :manage, :legacy_lending

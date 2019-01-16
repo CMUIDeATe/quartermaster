@@ -1,7 +1,9 @@
+<% placeholder = 'Tap ID card to begin transaction...' if local_assigns[:placeholder].nil? %>
+
 <%= form_tag lending_card_input_url do %>
   <%= image_tag 'id-card-tilted.png', height: 48, style: 'display: inline-block;' %>
   <% if @card_andrewid.nil? %>
-    <%= text_field_tag 'card_input', nil, placeholder: 'Tap ID card to begin transaction...', size: 32, autocomplete: 'off', autofocus: true %>
+    <%= text_field_tag 'card_input', nil, placeholder: placeholder, size: 32, autocomplete: 'off', autofocus: true %>
   <% else %>
     <%= text_field_tag 'card_input', nil, placeholder: 'Tap ID card...', size: 32, autocomplete: 'off' %>
   <% end %>
