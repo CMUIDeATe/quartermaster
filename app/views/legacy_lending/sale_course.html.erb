@@ -20,21 +20,21 @@
 
 <hr>
 
-<div class="container">
-  <div class="row">
-
-    <div class="col <%= @card_andrewid.nil? ? "col-md-8" : "col-md-12" %>">
-      <%= render partial: 'legacy_lending/card_input', locals: { redirect_action: 'sale_course', reset_url: sales_course_url } %>
-    </div>
-    <% if @card_andrewid.nil? %>
-      <div class="col col-md-4">
-        <%= render partial: 'sidebar_calendar' %>
-      </div>
-    <% end %>
-
+<div class="row">
+  <div class="col <%= @card_andrewid.nil? ? "col-md-8" : "col-md-12" %>">
+    <%= render partial: 'legacy_lending/card_input', locals: { redirect_action: 'sale_course', reset_url: sales_course_url } %>
   </div>
+  <% if @card_andrewid.nil? %>
+    <div class="col col-md-4">
+      <%= render partial: 'sidebar_calendar' %>
+    </div>
+  <% end %>
 </div>
 
 <% unless @card_andrewid.nil? %>
-  <iframe src="<%= ENV['ZOHO_SALE_COURSE_URL'] %>?ref_user_charge_aid_post=<%= @card_andrewid %>&sig_post=<%= current_user.andrewid %>" width="100%" height="1000px" frameborder="0" scrolling="auto"></iframe>
+  <div class="row">
+    <div class="col col-md-12">
+      <iframe src="<%= ENV['ZOHO_SALE_COURSE_URL'] %>?ref_user_charge_aid_post=<%= @card_andrewid %>&sig_post=<%= current_user.andrewid %>" width="100%" height="1000px" frameborder="0" scrolling="auto"></iframe>
+    </div>
+  </div>
 <% end %>
