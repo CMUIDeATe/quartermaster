@@ -105,9 +105,6 @@ class LegacyLendingController < ApplicationController
       when "106B", "106C"
         @mrbs_area = 7
         @room_name = "IDeATe Studios (106B/106C)"
-      when "VR"
-        @mrbs_area = 11
-        @room_name = "VR Equipment"
       else
         @header = "Reservations"
         @title = "Reservations"
