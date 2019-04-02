@@ -87,6 +87,9 @@ class LegacyLendingController < ApplicationController
       when "A5"
         @mrbs_area = 4
         @room_name = "Experimental Fabrication (A5)"
+      when "A5B"
+        @mrbs_area = 12
+        @room_name = "Laser Cutters (A5B)"
       when "A10"
         @mrbs_area = 6
         @room_name = "Physical Computing (A10)"
