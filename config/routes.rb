@@ -49,8 +49,9 @@ Rails.application.routes.draw do
   get '/open/intake', to: 'tech_advisors#open_hours_intake'
   get '/nvbots', to: 'tech_advisors#nvbots'
 
-  # Reservations
+  # Reservations and hours
   get '/reservations', to: 'legacy_lending#reservations'
+  get '/hours', to: 'legacy_lending#hours'
 
   # Resource Requests
   get 'request', to: 'resource_requests#index'

@@ -1,0 +1,9 @@
+<ul>
+  <% if can? :read, :lending_shift_schedule %>
+    <%= nav_link 'Shift schedule', lending_schedule_shifts_path %>
+  <% else %>
+    <%= nav_link 'Lending Desk (A29)', hours_path(room: 'A29') %>
+  <% end %>
+  <%= nav_link 'Laser Cutters (A5B)', hours_path(room: 'A5B') %>
+  <%= nav_link 'Wood Shop (A30/A31)', hours_path(room: 'A30') %>
+</ul>

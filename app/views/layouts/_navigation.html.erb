@@ -58,10 +58,6 @@
             <%= nav_link 'Media Lab (A10A)', reservations_path(room: 'A10A') %>
             <%= nav_link 'Physical Computing (A10)', reservations_path(room: 'A10') %>
             <%= nav_link 'IDeATe Studios (106B/106C)', reservations_path(room: '106B') %>
-            <li role="separator" class="divider"></li>
-            <li class="dropdown-header">Facilities</li>
-            <%= nav_link 'Laser Cutters (A5B)', reservations_path(room: 'A5B') %>
-            <%= nav_link 'Wood Shop (A30/A31)', reservations_path(room: 'A30') %>
           </ul>
         </li>
       <% end %>
@@ -79,21 +75,29 @@
         </li>
       <% end %>
 
-      <% if (can? :manage, :legacy_lending) or (can? :read, :lending_shift_schedule) %>
-        <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown">
-            Schedules <b class="caret"></b>
-          </a>
-          <ul class="dropdown-menu">
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown">
+          Schedules <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu">
+          <% if (can? :manage, :legacy_lending) or (can? :read, :lending_shift_schedule) %>
+            <li class="dropdown-header">Lending schedules</li>
             <% if can? :read, :lending_shift_schedule %>
               <%= nav_link 'Shift schedule', lending_schedule_shifts_path %>
             <% end %>
             <% if can? :manage, :legacy_lending %>
               <%= nav_link 'Course delivery schedule', lending_schedule_deliveries_path %>
             <% end %>
-          </ul>
-        </li>
-      <% end %>
+          <li role="separator" class="divider"></li>
+          <% end %>
+          <li class="dropdown-header">Facilities hours</li>
+          <% if cannot? :read, :lending_shift_schedule %>
+            <%= nav_link 'Lending Desk (A29)', hours_path(room: 'A29') %>
+          <% end %>
+          <%= nav_link 'Laser Cutters (A5B)', hours_path(room: 'A5B') %>
+          <%= nav_link 'Wood Shop (A30/A31)', hours_path(room: 'A30') %>
+        </ul>
+      </li>
 
       <% if can? :manage, :tech_advisor %>
         <li class="dropdown">
