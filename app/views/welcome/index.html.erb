@@ -43,19 +43,22 @@
   </ul>
 <% end %>
 
-<hr>
-<ul>
-  <% if can? :manage, Item %>
-    <li><%= link_to 'Manage items', items_path %></li>
-  <% elsif can? :read, Item %>
-    <li><%= link_to 'List available items', items_path %></li>
-  <% end %>
-  <% if can? :read, PrintRequest %>
-  <li>3D print request form
-    <ul>
-      <li><%= link_to 'Dimension 1200sst', print_requests_path %></li>
-      <li>For other 3D printers, see the <%= link_to '3D printers page', 'https://resources.ideate.cmu.edu/equipment/3d-printers/' %> of the IDeATe Resources website.</li>
-    </ul>
-  </li>
-  <% end %>
-</ul>
+<% if user_signed_in? and current_user.has_role? :superadmin %>
+  <hr>
+  <h2>Development</h2>
+  <ul>
+    <% if can? :manage, Item %>
+      <li><%= link_to 'Manage items', items_path %></li>
+    <% elsif can? :read, Item %>
+      <li><%= link_to 'List available items', items_path %></li>
+    <% end %>
+    <% if can? :read, PrintRequest %>
+    <li>3D print request form
+      <ul>
+        <li><%= link_to 'Dimension 1200sst', print_requests_path %></li>
+        <li>For other 3D printers, see the <%= link_to '3D printers page', 'https://resources.ideate.cmu.edu/equipment/3d-printers/' %> of the IDeATe Resources website.</li>
+      </ul>
+    </li>
+    <% end %>
+  </ul>
+<% end %>
