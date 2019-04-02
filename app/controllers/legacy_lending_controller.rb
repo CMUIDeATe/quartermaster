@@ -83,6 +83,7 @@ class LegacyLendingController < ApplicationController
     room = params[:room]
     room ||= ''
 
+    @mrbs_room = nil
     case room.upcase()
       when "A5"
         @mrbs_area = 4
@@ -93,9 +94,14 @@ class LegacyLendingController < ApplicationController
       when "A10A"
         @mrbs_area = 5
         @room_name = "Media Lab (A10A)"
-      when "106B", "106C"
+      when "106B"
         @mrbs_area = 7
-        @room_name = "IDeATe Studios (106B/106C)"
+        @mrbs_room = 58
+        @room_name = "IDeATe Studio A (106B)"
+      when "106C"
+        @mrbs_area = 7
+        @mrbs_room = 59
+        @room_name = "IDeATe Studio B (106C)"
       else
         @header = "Reservations"
         @title = "Reservations"
