@@ -27,6 +27,22 @@
   </ul>
 <% end %>
 
+<% if can? :read, :lending_shift_schedule %>
+  <h2>Schedule and hours</h2>
+  <ul>
+    <li><strong><%= link_to 'Shift schedule', lending_schedule_shifts_path %></strong></li>
+    <li><%= link_to 'Laser Cutters (A5B)', hours_path(room: 'A5B') %></li>
+    <li><%= link_to 'Wood Shop (A30/A31)', hours_path(room: 'A30') %></li>
+  </ul>
+<% elsif user_signed_in? %>
+  <h2>Hours</h2>
+  <ul>
+    <li><strong><%= link_to 'Lending Desk (A29)', hours_path(room: 'A29') %></strong></li>
+    <li><%= link_to 'Laser Cutters (A5B)', hours_path(room: 'A5B') %></li>
+    <li><%= link_to 'Wood Shop (A30/A31)', hours_path(room: 'A30') %></li>
+  </ul>
+<% end %>
+
 <hr>
 <ul>
   <% if can? :manage, Item %>
