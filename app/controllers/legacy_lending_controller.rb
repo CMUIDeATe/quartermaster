@@ -79,39 +79,6 @@ class LegacyLendingController < ApplicationController
     authorize! :manage, :legacy_lending
   end
 
-  def reservations
-    room = params[:room]
-    room ||= ''
-
-    @mrbs_room = nil
-    case room.upcase()
-      when "A5"
-        @mrbs_area = 4
-        @room_name = "Experimental Fabrication (A5)"
-      when "A10"
-        @mrbs_area = 6
-        @room_name = "Physical Computing (A10)"
-      when "A10A"
-        @mrbs_area = 5
-        @room_name = "Media Lab (A10A)"
-      when "106B"
-        @mrbs_area = 7
-        @mrbs_room = 58
-        @room_name = "IDeATe Studio A (106B)"
-      when "106C"
-        @mrbs_area = 7
-        @mrbs_room = 59
-        @room_name = "IDeATe Studio B (106C)"
-      else
-        @header = "Reservations"
-        @title = "Reservations"
-        render 'reservations_index'
-    end
-
-    @header = "#{ view_context.link_to 'Reservations', reservations_path } <small>#{@room_name}</small>".html_safe()
-    @title = "Reservations &ndash; #{@room_name}".html_safe()
-  end
-
   def sale_browse
     source = params[:source]
     source ||= ''
@@ -147,28 +114,45 @@ class LegacyLendingController < ApplicationController
     authorize! :manage, :legacy_lending
   end
 
-  def hours
+  def schedules
     room = params[:room]
     room ||= ''
 
+    @mrbs_room = nil
     case room.upcase()
+      when "A5"
+        @mrbs_area = 4
+        @room_name = "Experimental Fabrication (A5)"
       when "A5B"
         @mrbs_area = 12
         @room_name = "Laser Cutters (A5B)"
+      when "A10"
+        @mrbs_area = 6
+        @room_name = "Physical Computing (A10)"
+      when "A10A"
+        @mrbs_area = 5
+        @room_name = "Media Lab (A10A)"
       when "A29"
         @mrbs_area = 8
         @room_name = "Lending Desk (A29)"
       when "A30", "A31"
         @mrbs_area = 10
         @room_name = "Wood Shop (A30/A31)"
+      when "106B"
+        @mrbs_area = 7
+        @mrbs_room = 58
+        @room_name = "IDeATe Studio A (106B)"
+      when "106C"
+        @mrbs_area = 7
+        @mrbs_room = 59
+        @room_name = "IDeATe Studio B (106C)"
       else
-        @header = "Hours"
-        @title = "Hours"
-        render 'hours_index'
+        flash[:alert] = "Room #{room} does not exist."
+        redirect_to root_path
     end
 
-    @header = "#{ view_context.link_to 'Hours', hours_path } <small>#{@room_name}</small>".html_safe()
-    @title = "Hours &ndash; #{@room_name}".html_safe()
+    @header = "Schedules <small>#{@room_name}</small>".html_safe()
+    @title = "Schedules &ndash; #{@room_name}".html_safe()
   end
 
   def card_input

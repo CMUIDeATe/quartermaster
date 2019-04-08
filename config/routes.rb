@@ -50,8 +50,7 @@ Rails.application.routes.draw do
   get '/nvbots', to: 'tech_advisors#nvbots'
 
   # Reservations and hours
-  get '/reservations', to: 'legacy_lending#reservations'
-  get '/hours', to: 'legacy_lending#hours'
+  get '/schedule', to: 'legacy_lending#schedules'
 
   # Resource Requests
   get 'request', to: 'resource_requests#index'
