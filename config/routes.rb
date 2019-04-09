@@ -32,6 +32,7 @@ Rails.application.routes.draw do
   get '/lending/lend', to: 'legacy_lending#item_lend'
   get '/lending/return', to: 'legacy_lending#item_return'
   get '/lending/browse', to: 'legacy_lending#item_browse'
+  get '/lending/reserves', to: 'legacy_lending#item_reserves'
 
   get '/lending/schedule/shifts', to: 'legacy_lending#schedule_shifts'
   get '/lending/schedule/deliveries', to: 'legacy_lending#schedule_deliveries'

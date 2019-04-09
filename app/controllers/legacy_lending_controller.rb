@@ -33,6 +33,12 @@ class LegacyLendingController < ApplicationController
     authorize! :manage, :legacy_lending
   end
 
+  def item_reserves
+    @header = "Course reserves"
+    @title = "Course reserves"
+    authorize! :manage, :legacy_lending
+  end
+
   def sale_index
     @header = "Sales"
     @title = "Sales"
