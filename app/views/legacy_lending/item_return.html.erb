@@ -11,6 +11,7 @@
       <b>Search</b> by any field<% if @card_andrewid.nil? %>, or tap an ID card above<% end %>.
       To create a new transaction, use the <%= link_to 'Lend item', lending_lend_url %> page.
     </p>
+    <%= render partial: 'app_upgrades' %>
   </div>
 </div>
 
