@@ -31,14 +31,14 @@
   <ul>
     <li><strong><%= link_to 'Shift schedule', lending_schedule_shifts_path %></strong></li>
     <li><%= link_to 'Laser Cutters (A5B)', schedule_path(room: 'A5B') %></li>
-    <li><%= link_to 'Wood Shop (A30/A31)', schedule_path(room: 'A30') %></li>
+    <li><%= link_to 'Wood Shop (A30)', schedule_path(room: 'A30') %></li>
   </ul>
 <% elsif user_signed_in? %>
   <h2>Hours</h2>
   <ul>
     <li><strong><%= link_to 'Lending Desk (A29)', schedule_path(room: 'A29') %></strong></li>
     <li><%= link_to 'Laser Cutters (A5B)', schedule_path(room: 'A5B') %></li>
-    <li><%= link_to 'Wood Shop (A30/A31)', schedule_path(room: 'A30') %></li>
+    <li><%= link_to 'Wood Shop (A30)', schedule_path(room: 'A30') %></li>
   </ul>
 <% end %>
 

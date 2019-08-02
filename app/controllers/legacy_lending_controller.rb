@@ -141,9 +141,12 @@ class LegacyLendingController < ApplicationController
       when "A29"
         @mrbs_area = 8
         @room_name = "Lending Desk (A29)"
-      when "A30", "A31"
+      when "A30"
         @mrbs_area = 10
-        @room_name = "Wood Shop (A30/A31)"
+        @room_name = "Wood Shop (A30)"
+      when "A31"
+        @mrbs_area = 13
+        @room_name = "Large Project Build Space (A31)"
       when "106B"
         @mrbs_area = 7
         @mrbs_room = 58
