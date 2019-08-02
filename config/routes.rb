@@ -48,7 +48,6 @@ Rails.application.routes.draw do
 
   # Tech Advisor pages
   get '/open/intake', to: 'tech_advisors#open_hours_intake'
-  get '/nvbots', to: 'tech_advisors#nvbots'
 
   # Reservations and hours
   get '/schedule/:room', to: 'legacy_lending#schedules', as: :schedule

@@ -7,10 +7,4 @@ class TechAdvisorsController < ApplicationController
     authorize! :manage, :tech_advisor
   end
 
-  def nvbots
-    @header = "NVBots live feed"
-    @title = "NVBots live feed"
-    authorize! :manage, :tech_advisor
-  end
-
 end
