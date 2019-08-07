@@ -1,6 +1,4 @@
 class LegacyLendingController < ApplicationController
-  skip_before_action :authenticate_user!
-
   def index
     @header = "Lending Application"
     @title = "Lending Application"
@@ -162,6 +160,7 @@ class LegacyLendingController < ApplicationController
 
     @header = "Schedules <small>#{@room_name}</small>".html_safe()
     @title = "Schedules &ndash; #{@room_name}".html_safe()
+    authorize! :read, :reservation
   end
 
   def card_input

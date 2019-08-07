@@ -1,5 +1,5 @@
 class TechAdvisorsController < ApplicationController
-  skip_before_action :authenticate_user!
+  skip_before_action :auth_user!
 
   def open_hours_intake
     @header = "Open Fabrication Hours intake"

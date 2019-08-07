@@ -1,6 +1,4 @@
 class ResourceRequestsController < ApplicationController
-  skip_before_action :authenticate_user!
-
   def index
     @header = "IDeATe request forms"
     @title = "IDeATe request forms"
