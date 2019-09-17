@@ -42,8 +42,7 @@
             <%= nav_link 'Return from IDeATe student', sales_student_return_path %>
             <%= nav_link 'Return from course- or project-funded account', sales_course_return_path %>
             <li role="separator" class="divider"></li>
-            <li class="dropdown-header">Price lists</li>
-            <%= nav_link 'Flatstock (Lending)', sales_pricing_path(source: 'flatstock') %>
+            <%= nav_link 'Materials price list', sales_pricing_path() %>
           </ul>
         </li>
       <% end %>

@@ -84,15 +84,8 @@ class LegacyLendingController < ApplicationController
   end
 
   def sale_browse
-    source = params[:source]
-    source ||= ''
-
-    # There is only one source, so don't use a case statement and always assume source='flatstock'.
-    @source_ref = 'flatstock'
-    @source_name = "Flatstock (Lending)"
-
-    @header = "#{ view_context.link_to 'Price lists', sales_pricing_path } <small>#{@source_name}</small>".html_safe()
-    @title = "Price lists &ndash; #{@source_name}".html_safe()
+    @header = "Materials price list"
+    @title = "Materials price list"
     authorize! :manage, :legacy_lending
   end
 
