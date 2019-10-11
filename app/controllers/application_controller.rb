@@ -12,6 +12,7 @@ class ApplicationController < ActionController::Base
     def auth_user!
       user = User.find_for_shibboleth_oauth(request, current_user)
       session[:user_id] = user.id
+      session[:cookie_version] = Rails.application.config.quartermaster_cookie_version
     end
     helper_method :auth
 
@@ -20,7 +21,10 @@ class ApplicationController < ActionController::Base
     end
 
     def current_user
-      @current_user ||= User.find(session[:user_id]) if session[:user_id]
+      if session[:cookie_version] == Rails.application.config.quartermaster_cookie_version && session[:user_id]
+        @current_user ||= User.find(session[:user_id])
+      end
+      return @current_user
     end
     helper_method :current_user
 
