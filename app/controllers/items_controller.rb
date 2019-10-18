@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   load_and_authorize_resource
-  skip_before_action :auth_user!, only: [:index, :show]
+  skip_before_action :authn_user!, only: [:index, :show]
 
   def index
     if can? :manage, Item
