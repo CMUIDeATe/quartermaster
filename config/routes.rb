@@ -31,7 +31,7 @@ Rails.application.routes.draw do
   get '/lending', to: 'legacy_lending#index'
   get '/lending/lend', to: 'legacy_lending#item_lend'
   get '/lending/return', to: 'legacy_lending#item_return'
-  get '/lending/browse', to: 'legacy_lending#item_browse'
+  get '/lending/inventory', to: 'legacy_lending#item_inventory'
   get '/lending/reserves', to: 'legacy_lending#item_reserves'
 
   get '/lending/schedule/shifts', to: 'legacy_lending#schedule_shifts'
@@ -45,6 +45,9 @@ Rails.application.routes.draw do
   get '/sales/pricing', to: 'legacy_lending#sale_browse'
 
   post '/lending/card_input', to: 'legacy_lending#card_input'
+
+  # Physical Computing inventory
+  get '/physcomp/inventory', to: 'physical_computing#inventory'
 
   # Tech Advisor pages
   get '/open/intake', to: 'tech_advisors#open_hours_intake'

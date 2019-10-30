@@ -13,10 +13,6 @@
     <%= link_to 'Return item', lending_return_path, role: 'button', class: 'btn btn-default' %>
   </div>
   </h2>
-
-  <ul>
-    <li><%= link_to 'Browse inventory', lending_browse_path %></li>
-  </ul>
 <% end %>
 
 <% if can? :manage, :legacy_lending %>
@@ -33,7 +29,7 @@
     <li><%= link_to 'Laser Cutters (A5B)', schedule_path(room: 'A5B') %></li>
     <li><%= link_to 'Wood Shop (A30)', schedule_path(room: 'A30') %></li>
   </ul>
-<% elsif user_signed_in? %>
+<% else %>
   <h2>Hours</h2>
   <ul>
     <li><strong><%= link_to 'Lending Desk (A29)', schedule_path(room: 'A29') %></strong></li>
@@ -41,6 +37,12 @@
     <li><%= link_to 'Wood Shop (A30)', schedule_path(room: 'A30') %></li>
   </ul>
 <% end %>
+
+<h2>Inventory</h2>
+<ul>
+  <li><strong><%= link_to 'IDeATe Lending inventory', lending_inventory_path %></strong></li>
+  <li><%= link_to 'Physical Computing inventory', physcomp_inventory_path %></li>
+</ul>
 
 <% if user_signed_in? and current_user.has_role? :superadmin %>
   <hr>

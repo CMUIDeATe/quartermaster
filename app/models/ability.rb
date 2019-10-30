@@ -25,6 +25,7 @@ class Ability
     # Abilities for logged-in users
     if user
       can :read, :reservation
+      can :read, :inventory
       can :make, :resource_requests
     end
 

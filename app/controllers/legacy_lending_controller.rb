@@ -25,16 +25,16 @@ class LegacyLendingController < ApplicationController
     authorize! :manage, :legacy_lending
   end
 
-  def item_browse
-    @header = "Browse inventory"
-    @title = "Browse inventory"
-    authorize! :manage, :legacy_lending
-  end
-
   def item_reserves
     @header = "Course reserves"
     @title = "Course reserves"
     authorize! :manage, :legacy_lending
+  end
+
+  def item_inventory
+    @header = "IDeATe Lending inventory"
+    @title = "IDeATe Lending inventory"
+    authorize! :read, :inventory
   end
 
   def sale_index
