@@ -83,10 +83,10 @@ class LegacyLendingController < ApplicationController
     authorize! :manage, :legacy_lending
   end
 
-  def sale_browse
+  def sale_inventory
     @header = "Materials price list"
     @title = "Materials price list"
-    authorize! :manage, :legacy_lending
+    authorize! :read, :inventory
   end
 
   def schedule_shifts

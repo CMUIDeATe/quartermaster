@@ -58,6 +58,9 @@
               <%= nav_link 'Lending inventory', lending_inventory_path %>
               <%= nav_link 'Physical Computing inventory', physcomp_inventory_path %>
               <li role="separator" class="divider"></li>
+              <li class="dropdown-header">Price lists</li>
+              <%= nav_link 'Materials price list', sales_pricing_path() %>
+              <li role="separator" class="divider"></li>
             <% end %>
             <% if can? :make, :resource_requests %>
               <li class="dropdown-header">Request forms</li>

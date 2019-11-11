@@ -44,6 +44,11 @@
   <li><%= link_to 'Physical Computing inventory', physcomp_inventory_path %></li>
 </ul>
 
+<h2>Price lists</h2>
+<ul>
+  <li><%= link_to 'Materials price list', sales_pricing_path %></li>
+</ul>
+
 <% if user_signed_in? and current_user.has_role? :superadmin %>
   <hr>
   <h2>Development</h2>
