@@ -109,8 +109,8 @@ class LegacyLendingController < ApplicationController
     case @room.upcase()
       when "A5"
         @mrbs_area = 4
-        @room_name = "Experimental Fabrication (A5)"
-        @room_full_name = "the Experimental Fabrication Lab"
+        @room_name = "Fabrication Lab (A5)"
+        @room_full_name = "the Fabrication Lab"
       when "A5B"
         @mrbs_area = 12
         @room_name = "Laser Cutters (A5B)"
