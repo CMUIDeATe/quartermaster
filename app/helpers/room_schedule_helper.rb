@@ -1,0 +1,2 @@
+module RoomScheduleHelper
+end

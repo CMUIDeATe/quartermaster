@@ -1,0 +1,38 @@
+<ul>
+  <% if (can? :manage, :legacy_lending) or (can? :read, :lending_shift_schedule) %>
+    <li>Lending schedules
+      <ul>
+    <% if can? :read, :lending_shift_schedule %>
+      <%= nav_link '<strong>Shift schedule</strong>'.html_safe, lending_schedule_shifts_path %>
+    <% end %>
+    <% if can? :manage, :legacy_lending %>
+      <%= nav_link '<strong>Course delivery schedule</strong>'.html_safe, lending_schedule_deliveries_path %>
+    <% end %>
+      </ul>
+    </li>
+  <% end %>
+
+  <li>Facilities hours
+    <ul>
+      <% if cannot? :read, :lending_shift_schedule %>
+        <%= nav_link '<strong>Lending Desk (A29)</strong>'.html_safe, schedule_path(room: 'A29') %>
+      <% end %>
+      <%= nav_link 'Laser Cutters (A5B)', schedule_path(room: 'A5B') %>
+      <%= nav_link 'Wood Shop (A30)', schedule_path(room: 'A30') %>
+      <%= nav_link 'Large Project Build Space (A31)', schedule_path(room: 'A31') %>
+    </ul>
+  </li>
+
+  <% if can? :read, :reservation %>
+    <li>Classrooms
+      <ul>
+        <%= nav_link 'Fabrication Lab (A5)', schedule_path(room: 'A5') %>
+        <%= nav_link 'Media Lab (A10A)', schedule_path(room: 'A10A') %>
+        <%= nav_link 'Physical Computing (A10)', schedule_path(room: 'A10') %>
+        <%= nav_link 'IDeATe Studio A (106B)', schedule_path(room: '106B') %>
+        <%= nav_link 'IDeATe Studio B (106C)', schedule_path(room: '106C') %>
+      </ul>
+    </li>
+  <% end %>
+
+</ul>

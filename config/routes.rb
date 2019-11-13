@@ -53,7 +53,7 @@ Rails.application.routes.draw do
   get '/open/intake', to: 'tech_advisors#open_hours_intake'
 
   # Reservations and hours
-  get '/schedule/:room', to: 'legacy_lending#schedules', as: :schedule
+  resources :schedule, param: :room, controller: 'room_schedule', only: [:index, :show]
 
   # Resource Requests
   get 'request', to: 'resource_requests#index'
