@@ -5,7 +5,8 @@
       <p>
         Authorized users can
         <%= link_to "reserve #{@room_full_name} directly", mrbs_link, target: '_blank' %>;
-        others should email <%= link_to 'help@ideate.cmu.edu', 'mailto:help@ideate.cmu.edu', target: '_blank' %>.
+        others should email <%= link_to 'help@ideate.cmu.edu', 'mailto:help@ideate.cmu.edu', target: '_blank' %>
+        with details of their request.
         If you believe you should have reservation privileges but do not,
         please email <%= link_to 'help@ideate.cmu.edu', 'mailto:help@ideate.cmu.edu', target: '_blank' %>
         with details.
@@ -13,13 +14,14 @@
   <% when "A5", "A10", "106B", "106C" %>
       <p>
         To reserve <%= @room_full_name %>,
-        please email <%= link_to 'help@ideate.cmu.edu', 'mailto:help@ideate.cmu.edu', target: '_blank' %>.
+        please email <%= link_to 'help@ideate.cmu.edu', 'mailto:help@ideate.cmu.edu', target: '_blank' %>
+        with details of your request.
       </p>
   <% when "A29" %>
     <% if can? :read, :lending_shift_schedule %>
       <p>
         This is the public page for Lending Desk hours.
-        You can also view the <%= link_to 'internal shift schedule', lending_schedule_shifts_path %>.
+        You also have the ability to view the <%= link_to 'employee shift schedule', lending_schedule_shifts_path %>.
       </p>
     <% end %>
 <% end %>
