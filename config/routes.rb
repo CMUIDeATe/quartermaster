@@ -51,6 +51,7 @@ Rails.application.routes.draw do
 
   # Tech Advisor pages
   get '/open/intake', to: 'tech_advisors#open_hours_intake'
+  get '/open/print/ultimaker', to: 'tech_advisors#print_ultimaker'
 
   # Reservations and hours
   resources :schedule, param: :room, controller: 'room_schedule', only: [:index, :show]

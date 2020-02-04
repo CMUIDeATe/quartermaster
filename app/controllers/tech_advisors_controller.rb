@@ -7,4 +7,10 @@ class TechAdvisorsController < ApplicationController
     authorize! :manage, :tech_advisor
   end
 
+  def print_ultimaker
+    @header = "Ultimaker print form"
+    @title = "Ultimaker print form"
+    authorize! :manage, :tech_advisor
+  end
+
 end
