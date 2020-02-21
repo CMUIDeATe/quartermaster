@@ -1,6 +1,4 @@
 class TechAdvisorsController < ApplicationController
-  skip_before_action :authn_user!
-
   def open_hours_intake
     @header = "Open Fabrication Hours intake"
     @title = "Open Fabrication Hours intake"
