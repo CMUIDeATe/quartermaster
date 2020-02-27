@@ -31,6 +31,7 @@ Rails.application.routes.draw do
   get '/lending', to: 'legacy_lending#index'
   get '/lending/lend', to: 'legacy_lending#item_lend'
   get '/lending/return', to: 'legacy_lending#item_return'
+  get '/lending/renew(/:txid)(/:renewkey)', to: 'legacy_lending#item_renew'
   get '/lending/inventory', to: 'legacy_lending#item_inventory'
   get '/lending/reserves', to: 'legacy_lending#item_reserves'
 

@@ -25,6 +25,20 @@ class LegacyLendingController < ApplicationController
     authorize! :manage, :legacy_lending
   end
 
+  def item_renew
+    @tx_id = params[:txid]
+    @renew_key = params[:renewkey]
+
+    if @tx_id.nil? || @renew_key.nil?
+      flash[:alert] = "Transaction ID and renewal key are required."
+      redirect_to root_path
+    end
+
+    @header = "Renew item"
+    @title = "Renew item"
+    authorize! :read, :inventory
+  end
+
   def item_reserves
     @header = "Course reserves"
     @title = "Course reserves"

@@ -5,6 +5,12 @@
   <% end %>
 </p>
 
+<% if user_signed_in? and cannot? :manage, :legacy_lending %>
+  <p>
+    To renew IDeATe Lending items online, use the links found in your most recent email receipt.
+  </p>
+<% end %>
+
 <% if can? :manage, :legacy_lending %>
   <h2>Lending Operators
   <div class="btn-group" role="group">
