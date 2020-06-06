@@ -2,14 +2,14 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.1.6'
+gem 'rails', '~> 5.2.4'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', '~> 1.3.13'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
-gem 'bootstrap-sass', '~> 3.3.6'
+gem 'sass-rails', '~> 6.0'
+gem 'bootstrap-sass', '~> 3.4.1'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
@@ -30,9 +30,9 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 group :development do
-  gem 'capistrano', '~> 3.5.0'
-  gem 'capistrano-bundler', '~> 1.1.4'
-  gem 'capistrano-rails', '~> 1.1.7'
+  gem 'capistrano', '~> 3.12.0'
+  gem 'capistrano-bundler', '~> 1.6.0'
+  gem 'capistrano-rails', '~> 1.4.0'
   gem 'capistrano-rvm', '~> 0.1.2'
   gem 'capistrano-passenger', '~> 0.2.0'
 end
@@ -56,28 +56,28 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 
 # User and role management
-gem 'devise', '~> 4.5'
+gem 'devise', '~> 4.7.1'
 gem 'gravtastic', '~> 3.2.6'
 gem 'cancancan', '~> 1.15.0'
 gem 'rolify', '~> 5.1.0'
 
 # Shibboleth Single Sign On
-gem 'omniauth', '~> 1.3.2'
-gem 'omniauth-shibboleth', '~> 1.2.1'
+gem 'omniauth', '~> 1.9.1'
+gem 'omniauth-shibboleth', '~> 1.3.0'
 
 # File management
 gem 'paperclip', '~> 5.2.0'
 
 # LDAP libraries
 gem 'ruby-ldap'
-gem 'activeldap', '~> 5.1', require: 'active_ldap/railtie'
+gem 'activeldap', '~> 5.2', require: 'active_ldap/railtie'
 gem 'net-ldap'
 
 # SOAP client for card lookup
 gem 'savon', '~> 2.11.1'
 
 # Business date calculations
-gem 'business_time', '~> 0.7.6'
+gem 'business_time', '~> 0.9'
 
 # Hierarchical database tables
 gem 'ancestry', '~> 3.0.1'

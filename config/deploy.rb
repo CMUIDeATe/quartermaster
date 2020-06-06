@@ -1,5 +1,5 @@
 # config valid only for current version of Capistrano
-lock '3.5.0'
+lock '3.12.1'
 
 set :application, 'ideate_quartermaster'
 set :repo_url, 'git@github.com:CMUIDeATe/quartermaster.git'
@@ -10,9 +10,6 @@ set :repo_url, 'git@github.com:CMUIDeATe/quartermaster.git'
 # Default deploy_to directory is /var/www/my_app_name
 # set :deploy_to, '/var/www/my_app_name'
 # Note: This path is currently set on a per-stage basis.
-
-# Default value for :scm is :git
-set :scm, :git
 
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
