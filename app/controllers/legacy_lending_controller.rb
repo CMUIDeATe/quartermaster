@@ -7,7 +7,7 @@ class LegacyLendingController < ApplicationController
 
   def item_lend
     @card_andrewid = session[:card_andrewid]
-    @card_name = get_name_from_andrewid(@card_andrewid)
+    @card_person = CarnegieMellonPerson.find_by_andrewid(@card_andrewid)
     session['card_andrewid'] = nil
 
     @header = "Lend items"
@@ -17,7 +17,7 @@ class LegacyLendingController < ApplicationController
 
   def item_return
     @card_andrewid = session[:card_andrewid]
-    @card_name = get_name_from_andrewid(@card_andrewid)
+    @card_person = CarnegieMellonPerson.find_by_andrewid(@card_andrewid)
     @scan_input = session[:scan_input]
     session['card_andrewid'] = nil
     session['scan_input'] = nil
@@ -61,7 +61,7 @@ class LegacyLendingController < ApplicationController
 
   def sale_student
     @card_andrewid = session[:card_andrewid]
-    @card_name = get_name_from_andrewid(@card_andrewid)
+    @card_person = CarnegieMellonPerson.find_by_andrewid(@card_andrewid)
     session['card_andrewid'] = nil
 
     @header = "Sell to IDeATe student"
@@ -71,7 +71,7 @@ class LegacyLendingController < ApplicationController
 
   def sale_course
     @card_andrewid = session[:card_andrewid]
-    @card_name = get_name_from_andrewid(@card_andrewid)
+    @card_person = CarnegieMellonPerson.find_by_andrewid(@card_andrewid)
     session['card_andrewid'] = nil
 
     @header = "Sell to course- or project-funded account"
@@ -81,7 +81,7 @@ class LegacyLendingController < ApplicationController
 
   def sale_student_return
     @card_andrewid = session[:card_andrewid]
-    @card_name = get_name_from_andrewid(@card_andrewid)
+    @card_person = CarnegieMellonPerson.find_by_andrewid(@card_andrewid)
     session['card_andrewid'] = nil
 
     @header = "Return from IDeATe student"
@@ -91,7 +91,7 @@ class LegacyLendingController < ApplicationController
 
   def sale_course_return
     @card_andrewid = session[:card_andrewid]
-    @card_name = get_name_from_andrewid(@card_andrewid)
+    @card_person = CarnegieMellonPerson.find_by_andrewid(@card_andrewid)
     session['card_andrewid'] = nil
 
     @header = "Return from course- or project-funded account"
@@ -149,16 +149,6 @@ class LegacyLendingController < ApplicationController
         return andrewid
       rescue
         return nil
-      end
-    end
-
-    def get_name_from_andrewid andrewid
-      return '' if andrewid.nil? || andrewid.empty?
-      begin
-        person = CarnegieMellonPerson.find_by_andrewid(andrewid)
-        return "#{person['sn']}, #{person['givenName']}"
-      rescue
-        return ''
       end
     end
 

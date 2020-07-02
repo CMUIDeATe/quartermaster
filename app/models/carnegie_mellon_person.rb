@@ -3,6 +3,9 @@ class CarnegieMellonPerson < ActiveLdap::Base
                :prefix => "ou=Person",
                :classes => ["cmuPerson"]
 
+  include Gravtastic
+  gravtastic secure: true, size: 48, rating: 'G', default: 'identicon'
+
   def self.find_by_andrewid( andrewid )
     
     begin
@@ -25,5 +28,23 @@ class CarnegieMellonPerson < ActiveLdap::Base
       return nil
     end
   end
+
+  def all_names
+    begin
+      if self['nickname']
+        return "#{self['sn']}, #{self['nickname']} (#{self['givenName']})"
+      else
+        return "#{self['sn']}, #{self['givenName']}"
+      end
+    rescue
+      return ''
+    end
+  end
+
+  private
+
+    def email
+      return self['mail']
+    end
 
 end
