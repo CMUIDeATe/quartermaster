@@ -19,7 +19,7 @@
 
 <div class="row">
   <div class="col <%= @card_andrewid.nil? ? "col-md-8" : "col-md-12" %>">
-    <%= render partial: 'legacy_lending/card_input', locals: { redirect_action: 'sale_course_return', reset_url: sales_course_return_url } %>
+    <%= render partial: 'legacy_lending/scan_input', locals: { card_input_only: true, redirect_action: 'sale_course_return', reset_url: sales_course_return_url } %>
   </div>
   <% if @card_andrewid.nil? %>
     <div class="col col-md-4">

@@ -45,7 +45,7 @@ Rails.application.routes.draw do
   get '/sales/course/return', to: 'legacy_lending#sale_course_return'
   get '/sales/pricing', to: 'legacy_lending#sale_inventory'
 
-  post '/lending/card_input', to: 'legacy_lending#card_input'
+  post '/lending/scan_input', to: 'legacy_lending#scan_input'
 
   # Physical Computing inventory
   get '/physcomp/inventory', to: 'physical_computing#inventory'

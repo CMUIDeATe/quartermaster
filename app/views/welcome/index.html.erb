@@ -14,11 +14,13 @@
 <% if can? :manage, :legacy_lending %>
   <h2>Lending Operators
   <div class="btn-group" role="group">
-    <%= link_to 'Access the Lending Application', lending_path, role: 'button', class: 'btn btn-primary' %>
-    <%= link_to 'Lend item', lending_lend_path, role: 'button', class: 'btn btn-default' %>
-    <%= link_to 'Return item', lending_return_path, role: 'button', class: 'btn btn-default' %>
+    <%= link_to 'Lend items', lending_lend_path, role: 'button', class: 'btn btn-primary' %>
+    <%= link_to 'Return items', lending_return_path, role: 'button', class: 'btn btn-success' %>
   </div>
   </h2>
+  <ul>
+    <%= nav_link 'Access the full Lending Application', lending_path %>
+  </ul>
 <% end %>
 
 <% if can? :manage, :legacy_lending %>

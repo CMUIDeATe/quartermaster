@@ -1,0 +1,27 @@
+<% if card_input_only %>
+  <% placeholder = 'Tap ID card to begin transaction...' if local_assigns[:placeholder].nil? %>
+<% else %>
+  <% placeholder = 'Tap ID card or scan item...' if local_assigns[:placeholder].nil? %>
+<% end %>
+
+<% if @card_andrewid.nil? and @scan_input.nil? %>
+  <%= form_tag lending_scan_input_url do %>
+    <%= hidden_field_tag 'card_input_only', card_input_only ? 1 : 0 %>
+    <%= image_tag 'id-card-tilted.png', height: 48, style: 'display: inline-block;' %>
+    <% unless card_input_only %>
+      <%= image_tag 'scanner.png', height: 48, style: 'display: inline-block;' %>
+    <% end %>
+    <%= text_field_tag 'scan_input', nil, placeholder: placeholder, size: 32, autocomplete: 'off', autofocus: true %>
+    <%= hidden_field_tag 'scan_input_redirect_action', redirect_action %>
+    <%= submit_tag 'Lookup...', class: 'btn btn-primary' %>
+  <% end %>
+<% end %>
+
+<% unless @card_andrewid.nil? %>
+  <h2>
+    <%= @card_andrewid %>
+    <small><%= @card_name %></small>
+    <%= link_to 'Reset', reset_url, class: 'btn btn-default', style: 'display: inline-block;' %>
+  </h2>
+  <hr>
+<% end %>

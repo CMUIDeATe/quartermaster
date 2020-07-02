@@ -10,18 +10,20 @@ class LegacyLendingController < ApplicationController
     @card_name = get_name_from_andrewid(@card_andrewid)
     session['card_andrewid'] = nil
 
-    @header = "Lend item"
-    @title = "Lend item"
+    @header = "Lend items"
+    @title = "Lend items"
     authorize! :manage, :legacy_lending
   end
 
   def item_return
     @card_andrewid = session[:card_andrewid]
     @card_name = get_name_from_andrewid(@card_andrewid)
+    @scan_input = session[:scan_input]
     session['card_andrewid'] = nil
+    session['scan_input'] = nil
 
-    @header = "Return item"
-    @title = "Return item"
+    @header = "Return items"
+    @title = "Return items"
     authorize! :manage, :legacy_lending
   end
 
@@ -110,25 +112,27 @@ class LegacyLendingController < ApplicationController
   end
 
   def schedule_deliveries
-    @header = "#{ view_context.link_to 'Schedules', schedule_index_path } <small>Course delivery chedule</small>".html_safe()
+    @header = "#{ view_context.link_to 'Schedules', schedule_index_path } <small>Course delivery schedule</small>".html_safe()
     @title = "Course delivery schedule"
     authorize! :manage, :legacy_lending
   end
 
-  def card_input
-    card_id = params[:card_input]
-    unless card_id.nil? || card_id.empty?
-      @card_andrewid = card_lookup(card_id)
-      if @card_andrewid.nil?
-        flash['alert'] = 'Invalid card ID.'
-        logger.info "Logged card for invalid Andrew user from #{params[:card_input_redirect_action]} at #{Time.now}"
+  def scan_input
+    scan_input = params[:scan_input]
+    unless scan_input.nil? || scan_input.empty?
+      card_andrewid = card_lookup(scan_input)
+      if card_andrewid.present?
+        session['card_andrewid'] = card_andrewid
+        logger.info "Scanned card for Andrew user '#{card_andrewid}' from #{params[:scan_input_redirect_action]} at #{Time.now}"
+      elsif params[:card_input_only] == "0"
+        session['scan_input'] = scan_input
+        logger.info "Scanned item '#{scan_input}' from #{params[:scan_input_redirect_action]} at #{Time.now}"
       else
-        logger.info "Logged card for Andrew user '#{@card_andrewid}' from #{params[:card_input_redirect_action]} at #{Time.now}"
+        flash['alert'] = 'Invalid card ID.'
+        logger.info "Scanned card for invalid Andrew user from #{params[:scan_input_redirect_action]} at #{Time.now}"
       end
-      session['card_andrewid'] = @card_andrewid
-      redirect_to action: params[:card_input_redirect_action]
+      redirect_to action: params[:scan_input_redirect_action]
     end
-
   end
 
   private
