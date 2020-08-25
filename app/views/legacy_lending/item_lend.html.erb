@@ -1,3 +1,14 @@
+<div id="policy" class="panel panel-danger">
+  <div class="panel-heading">
+    <%= image_tag 'covid.svg', height: 17, style: 'display: inline-block;' %>
+    <strong>Covid policy:</strong> Only use this form with admin approval.
+  </div>
+  <div class="panel-body">
+    <b class="text-danger">Do NOT lend directly to patrons.</b>
+    Use the <%= link_to 'Prepare items', lending_prepare_url %> page instead to prepare items for checkout.
+  </div>
+</div>
+
 <div class="row">
   <div class="col <%= @card_andrewid.nil? ? "col-md-8" : "col-md-12" %>">
     <%= render partial: 'scan_input', locals: { card_input_only: true, redirect_action: 'item_lend', reset_url: lending_lend_url } %>

@@ -5,6 +5,16 @@ class LegacyLendingController < ApplicationController
     authorize! :manage, :legacy_lending
   end
 
+  def item_prepare
+    @card_andrewid = session[:card_andrewid]
+    @card_person = CarnegieMellonPerson.find_by_andrewid(@card_andrewid)
+    session['card_andrewid'] = nil
+
+    @header = "Prepare items"
+    @title = "Prepare items"
+    authorize! :manage, :legacy_lending
+  end
+
   def item_lend
     @card_andrewid = session[:card_andrewid]
     @card_person = CarnegieMellonPerson.find_by_andrewid(@card_andrewid)

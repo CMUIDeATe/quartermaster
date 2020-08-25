@@ -14,7 +14,8 @@
 <% if can? :manage, :legacy_lending %>
   <h2>Lending Operators
   <div class="btn-group" role="group">
-    <%= link_to 'Lend items', lending_lend_path, role: 'button', class: 'btn btn-primary' %>
+    <%= link_to 'Prepare items', lending_prepare_path, role: 'button', class: 'btn btn-primary' %>
+    <%= link_to 'Lend items', lending_lend_path, role: 'button', class: 'btn btn-warning' %>
     <%= link_to 'Return items', lending_return_path, role: 'button', class: 'btn btn-success' %>
   </div>
   </h2>

@@ -1,0 +1,16 @@
+<div id="policy" class="panel panel-info">
+  <div class="panel-heading">
+    <%= image_tag 'covid.svg', height: 17, style: 'display: inline-block;' %>
+    <strong>Covid policy:</strong> Use this form to prepare checkout requests.
+  </div>
+  <div class="panel-body">
+    <b class="text-danger">Do NOT lend directly to patrons.</b>
+    Use this page to prepare items for checkout, and notify an admin when they are ready for pickup.
+  </div>
+</div>
+
+<div class="row">
+  <div class="col col-md-12">
+    <iframe src="<%= ENV['ZOHO_ITEM_PREPARE_URL'] %>?renew_nonce=<%= '%06d' % SecureRandom.random_number(1000000) %>&co_aid_post=<%= @card_andrewid %>&sig_post=<%= current_user.andrewid %>" width="100%" height="1000px" frameborder="0" scrolling="auto"></iframe>
+  </div>
+</div>
