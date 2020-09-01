@@ -37,8 +37,8 @@ class RoomScheduleController < ApplicationController
         @room_full_name = "the IDeATe Wood Shop"
       when "A31"
         @mrbs_area = 13
-        @room_name = "Large Project Build Space (A31)"
-        @room_full_name = "the Large Project Build Space"
+        @room_name = "Soft Technologies Studio (A31)"
+        @room_full_name = "the Soft Technologies Studio"
       when "106B"
         @mrbs_area = 7
         @mrbs_room = 58
