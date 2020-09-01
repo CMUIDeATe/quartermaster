@@ -59,9 +59,10 @@ Rails.application.routes.draw do
   resources :schedule, param: :room, controller: 'room_schedule', only: [:index, :show]
 
   # Resource Requests
-  get 'request', to: 'resource_requests#index'
-  get 'request/physcomp', to: 'resource_requests#request_physcomp_stock'
-  get 'request/purchase', to: 'resource_requests#request_course_purchase'
-  get 'request/resource', to: 'resource_requests#request_resource'
+  get '/request', to: 'resource_requests#index'
+  get '/request/lending', to: 'legacy_lending#item_request'
+  get '/request/physcomp', to: 'resource_requests#request_physcomp_stock'
+  get '/request/purchase', to: 'resource_requests#request_course_purchase'
+  get '/request/resource', to: 'resource_requests#request_resource'
 
 end

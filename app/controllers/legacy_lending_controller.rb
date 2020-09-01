@@ -37,6 +37,12 @@ class LegacyLendingController < ApplicationController
     authorize! :manage, :legacy_lending
   end
 
+  def item_request
+    @header = "Lending request"
+    @title = "Lending request"
+    authorize! :make, :resource_requests
+  end
+
   def item_renew
     @tx_id = params[:txid]
     @renew_key = params[:renewkey]

@@ -46,6 +46,13 @@
     <%= nav_link 'All IDeATe room schedules', schedule_index_path %>
   </ul>
 
+<% if can? :make, :resource_requests %>
+<h2>Requests</h2>
+  <ul>
+    <%= nav_link '<strong>Submit Lending request</strong>'.html_safe, request_lending_path %>
+  </ul>
+<% end %>
+
 <h2>Inventory</h2>
 <ul>
   <%= nav_link '<strong>IDeATe Lending inventory</strong>'.html_safe, lending_inventory_path %>
