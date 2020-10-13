@@ -134,7 +134,7 @@ class LegacyLendingController < ApplicationController
   end
 
   def scan_input
-    scan_input = params[:scan_input]
+    scan_input = params[:scan_input].strip
     unless scan_input.nil? || scan_input.empty?
       card_andrewid = card_lookup(scan_input)
       if card_andrewid.present?
