@@ -13,7 +13,7 @@
     <% end %>
     <%= text_field_tag 'scan_input', nil, placeholder: placeholder, size: 32, autocomplete: 'off', autofocus: true %>
     <%= hidden_field_tag 'scan_input_redirect_action', redirect_action %>
-    <%= submit_tag 'Lookup...', class: 'btn btn-primary' %>
+    <%= submit_tag 'Lookup...', class: 'btn btn-primary', data: { disable_with: false } %>
   <% end %>
 <% end %>
 
