@@ -11,11 +11,16 @@
         please email <%= link_to 'help@ideate.cmu.edu', 'mailto:help@ideate.cmu.edu', target: '_blank' %>
         with details.
       </p>
-  <% when "A5", "A10", "106B", "106C" %>
+  <% when "A4", "A5", "A10", "106B", "106C" %>
       <p>
         To reserve <%= @room_full_name %>,
         please email <%= link_to 'help@ideate.cmu.edu', 'mailto:help@ideate.cmu.edu', target: '_blank' %>
         with details of your request.
+      </p>
+  <% when "A5B", "A30" %>
+      <p>
+        Learn more about the availability of our
+        <%= link_to 'Open Fabrication Hours', 'https://resources.ideate.cmu.edu/open/', target: '_blank' %>.
       </p>
   <% when "A29" %>
     <% if can? :read, :lending_shift_schedule %>

@@ -19,16 +19,17 @@
       <% end %>
       <%= nav_link 'Laser Cutters (A5B)', schedule_path(room: 'A5B') %>
       <%= nav_link 'Wood Shop (A30)', schedule_path(room: 'A30') %>
-      <%= nav_link 'Soft Technologies Studio (A31)', schedule_path(room: 'A31') %>
     </ul>
   </li>
 
   <% if can? :read, :reservation %>
     <li>Classrooms
       <ul>
+        <%= nav_link 'Classroom (A4)', schedule_path(room: 'A4') %>
         <%= nav_link 'Fabrication Lab (A5)', schedule_path(room: 'A5') %>
         <%= nav_link 'Media Lab (A10A)', schedule_path(room: 'A10A') %>
         <%= nav_link 'Physical Computing (A10)', schedule_path(room: 'A10') %>
+        <%= nav_link 'Soft Technologies Studio (A31)', schedule_path(room: 'A31') %>
         <%= nav_link 'IDeATe Studio A (106B)', schedule_path(room: '106B') %>
         <%= nav_link 'IDeATe Studio B (106C)', schedule_path(room: '106C') %>
       </ul>
@@ -36,3 +37,9 @@
   <% end %>
 
 </ul>
+
+<h3>
+Today's classrooms at-a-glance
+</h3>
+<% mrbs_link = "https://resources.ideate.cmu.edu/reservations/day.php?area=#{@mrbs_area}".concat(@mrbs_room ? "&room=#{@mrbs_room}" : "") %>
+<iframe src="<%= mrbs_link %>" name="formEmbed-Test_Form" width="100%" height="1000px" frameborder="0" scrolling="auto"></iframe>
