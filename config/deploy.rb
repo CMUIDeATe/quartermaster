@@ -4,7 +4,7 @@ lock '3.5.0'
 set :application, 'ideate_quartermaster'
 set :repo_url, 'git@github.com:CMUIDeATe/quartermaster.git'
 
-# Default branch is :master
+# Default branch is :main
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
