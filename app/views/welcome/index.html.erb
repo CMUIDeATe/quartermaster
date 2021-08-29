@@ -49,7 +49,9 @@
 <% if can? :make, :resource_requests %>
 <h2>Requests</h2>
   <ul>
-    <%= nav_link '<strong>Submit Lending request</strong>'.html_safe, request_lending_path %>
+    <%= nav_link '<strong>Contactless Lending request</strong>'.html_safe, request_lending_path %>
+    <%= nav_link 'Physical Computing Lab materials stock', request_physcomp_path %>
+    <%= nav_link 'Room/equipment resources', request_resource_path %>
   </ul>
 <% end %>
 
