@@ -1,13 +1,3 @@
-<div id="policy" class="panel panel-warning">
-  <div class="panel-heading">
-    <%= image_tag 'covid.svg', height: 17, style: 'display: inline-block;' %>
-    <strong>Covid policy:</strong> Coordinate with an admin on all returns.
-  </div>
-  <div class="panel-body">
-    All items <b class="text-danger">MUST</b> complete a quarantine period before processing return and reshelving.
-  </div>
-</div>
-
 <div class="row">
   <div class="col col-md-12">
     <%= render partial: 'scan_input', locals: { card_input_only: false, redirect_action: 'item_return', reset_url: lending_return_url } %>

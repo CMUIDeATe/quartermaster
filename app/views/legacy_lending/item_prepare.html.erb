@@ -1,11 +1,13 @@
-<div id="policy" class="panel panel-info">
+<div id="policy" class="panel panel-danger">
   <div class="panel-heading">
-    <%= image_tag 'covid.svg', height: 17, style: 'display: inline-block;' %>
-    <strong>Covid policy:</strong> Use this form to prepare checkout requests.
+    <strong>DO NOT use this form without admin approval.</strong>
   </div>
   <div class="panel-body">
-    <b class="text-danger">Do NOT lend directly to patrons.</b>
-    Use this page to prepare items for checkout, and notify an admin when they are ready for pickup.
+    <%= image_tag 'covid.svg', height: 17, style: 'display: inline-block;' %>
+    This page only marks items as <em>prepared</em> for contactless checkout when Lending is closed, as part of Covid-era accommodations, and is generally meant for admin use unless otherwise directed.
+    It does NOT check items out to patrons or send them email notifications, and the due dates listed here are fake placeholders.
+    <br />
+    <strong>Use the <%= link_to 'Lend items', lending_lend_url %> page instead to check out items to patrons.</strong>
   </div>
 </div>
 
