@@ -11,11 +11,6 @@ class ResourceRequestsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get request_course_purchase" do
-    get resource_requests_request_course_purchase_url
-    assert_response :success
-  end
-
   test "should get request_resource" do
     get resource_requests_request_resource_url
     assert_response :success

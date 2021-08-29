@@ -62,7 +62,6 @@ Rails.application.routes.draw do
   get '/request', to: 'resource_requests#index'
   get '/request/lending', to: 'legacy_lending#item_request'
   get '/request/physcomp', to: 'resource_requests#request_physcomp_stock'
-  get '/request/purchase', to: 'resource_requests#request_course_purchase'
   get '/request/resource', to: 'resource_requests#request_resource'
 
 end
