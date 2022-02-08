@@ -24,7 +24,8 @@ class CarnegieMellonPerson < ActiveLdap::Base
       end
 
       return person unless person[:cn] == "Merged Person"
-    rescue
+    rescue => e
+      logger.error e
       return nil
     end
   end
