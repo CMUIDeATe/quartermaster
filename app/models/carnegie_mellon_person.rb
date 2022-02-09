@@ -1,7 +1,7 @@
 class CarnegieMellonPerson < ActiveLdap::Base
   ldap_mapping :dn_attribute => "guid",
-               :prefix => "ou=Person",
-               :classes => ["cmuPerson"]
+               :prefix => "ou=AndrewPerson",
+               :classes => ["cmuAccountPerson"]
 
   include Gravtastic
   gravtastic secure: true, size: 48, rating: 'G', default: 'identicon'
@@ -9,7 +9,7 @@ class CarnegieMellonPerson < ActiveLdap::Base
   def self.find_by_andrewid( andrewid )
     
     begin
-      person = find("cmuandrewid=#{andrewid}", :attributes => ['cmuandrewid',
+      person = find("cmuAndrewId=#{andrewid}", :attributes => ['cmuAndrewId',
                                                                'cn', 
                                                                'mail',
                                                                'sn',
