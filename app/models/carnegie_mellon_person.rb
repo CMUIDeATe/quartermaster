@@ -15,6 +15,7 @@ class CarnegieMellonPerson < ActiveLdap::Base
                                                                'sn',
                                                                'givenName',
                                                                'nickname',
+                                                               'displayName',
                                                                'cmuDepartment',
                                                                'cmuStudentClass'
                                                               ]) 
@@ -27,6 +28,14 @@ class CarnegieMellonPerson < ActiveLdap::Base
     rescue => e
       logger.error e
       return nil
+    end
+  end
+
+  def display_name
+    begin
+      return self['displayName']
+    rescue
+      return ''
     end
   end
 
