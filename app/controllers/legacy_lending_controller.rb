@@ -12,7 +12,7 @@ class LegacyLendingController < ApplicationController
 
     @header = "Prepare items"
     @title = "Prepare items"
-    authorize! :manage, :legacy_lending
+    authorize! :prepare_items, :legacy_lending
   end
 
   def item_lend

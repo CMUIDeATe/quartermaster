@@ -80,6 +80,7 @@ class Ability
 
   def local_operator
     can :manage, :legacy_lending
+    cannot :prepare_items, :legacy_lending
     # Local operators also have all the abilities that remote ones do
     remote_operator
   end
