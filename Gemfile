@@ -28,6 +28,12 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+# net-ssh requires the following gems for ed25519 support:
+gem 'ed25519', '~> 1.2'
+gem 'bcrypt_pbkdf', '~> 1.0'
+# As of net-ssh 5.2.0, these are included as development dependencies, but not runtime dependencies.
+# See https://github.com/net-ssh/net-ssh/issues/565 for more information
+
 # Use Capistrano for deployment
 group :development do
   gem 'capistrano', '~> 3.5.0'
@@ -50,9 +56,6 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
-
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 
 # User and role management
