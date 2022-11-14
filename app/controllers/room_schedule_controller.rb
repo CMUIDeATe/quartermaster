@@ -17,8 +17,8 @@ class RoomScheduleController < ApplicationController
       when "A4"
         @mrbs_area = 4
         @mrbs_room = 70
-        @room_name = "Classroom (A4)"
-        @room_full_name = "the A4 classroom"
+        @room_name = "A4 Labs (A4)"
+        @room_full_name = "the A4 Labs"
       when "A5"
         @mrbs_area = 4
         @mrbs_room = 42
@@ -47,7 +47,7 @@ class RoomScheduleController < ApplicationController
         @room_name = "Wood Shop (A30)"
         @room_full_name = "the IDeATe Wood Shop"
       when "A31"
-        @mrbs_area = 4
+        @mrbs_area = 13
         @mrbs_room = 69
         @room_name = "Soft Technologies Studio (A31)"
         @room_full_name = "the Soft Technologies Studio"

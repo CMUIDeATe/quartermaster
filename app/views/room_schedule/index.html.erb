@@ -25,13 +25,17 @@
   <% if can? :read, :reservation %>
     <li>Classrooms
       <ul>
-        <%= nav_link 'Classroom (A4)', schedule_path(room: 'A4') %>
         <%= nav_link 'Fabrication Lab (A5)', schedule_path(room: 'A5') %>
         <%= nav_link 'Media Lab (A10A)', schedule_path(room: 'A10A') %>
         <%= nav_link 'Physical Computing (A10)', schedule_path(room: 'A10') %>
-        <%= nav_link 'Soft Technologies Studio (A31)', schedule_path(room: 'A31') %>
         <%= nav_link 'IDeATe Studio A (106B)', schedule_path(room: '106B') %>
         <%= nav_link 'IDeATe Studio B (106C)', schedule_path(room: '106C') %>
+      </ul>
+    </li>
+    <li>Labs
+      <ul>
+        <%= nav_link 'A4 Labs (A4)', schedule_path(room: 'A4') %>
+        <%= nav_link 'Soft Technologies Studio (A31)', schedule_path(room: 'A31') %>
       </ul>
     </li>
   <% end %>
