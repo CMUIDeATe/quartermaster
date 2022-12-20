@@ -38,8 +38,8 @@ class LegacyLendingController < ApplicationController
   end
 
   def item_request
-    @header = "Contactless Lending request"
-    @title = "Contactless Lending request"
+    @header = "Lending request"
+    @title = "Lending request"
     authorize! :make, :resource_requests
   end
 
